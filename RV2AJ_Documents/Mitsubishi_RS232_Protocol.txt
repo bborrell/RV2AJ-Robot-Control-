@@ -1,0 +1,1895 @@
+Connection with personal computer[RS-232C/Ethernet]
+Revision N: Oct 11, 2011 Revision M: Mar 26, 2009 Revision L: Oct 23,
+2008 Revision K: Feb 15, 2005 Revision J: Jul 7 , 2004 Revision H: Feb
+10, 2004 Revision G: Jan 23, 2004 Revision F: Aug 19, 2003
+
+-NOTICE- This is a preliminary printing.
+
+BFP-A4288-N
+
+2 Contents 11 11 INTRODUCTION INTRODUCTION INTRODUCTION
+INTRODUCTION………………………….. ……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………. …………………………33 33 22 22 CONFIGURATION
+CONFIGURATION CONFIGURATION CONFIGURATION…………………………..
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+…………………………………………………………………………………………. …………………33 33 33 33 PROTOCOL PROTOCOL
+PROTOCOL PROTOCOL………………………….. …………………………………………………………………………………………………….
+…………. ……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. …………………………………………………4 4 44 3.1
+NON -PROCEDURAL …………………………………………… …………………………………………… ……………………………..4
+3.2 PROCEDURAL …………………………………………… …………………………………………… ……………………………………..4
+3.3 PROTOCOL FORMAT …………………………………………… …………………………………………… ……………………………..6
+44 44 COMMAND EXAMPLE COMMAND EXAMPLE COMMAND EXAMPLE COMMAND
+EXAMPLE………………………….. ……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………7 7 77 4.1 CONNECT AND DISCONNECT
+…………………………………………… …………………………………………… …………………7
+4.2 JOG OPERATION …………………………………………… …………………………………………… …………………………………7
+4.3 PROGRAM EDIT …………………………………………… …………………………………………… …………………………………..8
+4.4 TEACHING …………………………………………… …………………………………………… ………………………………………….8
+4.5 STEP RUNNING …………………………………………… …………………………………………… ………………………………….9
+4.6 RUN………………………………………… …………………………………………… …………………………………………… ………9 4.7
+VARIABLE MONITOR AND WRITE …………………………………………… …………………………………………… …………..10
+55 55 COMMAND SPECIFICA COMMAND SPECIFICA COMMAND SPECIFICA COMMAND
+SPECIFICATION TION TION
+TION………………………………………………………………………………………………………………………………… ………….
+……………………………………………………………………………………………………. ………….
+……………………………………………………………………………………………………. . ……………………………………………………11 11 11
+11
+5.1 COMMAND LISTS …………………………………………… …………………………………………… ……………………………….11
+5.2 DETAILS EXPLANATION OF COMMAND WORDS ……………………………………………
+……………………………………..13
+
+3 1 Introduction In this book, the communication specification to do
+peripherals such as personal computers and the communication between
+robot controllers is describe d.  The robot controller reacts only to
+the command dem and by peripherals, and returns the answer of the
+command. Therefore, the thing to lodge the command demand from the robot
+controller voluntarily is not
+done.
+
+The kind of the protocol is as follows. (1) Non-Procedural (2)
+Procedural
+
+2 Configuration Soon.
+
+4 3 Protocol 3.1 Non-Procedural [Data syntax] The terminal character can
+be set according to the parameter. (CR or CR+LF) Maximum command size is
+255 bytes.
+
+3.2 Procedural [Data syntax]
+
+STX ID Sub ID Len.H Len.L Rbt.ID Command CKSUM HCKSUM L ETX ‘D’ fix ‘0’=
+1block ‘R’ fix Sum HEXASCII Exclusive-OR HEXASCII
+
+         Maximum command size is 255 bytes. 
+
+5 [Communication procedure] ENQ PC NAK ACK ROBOT STX : ETX NAK STX : ETX
+NG OK OK NG Retry Retry NAK EOT OK NG Retry
+
+[State chart] I D State
+Status ENQ Cmd.
+OK Cmd.
+ERR ACK NAK EOT Time out Retry
+error 1 Wait ENQ State 2 State 3 State 3 State 3 State 3 State 3 — — 2
+Send ACK and Wait State 3 State 2 State 3 State 3 State 3 State 1 State
+1 — Receive 3 Send NAK and Wait State 3 State 2 State 3 State 3 State 3
+State 1 State 1 State 1 4 Send ENQ Wait ACK State 6 State 6 State 6
+State 5 State 4 State 6 — — 5 Send Command
+Wait ACK State 6 State 6 State 6 State 5 State 5 State 6 — — Send 6 Send
+NAK Wait ACK State 6 State 6 State 6 State 5 State 6 State 6 — —
+
+6 3.3 Protocol format 3.3.1 Transmit data [<Robot No.>];[];
+
+<Robot No.>: The robot number to be operated is spe cified. (0, 1, 2 or
+3) It is possible to omit it. Omitting it is 1. There are commands that
+influences all robots if 0 is specified. < Slot No >: The slot number to
+be operated is spec ified. (0, 1 - 33) Parameter “TASKMAX” is a number
+of task slots used by the multitask. When the program is edited from the
+PC, the edit slot is use d. The slot number of the edit slot is
+parameter TASKMAX+1. In this case, because an initial value of TASKMAX
+is 8, the number of the edit slot is 9. It is possible to omit it.
+Omitting it is 1. There are commands that influences all slots if 0 i s
+specified. < Command >< Argument >: It differs in each command , and
+refer to the explanation of each command, please.
+
+3.3.2 Receive data QoK or QeR<Error No.>
+
+< Answer >: It differs in each command, and refer t o the explanation of
+each command, please. < Error No.>: It replies the error number when the
+command cannot be executed. Please
+refer to the troubleshooting manual of the robot fo r the number.
+
+7 4 Command example Two or more commands are combined and the example o
+f using the command is shown about the operation us ed.  4.1 Connect and
+disconnect START END Communication open
+OPEN=
+Each command is executed. Communication close
+CLOSE
+
+4.2 JOG operation START END Operation enable CNTLON
+Servo ON SRVON
+Jog operation JOG OP override change
+OVRD= …Operation right effective
+…The robot is made to work by the jog sending and the override setting.
+
+8 4.3 Program edit START
+END Program open LOAD=
+Program list read
+LISTI
+Program save and close
+SAVE Edit program
+EDATA Delete program lines
+DELETE Renumber RENUM
+Program quit and close
+NEW …When the changed content is preserved, SAVE is executed, and please
+execute, and execute NEW when invalidating it. …First of all, when the
+program is edited, the program is opened.
+
+4.4 Teaching START END Program open LOAD=
+Direct execution
+EXEC
+Program save and close
+SAVE Edit program
+EDATA Variable data read
+VAL Variable data write
+VAL=
+Program quit and close
+NEW Program position read
+LISTP
+…When the changed content is preserved, SAVE is executed, and please
+execute, and execute NEW when invalidating it. …First of all, when the
+position is teaching, the program is opened.
+
+9 4.5 STEP running START END Program open LOAD=
+Servo ON SRVON
+Program save and close
+SAVE Step execution STEP Stop STOP
+Program quit and close
+NEW …Please open the program when the step execution.
+…When the changed content is preserved, SAVE is executed, and please
+execute, and execute NEW when invalidating it. Operation enable CNTLON
+…Operation right effective
+
+4.6 RUN START END Program start RUN Program load PRGLOAD= Program select
+PRGUP
+Stop STOP Program reset SLOTINIT Operation enable CNTLON …Operation
+right effective
+
+-   When the program pausing, neither the program loa ding(PRGLOAD=) nor
+    the program selection(PRGUP) can be done. Please do after doing
+    program reset (SLOTINIT).
+
+10 4.7 Variable monitor and write START END Variable write HOT Variable
+read VAL
+
+11
+5 Command specification 5.1 Command lists Class Functions Command * is
+enable commands Only SD/SQ
+Communication open OPEN=
+Communication close CLOSE Communication Operation enable or disable CNTL
+Program open LOAD=
+Program save and close SAVE
+Program quit and close NEW
+Edit program EDATA
+More line edit program EMDAT
+Insert program EDINS o Variable data write VAL=
+Program list read LISTI
+Program more list read LISTL
+Program position read LISTP
+Variable type read VTYPRD
+Count program lines LISTCNT
+Direct execution EXEC *
+Step execution STEP *
+Clear program contents ECLR
+Delete program lines DELETE Program edit Renumber RENUM
+Program directory PDIR
+File directory FDIR
+File check FCHECK
+File copy FCOPY
+File delete FDEL
+File rename FRENAME
+File attribute FATTRIB
+File init FINIT
+File block open FOPEN
+File block close FCLOSE
+Block read FREAD
+Block write FWRITE File operation Read file size EFREE
+Program load PRGLOAD= *
+Program select PRG *
+Execution program name read PRGRD
+Execution line number change LINENO= *
+Execution Line number read LINENO
+Execution Line contents LINERD
+Execution more Line contents LINESRD
+Servo ON or OFF SRV *
+OP override change OVRD= *
+OP override read OVRD
+Program start RUN *
+STOP STOP
+STOP ON or OFF STOP
+Cycle STOP CSTOP
+Error reset RSTALRM Running All program reset SLOTINIT
+
+12 Each program reset RSTPRG
+Output signal reset RSTIO
+Machine lock ON or OFF MLOCK
+HAND open or close HND
+Aligning the hand ALIGN *
+MOV safe position MOVSP *
+JOG operation JOG *
+Limit switch ON or OFF LS
+Program start enable or disable AUE
+Status can be start ATENA
+Set breakpoint BRKPTSET o Delete breakpoint BRKPTCLR o List breakpoint
+BRKPTGET o Read run status STATE
+Read stop status DSTATE
+Install status CALIB
+Input and output signal read IOSIGNAL
+Input signal read IN
+Output signal read OUT
+Output signal write OUT=
+CC-Link’s input register data read DIN
+CC-Link’s output register data read DOUT
+CC-Link’s output register data write DOUT=
+Set pseudo input INDMY
+Reset pseudo input INSET
+Write pseudo input data IN=
+Write pseudo input register DIN=
+Stop signal read STPSIG
+Hand output signal read HNDSTS
+User specified area read USERAREASTS
+Current position read JPOS, PPOS, XPOS, RPOS
+Time read TIME
+Time change TIME=
+Hour meter read PTIME
+Hour meter clear PTIMEDEL=
+Cycle time read CYCLETIME
+Cycle time clear CYCLECLR
+Error number read ERROR
+Error contents read ERRORMES
+Error history read ERRORLOG
+Error history read 2 ERRLOG2=
+Error history clear ERRORLOGCLR
+Error summary ERRSUM
+Error summary 2 ERRSUM2=
+Clear error summary ERRSUMCLR
+Date when error logging function began SUMDATE
+Variable data read VAL
+More Variable data read VALS
+Variable data write HOT
+Option slot number read OPNUMRD Monitor Option information read OPSTSRD
+Parameter initial PRMINIT
+Parameter read PNR Maintenance Read change parameter list PRM=
+
+13 Parameter compulsion read PAR
+Parameter compulsion write PAW=
+Parameter write (need to reboot) PAW2=
+Parameter undo PRMUNDO
+Read change parameter list PRM=
+Keyword input KEYWD
+Slot table read SLOTRD
+Slot table write SLOTSET
+Battery remain time ENCBATTM
+Release brake BREAKON *
+Setting the origin HOME *
+Additional axis add for DATINST and DATRD AXDATINST *
+Data input origin set DATINST *
+Data input origin read DATRD
+Reset power RSTPWR
+
+5.2 Details explanation of command words 5.2.1 OPEN= (Communication
+open) [Function] Communication open. The commands sent most first wh en
+communicating from the peripheral equipment such as personal computers.
+
+[Format] OPEN= An arbitrary name is specified in the alphanumeric
+character.
+
+[Answer] QoK;;,< Structure flag2>; ; <Program ext.>;<Parameter
+ext.>;;;;; ;;;<Robot info.>;; < XYZ axes pattern > XYZ axes pattern of
+HEX number . (00 ～FF) < JOINT axes pattern > JOINT axes pattern of HEX
+nu mber. (00 ～FF) axis pattern 00000000B XYZ / JOINT _______1 X J1
+______1_ Y J2 _____1__ Z J3 ____1___ A J4 1_ B J5 1___ C J6 1_____ L1 J7
+1_______ L2 J8 < Structure flag1> Default structure flag1
+
+14 < Structure flag2> Default structure flag2 The JOG speed of the HEX
+number is 7 pi eces. (00 ～FF) <Program ext.> Program extension (MB4)
+<Parameter ext.> Parameter extension (PRM) Robot name ”CRn-5xx” (fix)
+”MELFA” (fix) Release data System software version JPN(Japanese) or
+ENG(English) Copyright message <Robot info.> Multi robot information 1
+(fix) Value of parameter ”TASKMAX”
+
+[Reference command] 1;1;OPEN=USERTOOL
+QoK3F;3F;7,0;3,5,A,1E,32,46,64;MB4;PRM;RV-4A;CRn-5x
+x;MELFA;03-11-19;Ver.J4;ENG; COPYRIGHT(C)1999-2003 MITSUBISHI ELECTRIC
+CORPORATI ON ALL RIGHTS RESERVED;1;1;8;
+
+[Related commands] CLOSE
+
+5.2.2 CLOSE (Communication close) [Function] Communication close. The
+command sent when the comm unication is ended from the peripheral
+equipment such as personal computers.
+
+[Format] CLOSE
+
+[Answer] QoK
+
+[Reference command] 1;1;CLOSE
+
+15 QoK
+
+[Related commands] OPEN= 5.2.3 CNTL (Operation enable or disable)
+[Function] Operation enable or disable. When the command which needs the
+operation right such as Program start, Servo ON and more is used, the
+opera tion right should be made effective.
+
+[Format] CNTL Select ON or OFF
+
+[Answer] QoK
+
+[Reference command] 1;1;CNTLON QoK
+
+[Related commands]
+
+5.2.4 LOAD= (Program open) [Function] Open the program for edit.
+
+[Format] LOAD= Edit program name
+
+[Answer] QoK
+
+[Reference command] 1;1;LOAD=100 QoK
+
+16 [Related commands] SAVE, NEW
+
+5.2.5 SAVE (Program save and close) [Function] The content of the edit
+is preserved and the progra m is closed.
+
+[Format] SAVE
+
+[Answer] QoK
+
+[Reference command] 1;1;SAVE QoK
+
+[Related commands] LOAD=, NEW
+
+5.2.6 NEW (Program quit and close) [Function] The program is closed
+annulling the content of the edit.
+
+[Format] NEW
+
+[Answer] QoK
+
+[Reference command] 1;1;NEW QoK
+
+[Related commands] LOAD=, SAVE
+
+17 5.2.7 EDATA (Edit program) [Function] The line and the position are
+registered in the pro gram. It is effective in the edit slot.
+
+[Format] EDATA Line data and positional data ar e specified.
+
+[Answer] QoK or Qer; Error number when registering Character position of
+cause of er ror
+
+[Reference command] 1;1;EDATA10 MOV P1 QoK
+
+[Related commands] EMDAT
+
+5.2.8 EMDAT (More line edit program) [Function] More line and position
+are registered in the progra m. It is effective in the edit slot.
+
+[Format] EMDAT[ 0b …] Line data and positional data ar e specified.
+
+[Answer] QoKor Qer;; Error number when registering The error line is
+piece how many. Character position of cause of er ror
+
+18 [Reference command] 1;1;EMDAT10 MOV P1 0b20 MOV P2 0b 30 MOV P3 QoK
+
+[Related commands] EDATA
+
+5.2.9 EDINS (Insert program) [Function] The line is inserted in the
+program. It is effectiv e in the edit slot.
+
+[Format] EDINS=; Insert line number Line data are specified.
+
+[Answer] QoK or Qer; Error number when registering Character position of
+cause of er ror
+
+[Reference command] 1;1;EDINS=3;MOV P1 QoK
+
+[Related commands] EMDAT
+
+5.2.10 VAL= (Variable data write) [Function] The value of the variable
+is changed. It is effecti ve in the edit slot.
+
+[Format] VAL== Variable name
+
+19 Changed value
+
+[Answer] QoK
+
+[Reference command] 1;9;VAL=M1=3 QoK
+
+[Related commands]
+
+5.2.11 LISTI (Program list read) [Function] The line data is read from
+the program. It is effec tive in the edit slot.
+
+[Format] LISTI<Line posi.> <Line posi.> The read line is specified. TOP:
+Top line END: Bottom line +1:Next line -1:Previous line Line number:
+Specified line
+
+[Answer] QoK[] Specified line data Only QoK is red when there is no
+specified line.
+
+[Reference command] 1;1;LISTITOP QoK10 MOV P1
+
+[Related commands] LISTL
+
+20 5.2.12 LISTL (Program more list read) [Function] More line data is
+read from the program. It is effe ctive in the edit slot. .
+
+[Format] LISTL<Line pos.> <Line posi.> The read line is specified. TOP:
+Top line END: Bottom line +1: Next line -1: Previous line Line number:
+Specified line
+
+[Answer] QoK[ 0b …];; Specified line data Only QoK is red when there is
+no specified line.
+The read number of lines. 1: There is a continuation line. 0:
+Continuation line none
+
+[Reference command] 1;1;LISTLTOP QoK10 MOV P1 0b 20 MOV P2 0b 30
+M1=1;3;0
+
+[Related commands] LISTI
+
+5.2.13 LISTP (Program position read) [Function] Positional data is read
+from the program. It is eff ective in the edit slot.
+
+[Format] LISTP<Position posi.> <Position posi.> The read position is
+specified. TOP: Top position END: Bottom position
+
+21 +1: Next position -1: Previous position Position name: Specified
+position
+
+[Answer] QoK Specified Positional data Only QoK is red when there is no
+specified posit ion.
+
+[Reference command] 1;1;LISTPTOP
+QoKP1=(+400.13,+0.00,+644.62,+180.00,+0.00,+180.00) (7,0)
+
+[Related commands]
+
+5.2.14 VTYPRD (Variable type read) [Function] The type of the variable
+is read. It is effective i n the edit slot.
+
+[Format] VTYPRD Variable name
+
+[Answer] QoK Variable type. (M:Integer, C:Character, P:P osition,
+J:Joint) Only QoK is red when there is no specified varia ble.
+
+[Reference command] 1;9;VTYPRDP1 QoKP
+
+[Related commands]
+
+5.2.15 LISTCNT (Count program lines) [Function] The number of lines from
+the start line to the end line are counted.
+
+22
+[Format] LISTCNT; Counted start line number Counted end line number
+
+[Answer] QoK < Number > Number of lines
+
+[Reference command] 1;1;LISTCNT10;50 QoK0005
+
+[Related commands]
+
+5.2.16 EXEC * (Direct execution) [Function] The instruction is executed
+directly.
+
+[Format] EXEC Instruction of MELFA-BASIC Ⅳ or MOVEMASTER commands.
+
+[Answer] QoK
+
+[Reference command] 1;9;EXECMOV P1 QoK
+
+[Related commands]
+
+5.2.17 STEP * (Step execution) [Function] The step is executed. It is
+effective in the edit s lot.
+
+23 [Format] STEP 1:Execute 1 step forward R: Execute continuous step
+forward B: Execute 1 step backward S: Execute step stop
+
+[Answer] QoK
+
+[Reference command] 1;9;STEP1 QoK
+
+[Related commands]
+
+5.2.18 ECLR (Clear program contents) [Function] Clear program contents.
+It is effective in the edit slot.
+
+[Format] ECLR
+
+[Answer] QoK
+
+[Reference command] 1;9;ECLR QoK
+
+[Related commands] DELETE
+
+5.2.19 DELETE (Delete program lines) [Function] The line from the start
+line to the end line is del eted.
+
+24 [Format] DELETE; Deleted start line number Deleted end line number
+
+[Answer] QoK
+
+[Reference command] 1;1;DELETE10;50 QoK
+
+[Related commands] ECLR
+
+5.2.20 RENUM (Renumber) [Function] Renumber for program. It is effective
+in the edit s lot.
+
+[Format] RENUM;;; New line number. (0:10) Old start line number. (0:Top)
+Step of line number. (0:10) Old end line number. (0:Bottom)
+
+[Answer] QoK
+
+[Reference command] 1;9;RENUM100;0;0;0 QoK
+
+[Related commands]
+
+5.2.21 PDIR (Program directory) [Function]
+
+25 Read program directories.
+
+[Format] PDIR<Posi.> <Posi.> The place read is specified. TOP: First
+information Value: Information at specified position
+
+[Answer] QoK;;;;;;; ;;;;<Avg.tact>; or QoK;;;;;
+;; ;;<Avg.tact>; Program name Number of bytes used by program. Last
+update date. (yy-mm-dd) Last update time (hh:mm:ss) Program count in
+robot. Remain size of file system. Program attrib Line count in program
+Position count in program Operation time. (msec) <Latest.tact> Latest of
+tact time. (msec) <Avg.tact> Average of tact time. (msec) Operation
+count
+
+[Reference command] 1;1;PDIRTOP
+QoK1.MB4;235;04-02-0519:31:28;34;105984;12;;2;0;115 850;60;60;1903
+1;1;PDIR1 QoK1.MB4;235;04-02-0519:31:28;12;;2;0;115850;60;60; 1903
+
+[Related commands] FDIR
+
+26 5.2.22 FDIR (File directory) [Function] Read file directories.
+
+[Format] FDIR<Posi.> <Posi.> The place read is specified. TOP: First
+information Value: Information at specified position
+
+[Answer] QoK;;;;; or QoK;;; File name Number of bytes used by file. Last
+update date. (yy-mm-dd) Last update time (hh:mm:ss) File count in robot.
+Remain size of file system. Program attrib
+
+[Reference command] 1;1;FDIRTOP
+QoK1.MB4;235;04-02-0519:31:28;46;105984;12 1;1;FDIR1
+QoK1.MB4;235;04-02-0519:31:28;12
+
+[Related commands] PDIR
+
+5.2.23 FCHECK (File check) [Function] The existence of the file is
+confirmed.
+
+[Format] FCHECK
+
+27 The checked file is specified. When the extension is omitted, it
+becomes MB4.
+
+[Answer] QoK N:Exist,F:No-exist
+
+[Reference command] 1;1;FCHECK100 QoKN
+
+[Related commands]
+
+5.2.24 FCOPY (File copy) [Function] The file is copied.
+
+[Format] FCOPY<Src.file>;<Dst.file> <Src.file> Source file name is
+specified. <Dst.file> Destination file name is specified. When the
+extension is omitted, it becomes MB4.
+
+[Answer] QoK
+
+[Reference command] 1;1;FCOPY1;2 QoK
+
+[Related commands]
+
+5.2.25 FDEL (File delete) [Function] The file is deleted.
+
+[Format]
+
+28 FDEL The deleted file is specified When the extension is omitted, it
+becomes MB4.
+
+[Answer] QoK
+
+[Reference command] 1;1;FDEL1 QoK
+
+[Related commands]
+
+5.2.26 FRENAME (File rename) [Function] The file name is renamed.
+
+[Format] FRENAME<Src.file>;<Dst.file> <Src.file> Source file name is
+specified. <Dst.file> Destination file name is specified. When the
+extension is omitted, it becomes MB4.
+
+[Answer] QoK
+
+[Reference command] 1;1;FRENAME1;2 QoK
+
+[Related commands]
+
+5.2.27 FATTRIB (File attribute) [Function] The attribute of the file is
+changed.
+
+[Format]
+
+29 FATTRIB; File name Attribute +p:Read only lines -p:Read and write
+lines +q:Read only variable -q:Read and write variable
+
+[Answer] QoK
+
+[Reference command] 1;1;FATTRIB1;+p QoK
+
+[Related commands]
+
+5.2.28 FINIT (File init) [Function] The file is initialized.
+
+[Format] FINIT
+
+[Answer] QoK
+
+[Reference command] 1;1;FINIT QoK
+
+[Related commands]
+
+5.2.29 FOPEN (File block open) [Function] The file is opened for the
+block reading and writin g.
+
+30 [Format] FOPEN; File name w:Block write r:Block read
+
+[Answer] QoK
+
+[Reference command] 1;1;FOPEN1.MB4;r QoK
+
+[Related commands] FCLOSE, FREAD, FWRITE
+
+5.2.30 FCLOSE (File block close) [Function] The file which does the
+block reading and writing i s closed.
+
+[Format] FCLOSE
+
+[Answer] QoK
+
+[Reference command] 1;1;FCLOSE QoK
+
+[Related commands] FOPEN, FREAD, FWRITE
+
+5.2.31 FREAD (Block read) [Function] It block reads it from the file.
+
+31 [Format] FREAD
+
+[Answer] QoK; The content of the file is returned with HEX ASCII. 1:
+There is a continuation data. 0: Continuation data none
+
+[Reference command] 1;1;FREAD
+QoK524F42505247000000000000000000000011010000000000
+02000000000000000000000
+00A000A003C5217003F550200065502000A0000000000000000
+0000000000000000000000
+000000000000000000000000000000000000000000000000000
+00000000000000000000000 0000000000000000000000;1
+
+[Related commands] FOPEN, FCLOSE, FWRITE
+
+5.2.32 FWRITE (Block write) [Function] It blocks and it writes it in the
+file.
+
+[Format] FWRITE; The size of the content is specified. The content is
+specified with HEX ASCII.
+
+[Answer] QoK
+
+[Reference command] 1;1;FWRITE120;524F425052470000000000000000000000110
+100000000000200000000000
+000000000000A000A003C5217003F550200065502000A000000
+0000000000000000000000
+000000000000000000000000000000000000000000000000000
+00000000000000000000000 00000000000000000000000000000000 QoK
+
+32 [Related commands] FOPEN, FCLOSE, FWRITE
+
+5.2.33 EFREE (Read file size) [Function] The size of the file system is
+read.
+
+[Format] EFREE
+
+[Answer] QoK;; Total sizes of file system. Used size. Use rate. (%)
+
+[Reference command] 1;1;EFREE QoK125696;15616;12
+
+[Related commands]
+
+5.2.34 PRGLOAD= * (Program load) [Function] The program is loaded into
+the task slot.
+
+[Format] PRGLOAD= Program name.
+
+[Answer] QoK
+
+[Reference command] 1;1;PRGLOAD=100 QoK
+
+33 [Related commands] PRG
+
+5.2.35 PRG * (Program select) [Function] The program of the task slot is
+selected.
+
+[Format] PRG Select UP or DOWN
+
+[Answer] QoK
+
+[Reference command] 1;1;PRGUP QoK
+
+[Related commands] PRGLOAD
+
+5.2.36 PRGRD (Execution program name read) [Function] The program name
+of the task slot is read.
+
+[Format] PRGRD
+
+[Answer] QoK Program name.
+
+[Reference command] 1;1;PRGRD QoK100.MB4
+
+[Related commands]
+
+34
+5.2.37 LINENO= * (Execution line number change) [Function] The execution
+line number is changed.
+
+[Format] LINENO=<Line no.> <Line no.> Line number
+
+[Answer] QoK
+
+[Reference command] 1;1;LINENO=100 QoK
+
+[Related commands] LINENO
+
+5.2.38 LINENO (Execution Line number read) [Function] The execution line
+number is read.
+
+[Format] LINENO
+
+[Answer] QoK<Line no.> < Line no.> Line number
+
+[Reference command] 1;1;LINENO QoK100
+
+[Related commands] LINENO=
+
+35 5.2.39 LINERD (Execution Line contents) [Function] The content of the
+line execution is read.
+
+[Format] LINERD
+
+[Answer] QoK The content of the line.
+
+[Reference command] 1;1;LINERD QoK10 MOV P1
+
+[Related commands] LINESRD
+
+5.2.40 LINESRD (Execution more Line contents) [Function] More content of
+the line under execution is read.
+
+[Format] LINESRD;<Prev.line>; 0:New read, 1:Continuous read <Prev.line>
+Previous line count of the execution li ne Next line count of the
+execution line
+
+[Answer] QoK;;[ 0b < Contents >…];<Line no.> 1: There is a continuation
+line. 0: Continuation line none The read count of lines The content of
+the line. <Line no.> Execution line number
+
+[Reference command]
+
+36 1;1;LINESRD0;2;2 QoK0;5;10 ’### Program ### 0b 20 ’0b 30 *SMAIN 0b 40
+MOV P0 0b 50 DLY 1;0010
+
+[Related commands] LINERD
+
+5.2.41 SRV ＜ON/OFF> * (Servo ON or OFF) [Function] The servo power
+supply is turned on and off.
+
+[Format] SRV Select ON or OFF
+
+[Answer] QoK
+
+[Reference command] 1;1;SRVON QoK
+
+[Related commands]
+
+5.2.42 OVRD= * (OP override change) [Function] The OP override is
+changed.
+
+[Format] OVRD= The set override is specified by 1-100.
+
+[Answer] QoK The set override value is returned.
+
+[Reference command] 1;1;OVRD=50
+
+37 QoK50
+
+[Related commands] OVRD
+
+5.2.43 OVRD (OP override read) [Function] The OP override is read.
+
+[Format] OVRD
+
+[Answer] QoK A present override value is read.
+
+[Reference command] 1;1;OVRD QoK50
+
+[Related commands] OVRD=
+
+5.2.44 RUN * (Program start) [Function] The program is started.
+
+[Format] RUN[;] Program name When omitting it, the program under the
+selectio n is started. 0:Repeat start 1:Cycle start When omitting it,
+repeat start.
+
+[Answer] QoK
+
+38
+[Reference command] 1;1;RUN100;1 QoK
+
+[Related commands] STOP, CSTOP
+
+5.2.45 STOP (STOP) [Function] The start is stopped.
+
+[Format] STOP
+
+[Answer] QoK
+
+[Reference command] 1;1;STOP QoK
+
+[Related commands] STOP,RUN
+
+5.2.46 STOP (STOP ON or OFF) [Function] The start is stopped. After it
+STOPON it, it is not possible to start until the STOPOFF.
+
+[Format] STOP Select ON or OFF
+
+[Answer] QoK
+
+[Reference command]
+
+39 1;1;STOPON QoK
+
+[Related commands] STOP, CSTOP, RUN
+
+5.2.47 CSTOP (Cycle STOP) [Function] The program under the start stops
+at the cycle.
+
+[Format] CSTOP
+
+[Answer] QoK
+
+[Reference command] 1;1;CSTOP QoK
+
+[Related commands] STOP, STOP, RUN
+
+5.2.48 RSTALRM (Error reset) [Function] The error is reset.
+
+[Format] RSTALRM
+
+[Answer] QoK
+
+[Reference command] 1;1;RSTALRM QoK
+
+40 [Related commands]
+
+5.2.49 SLOTINIT (All program reset) [Function] The program resets all
+slots.
+
+[Format] SLOTINIT
+
+[Answer] QoK
+
+[Reference command] 1;1;SLOTINIT QoK
+
+[Related commands] RSTPRG
+
+5.2.50 RSTPRG (Each program reset) [Function] The program resets a
+specified slot.
+
+[Format] RSTPRG
+
+[Answer] QoK
+
+[Reference command] 1;1;RSTPRG QoK
+
+[Related commands] SLOTINIT
+
+41 5.2.51 RSTIO (Output signal reset) [Function] The general-purpose
+output signal is reset.
+
+[Format] RSTIO
+
+[Answer] QoK
+
+[Reference command] 1;1;RSTIO QoK
+
+[Related commands]
+
+5.2.52 MLOCK (Machine lock ON or OFF) [Function] The machine lock is
+set.
+
+[Format] MLOCK Select ON or OFF
+
+[Answer] QoK
+
+[Reference command] 1;1;MLOCKON QoK
+
+[Related commands]
+
+5.2.53 HND (HAND open or close) [Function] The hand is opened and close.
+
+42 [Format] HND<Hand no.> Select ON or OFF <Hand no.> Hand number 1-8 is
+specified.
+
+[Answer] QoK
+
+[Reference command] 1;1;HNDON1 QoK
+
+[Related commands]
+
+5.2.54 ALIGN * (Aligning the hand) [Function] Aligning the hand.
+
+[Format] ALIGN
+
+[Answer] QoK
+
+[Reference command] 1;1;ALIGN QoK
+
+[Related commands]
+
+5.2.55 MOVSP * (MOVE safe position) [Function] It moves to the safe
+position (the parameter “JSAFE”).
+
+[Format] MOVSP
+
+43 [Answer] QoK
+
+[Reference command] 1;1;MOVSP QoK
+
+[Related commands]
+
+5.2.56 JOG * (JOG operation) [Function] The jog operates. If the command
+is not received be tween about 140msec, the jog operation is
+automatically stopped.
+
+[Format] JOG;;<-Dire.>;<+Dire.>; 00:JOINT 01:XYZ 02:TOOL 03:Reserve
+04:3-axis XYZ 05:CYLNDER <-Dire.> The direction of operation is
+specified b y the axis pattern. <+Dire.> 00000000B XYZ / JOINT _______1
+X J1 ______1_ Y J2 _____1__ Z J3 ____1___ A J4 1_ B J5 1___ C J6 1_____
+L1 J7 1_______ L2 J8 00:Incing OFF 01:Inching High 02:Incing Low
+[Answer] QoK
+
+[Reference command] JOG01;00;01;00;00;00 QoK
+
+44
+[Related commands]
+
+5.2.57 LS (Limit switch ON or OFF) [Function] The limit switch is turned
+on and off.
+
+[Format] LS Select ON or OFF ON:LS enable, OFF:LS disable
+
+[Answer] QoK
+
+[Reference command] 1;1;LSON QoK
+
+[Related commands]
+
+5.2.58 AUE (Program start enable or disable ) [Function] The program
+start is made enable or disable..
+
+[Format] AUE Select ON or OFF ON: Enable, OFF: Disable
+
+[Answer] QoK
+
+[Reference command] 1;1;AUEON QoK
+
+45 [Related commands] ATENA
+
+5.2.59 ATENA (Status can be start) [Function] The state which can be
+started is read.
+
+[Format] ATENA
+
+[Answer] QoK < Status > 0:Start enable, 1:Start disable
+
+[Reference command] 1;1;ATENA QoK1
+
+[Related commands] AUE
+
+5.2.60 BRKPTSET (Set breakpoint) [Function] The breakpoint is set. It is
+not possible to set it while running.
+
+[Format] BRKPTSET=;; Program name Breakpoint line number < Breakpoint
+type > 0: Continues breakpoint, 1: One time breakpoint When the plural
+is set to the same line, the breakp oint type set later is effective.
+
+[Answer] QoK
+
+[Reference command] 1;1; BRKPTSET10;20;0
+
+46 QoK1
+
+[Related commands] BRKPTCLR, BRKPTGET
+
+5.2.61 BRKPTCLR (Delete breakpoint) [Function] The breakpoint is
+deleted.
+
+[Format] BRKPTCLR=; Program name Breakpoint line number 0 is all
+deleted.
+
+[Answer] QoK
+
+[Reference command] 1;1; BRKPTCLR10;20 QoK1
+
+[Related commands] BRKPTSET, BRKPTGET
+
+5.2.62 BRKPTGET (List breakpoint) [Function] The breakpoint lists is
+read.
+
+[Format] BRKPTGET=;;; Program name When the program name is omitted, it
+is all pro gram. < Breakpoint number> Breakpoint number 1 to 128 Reading
+start line number Reading end line number
+
+47 [Answer] QoK;; Program name Breakpoint line number 0: Continues
+breakpoint, 1: One t ime breakpoint
+
+[Reference command] 1;1; BRKPTSET QoK1
+
+[Related commands] BRKPTSET, BRKPTCLR
+
+5.2.63 STATE (Read run status) [Function] The run state is read.
+
+[Format] STATE
+
+[Answer] QoK< Program name >;<Line no.>;;<Edit sts .>;<Run sts.><Stop
+sts.><Error no.>; <Step no.>;<Mech info.>;;;;;;;;;<Task prg.name>;;<Task
+cond.>; <Task pri.>;<Mech no.> Program name loaded into task slot <Line
+no.> Execution line number A present override value is read. <Edit sts.>
+Edit status 00000000B _______1 Editing ______1_ Running _____1__ Changed
+<Run sts.> Run status by 2 HEX number fixation 00000000B 0 / 1 _______1
+Cycle / Repeat ______1_ Cycle stop ON / OFF _____1__ MLOCK OFF / ON
+____1___ Auto / Teach 1_ Running of Teach mode 1___ Servo OFF / ON
+1_____ STOP / RUN 1_______ Operation disable / enable <Stop sts.> Stop
+status by 2 HEX number fixation 00000000B
+
+48 _______1 EMG STOP ______1_ STOP _____1__ WAIT ____1___ STOP signal ON
+/ OFF 1_ Program select enable 1___ (reserve) 1_____ Pseudo input <Error
+no.> Error number. (0:No error) <Step no.> Execution step number <Mech
+info.> 00000000B
+_______1 Mech 1 ______1_ Mech 2 _____1__ Mech 3 <Task prg.name> Program
+name of slot table.
+Operation mode of slot table. (REP/CYC)
+<Task cond.> Stating conditions of slot table. (STA RT/ALWAYS/ERROR)
+<Task pri.> Priority of slot table. (1 – 31) <Mech no.> Mech number
+under use
+
+[Reference command] 1;1;STATE
+Qok2.MB4;100;100;5;A1124220;1;1;;;;;;;;;REP;START;1 ;0
+
+[Related commands]
+
+5.2.64 DSTATE (Read stop status) [Function] The stop state is read.
+
+[Format] DSTATE
+
+[Answer] QoK<Run sts.><Stop sts.><Error no.>;<Step no.>;<Mec h no.> <Run
+sts.> Run status by 2 HEX number fixation 00000000B 0 / 1 _______1 Cycle
+/ Repeat ______1_ Cycle stop ON / OFF _____1__ MLOCK OFF / ON ____1___
+Auto / Teach 1_ Running of Teach mode 1___ Servo OFF / ON 1_____ STOP /
+RUN 1_______ Operation disable / enable <Stop sts.> Stop status by 2 HEX
+number fixation 00000000B _______1 EMG STOP ______1_ STOP
+
+49 _____1__ WAIT ____1___ STOP signal ON / OFF 1_ Program select enable
+1___ (reserve) 1_____ Pseudo input <Error no.> Error number. (0:No
+error) <Step no.> Execution step number <Mech no.> Mech number under use
+
+[Reference command] 1;1;DSTATE QoK09060;17;1
+
+[Related commands]
+
+5.2.65 CALIB (Install status) [Function] The install status is read.
+
+[Format] CALIB
+
+[Answer] QoK Install status (N:Defined 、F:Not defined) Completion axis
+pattern by 2 HEX num ber fixation 00000000B
+_______1 J1 ______1_ J2 _____1__ J3 ____1___ J4 1_ J5 1___ J6 1_____ J7
+1_______ J8
+
+[Reference command] 1;1; CALIB QoKN3F3F
+
+[Related commands]
+
+50 5.2.66 IOSIGNAL (Input and output signal read) [Function] The state
+of the input signal and the state of the output signal are read.
+
+[Format] IOSIGNAL<IN no.>;<OUT no.> <IN no.> Input signal number. <OUT
+no.> Output signal number.
+
+[Answer] QoK Input signal state by 4 HEX number fixat ion Output signal
+state by 4 HEX number fix ation
+
+[Reference command] 1;1;IOSIGNAL0;0 QoK00000002
+
+[Related commands]
+
+5.2.67 IN (Input signal read) [Function] The state of the input signal
+is read.
+
+[Format] IN<IN no.> <IN no.> Input signal number.
+
+[Answer] QoK Input signal state by 4 HEX number fixat ion
+
+[Reference command] 1;1;IN0 QoK0000
+
+[Related commands]
+
+51
+5.2.68 OUT (Output signal read) [Function] The state of the output
+signal is read.
+
+[Format] OUT<OUT no.> <OUT no.> Output signal number.
+
+[Answer] QoK Output signal state by 4 HEX number fix ation
+
+[Reference command] 1;1;OUT0 QoK0001
+
+[Related commands]
+
+5.2.69 OUT= (Output signal write) [Function] The output signal is
+compelling output.
+
+[Format] OUT=<OUT no.>;<OUT val.> <OUT no.> Output signal number. <OUT
+val.> Output signal value by 4 HEX number fixa tion
+
+[Answer] QoK
+
+[Reference command] 1;1;OUT=0;0802 QoK
+
+[Related commands]
+
+52 5.2.70 DIN (CC-Link’s input register data read) [Function] The state
+of the CC-Link’s input register is read. It is effective only to install
+the CC-Link option.
+
+[Format] DIN<IN no.> <IN no.> CC-Link’s input register number.
+
+[Answer] QoK<IN reg.state>;…(16 pieces) <IN reg.state> The input
+register is returned by th e DEC.
+
+[Reference command] 1;1;DIN6000 QoK0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+
+[Related commands] DOUT
+
+5.2.71 DOUT (CC-Link’s output register data read) [Function] The state
+of the CC-Link’s output register is write . It is effective only to
+install the CC-Link optio n. 
+
+[Format] DOUT<OUT no.> <OUT no.> CC-Link’s output register number.
+
+[Answer] QoK<OUT reg.state>;… (16 pieces) <OUT reg.state> The output
+register is returned by the DEC.
+
+[Reference command] 1;1;DOUT6000 QoK0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+
+[Related commands] DIN
+
+53
+5.2.72 DOUT= (CC-Link’s output register data write)
+[Function] The CC-Link’s output register is compelling output. It is
+effective only to install the CC-Link option
+
+[Format] DOUT=<OUT no.>;<OUT val.> <OUT no.> CC-Link’s output register
+number. <OUT val.> Output register value by 4 HEX number fi xation
+
+[Answer] QoK
+
+[Reference command] 1;1;DOUT=6000;0002 QoK
+
+[Related commands] DIN, DOUT
+
+5.2.73 INDMY (Set pseudo input) [Function] A pseudo-input of the input
+signal is set.
+
+[Format] INDMY
+
+[Answer] QoK
+
+[Reference command] 1;1;INDMY QoK
+
+[Related commands] INSET, IN=, DIN=
+
+54 5.2.74 INSET (Reset pseudo input) [Function] A pseudo-input of the
+input signal is reset.
+
+[Format] INSET
+
+[Answer] QoK
+
+[Reference command] 1;1;INSET QoK
+
+[Related commands] INDMY, IN=, DIN=
+
+5.2.75 IN= (Write pseudo input data) [Function] The input signal is
+pseudo-input.
+
+[Format] IN=<IN no.>;<IN val.> <IN no.> Input signal number. <IN val.>
+Pseudo-input signal value by 4 HEX numbe r fixation
+
+[Answer] QoK
+
+[Reference command] 1;1;IN=0;0802 QoK
+
+[Related commands] INDMY, INSET, DIN=
+
+55 5.2.76 DIN= (Write pseudo input register) [Function] The CC-Link’s
+input register is pseudo-input. It is effective only to install the
+CC-Link option.
+
+[Format] DIN=<IN no.>;<IN reg.val> <IN no.> Input register number. <IN
+reg.val> Pseudo-input register value by 4 HEX n umber fixation
+
+[Answer] QoK
+
+[Reference command] 1;1;DIN=6000;0001 QoK
+
+[Related commands] INDMY, INSET, IN=
+
+5.2.77 STPSIG (Stop signal read) [Function] The state of the stop signal
+is read.
+
+[Format] STPSIG
+
+[Answer] QoK<Stop sts.>;<EMG sts.> <Stop sts.> The state of the stop
+signal is returne d by the HEX. 00000000B
+_______1 T/B(RS-422) ______1_ P/C(RS-232C) _____1__ I/O ____1___ O/P
+<EMG sts.> The state of the EMG stop signal is retu rned by the HEX.
+00000000B
+_______1 I/O EMG ______1_ O/P EMG _____1__ T/B EMG
+
+[Reference command]
+
+56 1;1;STPSIG QoK0;0
+
+[Related commands]
+
+5.2.78 HNDSTS (Hand output signal read) [Function] The setting and the
+output of the hand are read.
+
+[Format] HNDSTS
+
+[Answer] QoK<Output no.>;<Hand sts.>;< ハンドタイプ >;… (8 pieces)
+<Output no.> Signal number allocated in hand. -1:not used
+<Hand sts.> Hand output status. (1:Hand open, 2:Han d close) Hand type
+(0:Single-solenoid, 1:Double- solenoid)
+
+[Reference command] 1;1;HNDSTS
+QoK900;2;1;902;1;1;904;1;1;906;1;1;-1;-1;-1;-1;-1;- 1;-1;-1;-1;-1;-1;-1
+
+[Related commands]
+
+5.2.79 USERAREASTS (User specified area read) [Function] The state of
+the user specified area is read.
+
+[Format] USERAREASTS
+
+[Answer] QoK The state of the user specified area by t he HEX. 00000000B
+_______1 Area 1
+
+57 ______1_ Area 2 _____1__ Area 3 ____1___ Area 4 1_ Area 5 1___ Area 6
+1_____ Area 7 1_______ Area 8
+
+[Reference command] 1;1;USERAREASTS QoK0
+
+[Related commands]
+
+5.2.80 JPOS,PPOS,XPOS,RPOS ( Current position read ) [Function] The
+current position of the robot is read.
+
+[Format] POS<Axis info.> Type at read position J:JOINT, P:XYZ,
+X:3axis-XYZ, R:CYLNDER <Axis info.> Read axis (1 – 8:Single axis, F:Full
+a xis)
+
+[Answer] QoK;;… (Repeat axis number) ;,;;;<+Limit>< -Limit> Name of axis
+Data of axis Structure flag 1 and 2.
+Only XYZ is significant. A present override value is read. Speed in
+robot end. (mm/sec) <+Limit> Limit status by 2 HEX number fixation.
+<-Limit> 00000000B XYZ / JOINT
+_______1 X J1 ______1_ Y J2 _____1__ Z J3 ____1___ A J4 1_ B J5 1___ C
+J6 1_____ L1 J7 1_______ L2 J8
+
+58 [Reference command] 1;1;PPOSF
+QoKX;290.62;Y;-0.09;Z;11.26;A;-179.94;B;-0.26;C;179
+.93;L1;0.00;;6,0;100;0.00;00000000
+
+[Related commands]
+
+5.2.81 TIME (Time read) [Function] Time is read.
+
+[Format] TIME
+
+[Answer] QoK DATE (yy-mm-dd) TIME (hh:mm:ss)
+
+[Reference command] 1;1;TIME QoK04-02-0917:54:32
+
+[Related commands] TIME=
+
+5.2.82 TIME= (Time change) [Function] Time is set.
+
+[Format] TIME= DATE (yy-mm-dd) TIME (hh:mm:ss)
+
+[Answer] QoK
+
+59
+[Reference command] 1;1;TIME=04-02-0917:00:00 QoK
+
+[Related commands]
+
+5.2.83 PTIME (Hour meter read) [Function] The operation time of the
+robot is read.
+
+[Format] PTIME
+
+[Answer] QoK;;;; ;0;0;0;0;0;0;0;0;0;0;0;0;0;0;<Accumu.time>; ;<Mech
+info.> Power on time (Hr) All mecha servo on time (Hr) Mech n servo on
+time (Hr) Program operation time (Hr) <Accumu.time> Battery accumulation
+time. (Hr) Battery remaining time. (Hr) <Mech info.> Mech information by
+the HEX. 00000000B
+_______1 Mech 1 ______1_ Mech 2 _____1__ Mech 3
+
+[Reference command] 1;1;PTIME
+QoK149;51;51;0;0;0;0;0;0;0;0;0;0;0;0;0;0;102;0;2715 ;11885;1
+
+[Related commands] PTIMEDEL=
+
+60 5.2.84 PTIMEDEL= (Hour meter clear) [Function] The operating time of
+the robot is cleared.
+
+[Format] PTIMEDEL= Kind at operation time.
+T: Power on time, S: Servo on time, D: Program o peration time B:
+Battery accumulation time, Z: All
+
+[Answer] QoK
+
+[Reference command] 1;1;PTIMEDEL=B QoK
+
+[Related commands] PTIME
+
+5.2.85 CYCLETIME (Cycle time read) [Function] The operating time of the
+program is read.
+
+[Format] CYCLETIME Program name
+
+[Answer] QoK;;<Avg.tact>; Operation time. (msec) <Latest.tact> Latest of
+tact time. (msec) <Avg.tact> Average of tact time. (msec) Operation
+count
+
+[Reference command] 1;1;CYCLETIME100
+
+61 QoK224745;156;154;1454
+
+[Related commands] PDIR, CYCLECLR
+
+5.2.86 CYCLECLR (Cycle time clear) [Function] The operating time of the
+program is cleared.
+
+[Format] CYCLECLR Program name
+
+[Answer] QoK
+
+[Reference command] 1;1;CYCLECLR100 QoK
+
+[Related commands] PDIR, CYCLETIME
+
+5.2.87 ERROR (Error number read) [Function] The error number is read.
+
+[Format] ERROR
+
+[Answer] QoK[<Error no.>;] <Error no.> Error number When the error does
+not occur, only QoK is retur ned. Error level (1:High, 2:Low, 3:Caution
+)
+
+[Reference command]
+
+62 1;1;ERROR Qok4140;2
+
+[Related commands] ERRORMES
+
+5.2.88 ERRORMES (Error contents read) [Function] The content of the
+error is read.
+
+[Format] ERRORMES<Error no.> <Error no.> Error number
+
+[Answer] QoK Content of the error.
+
+[Reference command] 1;1;ERRORMES4140 QoKThe program was not found
+
+[Related commands] ERROR
+
+5.2.89 ERRORLOG (Error history read) [Function] The error history is
+read.
+
+[Format] ERRORLOG<Hist.no.> <Hist.no.> Position of history TOP: The
+newest history END: The oldest history +1: Previous history -1: Next
+history
+
+63 [Answer] QoK;;<Error no.>;;;; <Line no.>;<Error detail no.> Date when
+error occurs (yy-mm-dd) Time when error occurs (hh:mm:ss) <Error no.>
+Error number Content of the error Error level 1:High,2:Low,3:Caution
+Program name when error occurs <Line no.> Line number when error occurs
+<Error detail no.> Error detail number Only QoK is returned when there
+is no error hist ory.
+
+[Reference command] 1;1;ERRORLOGTOP QoK04-02-09;18:49:52;4140;The
+program was not found ;2;S1;0;414000000
+
+[Related commands] ERRLOGCLR, ERRLOG2=
+
+5.2.90 ERRLOG2= (Error history reading. / Error de tails number
+narrowing seeing.) [Function] It narrows by the error level and error
+details num ber, and error history information is read. (It is not
+possible to use by the CRn-500 series.) (It is possible to use since the
+edition of main S/ W of the CRnQ-700/CRnD-700 series version R2/S2. )
+
+[Format] ERRLOG2=<Hist. No.>;; <Hist. No.> Position of history TOP: The
+newest history END: The oldest history +1: Previous history -1: Next
+history Error level (The range of the extract ion is narrowed.) 0:All
+level, 1:High, 2: Low, 3:Caution, 0 when omitting it When < history
+number > is “+” and “-” specificatio n, the last
+
+64 specification is used. Narrowed error details numbe r (6-9 digit).
+
+[Answer] QoK;;<Error no.>;;;; <Line no.>;<Error detail no.> Date when
+error occurs (yy-mm-dd) Time when error occurs (hh:mm:ss) <Error no.>
+Error number Content of the error Error level 1:High,2:Low,3:Caution
+Program name when error occurs <Line no.> Line number when error occurs
+<Error detail no.> Error detail number Only QoK is returned when there
+is no error hist ory.
+
+[Reference command] 1;1;ERRLOG2=TOP;0;414000000
+QoK04-02-09;18:49:52;4140;The program was not found ;2;S1;0;414000000
+
+[Related commands] ERRLOGCLR, ERRORLOG [Note] When “+” and “-” are
+specified for < history number >, referring the last positional and last
+referenc e error number is used common of the communication co mmand
+“ERRORLOG” and “ERRORRD”.
+
+5.2.91 ERRLOGCLR (Error history clear) [Function] The error history is
+cleared.
+
+[Format] ERRLOGCLR Error level 1:High,2:Low,3:Caution,0:All
+
+[Answer]
+
+65 QoK
+
+[Reference command] 1;1;ERRLOGCLR1 QoK
+
+[Related commands] ERRLOG
+
+5.2.92 ERRSUM (Error summary) [Function] The error summary data is read.
+
+[Format] ERRSUM<No.> <No.> number (1-100) (in numerical order )
+
+[Answer] QoK;;;;; ; Number of error total data Detailed error number
+“000000000” is returned when there is no error history. Error level
+(H:High, L:Low, C:Cauti on) * Error contents* Error cause * Error
+treat * Count of error generation
+
+-   Note : “”(NULL) is returned when there is no erro r history.
+
+[Reference command] 1;1;ERRSUM1 QoK4;006000000;H; EMG signal is input.
+(O.Panel); E MG signal is input. (O.Panel); Check the O.Panel emergency
+stop;4 1;1;ERRSUM5 QoK4;000000000;;;;;0
+
+66 [Reference command] ERRSUMCLR, SUMDATE, ERRSUM2=
+
+5.2.93 ERRSUM2= (error summary) [Function] The error summary data is
+read. (It is not possible to use by the CRn-500 series.) (It is possible
+to use since the edition of main S/ W of the CRnQ-700/CRnD-700 series
+version R2/S2. )
+
+[Format]
+
+<Hist.no.> number (1-100) (in numerical order )
+
+[Answer] QoK;;;;; ;;; Number of error total data Detailed error number
+“000000000” is returned when there is no error history. Error level
+(H:High, L:Low, C:Cauti on) * Error contents* Error cause * Error
+treat * Count of error generation The last date when error occurred. The
+last time when error occurred.
+
+-   Note : “”(NULL) is returned when there is no erro r history.
+
+[Reference command] 1;1;ERRSUM2=1 QoK4;006000000;H; EMG signal is input.
+(O.Panel); E MG signal is input. (O.Panel); Check the O.Panel emergency
+stop;4;10-08-19;18:49:52 1;1;ERRSUM5 QoK4;000000000;;;;;0;;
+
+[Reference command] ERRSUM2=<Hist. no.>
+
+67 ERRSUMCLR, SUMDATE, ERRSUM
+
+5.2.94 ERRSUMCLR (Clear error summary) [Function] The error summary is
+cleared.
+
+[Format] ERRLOGCLR
+
+[Answer] QoK
+
+[Reference command] 1;1;ERRLOGCLR QoK
+
+[Reference command] ERRSUM, ERRSUM2=
+
+5.2.95 SUMDATE (Date when error logging function b egan) [Function] The
+beginning date of the error logging function (e rror log / error
+summary) is read.
+
+[Format] SUMDATE<function no.> <function no.> Data of the acquired
+beginning date is specified. 0: Error log function 1: Error summary
+function
+
+[Answer] QoK; Date when data acquisition was begun （yy-mm-dd ） Tiem
+when data acquisition was begun （hh:mm:ss ）
+
+[Reference command] 1;1;SUMDATE0
+
+68 QoK10-08-09;20:23:46
+
+[Reference command] ERRLOGCLR, ERRSUMCLR
+
+5.2.96 VAL (Variable data read) [Function] The value of the variable is
+read.
+
+[Format] VAL<Variable posi.>; <Variable posi.> The read position is
+specified. <: Top variable >: Bottom variable +1: Next variable -1:
+Previous variable Variable name: Specified Variable Variable class
+(M: Integer, C: Character, P: Position, J: JOINT )
+
+[Answer] QoK= Variable name Value of the variable
+
+[Reference command] 1;1;VAL<;M QoKM1=+3
+
+[Related commands] VALS
+
+5.2.97 VALS (More Variable data read) [Function] The value of more
+variables is read.
+
+[Format]
+
+69 VALS<Variable posi.>; <Variable posi.> The read position is
+specified. <: Top variable >: Bottom variable +1: Next variable -1:
+Previous variable Variable class
+(M: Integer, C: Character, P: Position, J:JOINT)
+
+[Answer] QoK=[ 0b =…];; Variable name Value of the variable Count of
+read variables 1: There is a continuation variable. 0: Continuation
+variable none
+
+[Reference command] 1;1;VALS<;M QoKM1=+1; 0b M2=+2; 0b M3=+3;3;0
+
+[Related commands] VAL
+
+5.2.98 HOT (Variable data write) [Function] The value of the variable is
+changed. A integer var iable is revocable while even starting.
+
+[Format] HOT;= Program name Variable name Changed value
+
+[Answer] QoK
+
+[Reference command]
+
+70 1;1;HOT100;M1=1 QoK
+
+[Related commands]
+
+5.2.99 OPNUMRD (Option slot number read) [Function] The number of option
+slots is read.
+
+[Format] OPNUMRD
+
+[Answer] QoK<Slot no.> <Slot no.> Number of option slots.
+
+[Reference command] 1;1;OPNUMRD QoK3
+
+[Related commands] OPSTSRD
+
+5.2.100 OPSTSRD (Option information read) [Function] Option slot
+information is read.
+
+[Format] OPSTSRD<Slot no.> <Slot no.> Number of option slots. (1,2 or 3)
+
+[Answer] QoK<Option info.> <Option info.> Option information
+
+[Reference command] 1;1;OPSTSRD
+
+71 QoKEthernet;IP Addr 192.168.0.1 0b PortNo(R-time) 10000 0b
+PortNo(OPT11-19) 10001/10002/10003/10004/10005/1000 6/10007/10008/10009
+0b Connect Count(OPT11-19) 2/0/0/0/0/0/0/0/0 0b MAC Addr
+00:00:00:00:00:00 0b H/W Ver: 0
+
+[Related commands] OPSTSRD
+
+5.2.101 PRMINIT (Parameter initial) [Function] The parameter is
+initialized, and it puts it into t he state when shipping it.
+
+[Format] PRMINIT
+
+[Answer] QoK
+
+[Reference command] 1;1;PRMINIT QoK
+
+[Related commands]
+
+5.2.102 PNR (Parameter read) [Function] The parameter is read. The
+parameter at the level c orresponding to keyword (KEYWD) is read.
+
+[Format] PNR Parameter name
+
+[Answer] QoK;; Parameter name Value of parameter Count of value
+
+72 [Reference command] 1;1;PNRBZR QoKBZR;1;1
+
+[Related commands] PRM=
+
+5.2.103 PRM= (Parameter write) [Function] The parameter is changed. The
+parameter at the leve l corresponding to keyword (KEYWD) is changed.
+
+[Format] PRM=; Parameter name Value of parameter
+
+[Answer] QoK
+
+[Reference command] 1;1;PRM=BZR;1 QoK
+
+[Related commands] PNR
+
+5.2.104 PAR (Parameter read) [Function] The parameter is able to read.
+All parameters are a ble to read regardless of keyword (KEYWD).
+
+[Format] PAR Parameter name
+
+[Answer] QoK;;
+
+73 Parameter name Value of parameter Count of value
+
+[Reference command] 1;1;PARBZR QoKBZR;1;1
+
+[Related commands] PAW=
+
+5.2.105 PAW= (Parameter write) [Function] The parameter is changed. All
+parameters are change d regardless of keyword (KEYWD).
+
+[Format] PAW=; Parameter name Value of parameter
+
+[Answer] QoK
+
+[Reference command] 1;1;PAW=BZR;1 QoK
+
+[Related commands] PAR
+
+5.2.106 PAW2= (Parameter write (need to reboot.)) [Function] The
+parameter is able to write. All parameters are able to write regardless
+of keyword (KEYWD).
+However, turning the power off-on is needed without fail for the
+reflection of the parameter setting value. (It is not possible to use by
+the CRn-500 series.) (It is possible to use since the edition of main S/
+W of the CRnQ-700/CRnD-700 series version
+
+74 R2/S2. )
+
+[Format] PAW2=; parameter name to write parameter value to write
+
+[Answer] QoK
+
+[Reference command] 1;1;PAW2=BZR;1 QoK
+
+[Related commands] PAR 、PAW=
+
+5.2.107 PRMUNDO (Parameter undo) [Function] It returns it to the value
+when the parameter is sh ipped.
+
+[Format] PRMUNDO<Mech No.>; <Mech no.> Mech number. (0:Common parameter)
+Parameter name
+
+[Answer] QoK
+
+[Reference command] 1;1;PRMUNDO0;BZR QoK
+
+[Related commands] PRMINIT
+
+75 5.2.108 PRM= (Read change parameter list) [Function] The list of the
+parameter name that has been change d is read. (It is possible to use it
+since the edition of main S/W version N6/P6. )
+
+[Format] PMR= < Continuation specification > The reading method i s
+specified. 0: Newly reading 1: Continuance reading. [Answer] QoK;;[ 0b
+…] 0: Continuation - off , 1: Continua tion - on number of read
+parameters parameter name It is delimited with 0x0b code between
+parameter name. [Answer] 1;1;PMR=0 QoK0;6;SVSSFR 0b MEOFFZ 0b MEINST 0b
+MEINSZ 0b MEINSD 0b MEJAR
+
+[Related commands]
+
+5.2.109 KEYWD (Keyword input) [Function] The level of opening to the
+public of the parameter is changed.
+
+[Format] KEYWDp Keyword
+
+[Answer] QoK
+
+[Reference command] 1;1;KEYWDpMELFA QoK
+
+76 [Related commands] PNR, PRM=
+
+5.2.110 SLOTRD (Slot table read) [Function] The slot table is read.
+
+[Format] SLOTRD
+
+[Answer] QoK<Task prg.name>;
+;<Task cond.>;
+<Task prg.name> Program name of slot table.
+Operation mode of slot table. (REP/CYC)
+<Task cond.> Stating conditions of slot table. (STA RT/ALWAYS/ERROR)
+<Task pri.> Priority of slot table. (1 – 31)
+
+[Reference command] 1;2;SLOTRD QoK2;REP;START;1
+
+[Related commands] SLOTSET
+
+5.2.111 SLOTSET (Slot table write) [Function] The slot table is changed.
+(“SLTn” parameter is cha nged. It is necessary to reboot.)
+
+[Format] SLOTSET<Task prg.name>;
+;<Task cond.>; <Task prg.name> Program name of slot table.
+Operation mode of slot table. (REP/CYC)
+<Task cond.> Stating conditions of slot table. (STA RT/ALWAYS/ERROR)
+<Task pri.> Priority of slot table. (1 – 31)
+
+[Answer] QoK
+
+77
+[Reference command] 1;2;SLOTSET2;REP;START;1 QoK
+
+[Related commands] SLOTRD
+
+5.2.112 ENCBATTM (Battery remain time) [Function] The battery remain
+time is read.
+
+[Format] ENCBATTM
+
+[Answer] QoK; Power on time (Hr) Battery remaining time. (Hr)
+
+[Reference command] 1;1;ENCBATTM QoK51;11885
+
+[Related commands] PTIMEDEL=
+
+5.2.113 BREAKON * (Release brake) [Function] The brake is released.
+
+[Format] BREAKON Axis pattern by the HEX 00000000B
+_______1 J1 ______1_ J2 _____1__ J3 ____1___ J4
+
+78 1_ J5 1___ J6 1_____ J7 1_______ J8 When 00 is specified, the brake
+is locked.
+
+[Answer] QoK
+
+[Reference command] 1;1;BREAKON3F QoK
+
+[Related commands]
+
+5.2.114 HOME * (Setting the origin) [Function] The origin is set.
+
+[Format] HOME<Org.type>; <Org.type> 0: User origin 1: Mechanical stopper
+2: (reserve) 3: Calibration jig 4: ABS 5: Eye mark ( 6: Origin data
+input ) 7: User ABS Axis pattern by the HEX 00000000B
+_______1 J1 ______1_ J2 _____1__ J3 ____1___ J4 1_ J5 1___ J6 1_____ J7
+1_______ J8
+
+[Answer] QoK
+
+79 [Reference command] 1;1;HOME3;3F QoK
+
+[Related commands] DATINST
+
+5.2.115 AXDATINST * (Additional axis add for DATINS T and DATRD)
+[Function] The addition axis is added to the origin setting da ta by the
+data input. The argument of DATINST after the AXDATINST command is
+executed and the DAT RD command becomes it with the addition axis.
+
+[Format] AXDATINST
+
+[Answer] QoK
+
+[Reference command] 1;1;AXDATINST QoK
+
+[Related commands] DATINST, DATRD
+
+5.2.116 DATINST * (Data input origin set) [Function] The origin is set
+by the data input.
+
+[Format] DATINST;;;;;; or DATINST;;;;;;; ;
+
+[Answer]
+
+80 QoK
+
+[Reference command] 1;1;DATINSTZ2UOGQ;Z2VX5I;Z2#46Z;Z2NXW5;004QA5;0XB46
+2;Y91%K5 QoK
+
+[Related commands] AXDATINST, DATRD
+
+5.2.117 DATRD (Data input origin set) [Function] The origin data value
+by the data input is read.
+
+[Format] DATRD
+
+[Answer] QoK;;;;;; or QoK;;;;;;; ;
+
+[Reference command] 1;1;DATRD
+QoKZ2UOGQ;Z2VX5I;Z2#46Z;Z2NXW5;004QA5;0XB462;Y91%K5
+
+[Related commands] AXDATINST, DATINST
+
+5.2.118 RSTPWR (Reset power) [Function] Power supply reset (reboot) of
+the controller is ex ecuted.
+
+[Format] RSTPWR
+
+[Answer]
+
+81 QoK
+
+[Reference command] 1;1;RSTPWR QoK
+
+[Related commands]
+
+82 Index ALIGN, 42 ATENA, 45 AUE, 44 AXDATINST, 79 BREAKON, 77 BRKPTCLR,
+46 BRKPTGET, 46 BRKPTSET, 45 CALIB, 49 CLOSE, 14 CNTL, 15 CSTOP, 39
+CYCLECLR, 61 CYCLETIME, 60 DATINST, 79 DATRD, 80 DELETE, 23 DIN, 52
+DIN=, 55 DOUT, 52 DOUT=, 53 DSTATE, 48 ECLR, 23 EDATA, 17 EDINS, 18
+EFREE, 32 EINS, 18 EMDAT, 17 ENCBATTM, 77 ERRLOG2=, 63 ERRLOGCLR, 64
+ERROR, 61 ERRORLOG, 62 ERRORMES, 62 ERRSUM, 65 ERRSUM2=, 66 ERRSUMCLR,
+67 EXEC, 22 FATTRIB, 28 FCHECK, 26 FCLOSE, 30 FCOPY, 27 FDEL, 27 FDIR,
+26 FINIT, 29 FOPEN, 29 FREAD, 30 FRENAME, 28 FWRITE, 31 HND, 41 HNDSTS,
+56 HOME, 78 HOT, 69 IN, 50 IN=, 54 INDMY, 53 INSET, 54 IOSIGNAL, 50 JOG,
+43 JPOS, 57 KEYWD, 75 LINENO, 34 LINENO=, 34 LINERD, 35 LINESRD, 35
+LISTCNT, 21 LISTI, 19 LISTL, 20 LISTP, 20 LOAD=, 15 LS, 44 MLOCK, 41
+MOVSP, 42 NEW, 16 OPEN=, 13 OPNUMRD, 70 OPSTSRD, 70 OUT, 51 OUT=, 51
+OVRD, 37 OVRD=, 36 PAR, 72 PAW=, 73 PAW2=, 73 PDIR, 24 PNR, 71 PPOS, 57
+PRG, 33 PRGLOAD=, 32 PRGRD, 33 PRM=, 72, 75 PRMINIT, 71 PRMUNDO, 74
+PTIME, 59 PTIMEDEL=, 60 RENUM, 24 RPOS, 57 RSTALRM, 39 RSTIO, 41 RSTPRG,
+40 RSTPWR, 80 RUN, 37 SAVE, 16 SLOTINIT, 40 SLOTRD, 76 SLOTSET, 76 SRV
+＜ON/OFF>, 36 STATE, 47 STEP, 22 STOP, 38 STOP, 38 STPSIG, 55 SUMDATE,
+67 TIME, 58
+
+83 TIME=, 58 USERAREASTS, 56 VAL, 68 VAL=, 18 VALS, 68 VTYPRD, 21 XPOS,
+57

@@ -1,0 +1,11 @@
+{
+  "port": "COM3",
+  "baudrate": 9600,
+  "parity": "EVEN",
+  "stopbits": 2,
+  "bytesize": 8,
+  "timeout": 1.0,
+  "prefix": "1;1;",
+  "edit_slot": 9,
+  "lowercase": true
+}

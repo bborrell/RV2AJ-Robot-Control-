@@ -1,0 +1,303 @@
+{
+  "spec": "BFP-A8056-C",
+  "robot": "RV-2AJ",
+  "controller": "CR1-571",
+  "commands": [
+    {
+      "mnemonic": "MJ",
+      "name": "Move Joint",
+      "category": "motion",
+      "input_format": "MJ [J1],[J2],[J3],[J4],[J5]",
+      "function": "Move joints by specified angles from current position using joint interpolation."
+    },
+    {
+      "mnemonic": "MO",
+      "name": "Move Position",
+      "category": "motion",
+      "input_format": "MO a[,[O/C]]",
+      "function": "Move to taught position number a."
+    },
+    {
+      "mnemonic": "MS",
+      "name": "Move Straight",
+      "category": "motion",
+      "input_format": "MS a[,[O/C]]",
+      "function": "Move linearly to taught position a."
+    },
+    {
+      "mnemonic": "MP",
+      "name": "Move Explicit Position",
+      "category": "motion",
+      "input_format": "MP X,Y,Z,A,B,C",
+      "function": "Move to explicit coordinate position."
+    },
+    {
+      "mnemonic": "HE",
+      "name": "Here",
+      "category": "motion",
+      "input_format": "HE a",
+      "function": "Store current robot position into position number a."
+    },
+    {
+      "mnemonic": "HO",
+      "name": "Home / Define Origin",
+      "category": "motion",
+      "input_format": "HO [a]",
+      "function": "Define current position as origin (mechanical, jig, or user origin depending on argument)."
+    },
+    {
+      "mnemonic": "NT",
+      "name": "Nest",
+      "category": "motion",
+      "input_format": "NT",
+      "function": "Move to defined user origin."
+    },
+    {
+      "mnemonic": "OG",
+      "name": "Origin Move",
+      "category": "motion",
+      "input_format": "OG",
+      "function": "Move to user-defined origin position."
+    },
+    {
+      "mnemonic": "SP",
+      "name": "Speed",
+      "category": "motion",
+      "input_format": "SP a",
+      "function": "Set robot speed level."
+    },
+    {
+      "mnemonic": "OVR",
+      "name": "Override",
+      "category": "motion",
+      "input_format": "OVR a",
+      "function": "Set program speed override percentage."
+    },
+    {
+      "mnemonic": "SD",
+      "name": "Speed Define",
+      "category": "motion",
+      "input_format": "SD parameters",
+      "function": "Define detailed speed and acceleration parameters."
+    },
+    {
+      "mnemonic": "TI",
+      "name": "Timer",
+      "category": "motion",
+      "input_format": "TI a",
+      "function": "Pause program execution for specified time."
+    },
+    {
+      "mnemonic": "TL",
+      "name": "Tool Length",
+      "category": "motion",
+      "input_format": "TL a",
+      "function": "Set tool length offset."
+    },
+    {
+      "mnemonic": "TLM",
+      "name": "Tool Matrix",
+      "category": "motion",
+      "input_format": "TLM X,Y,Z,A,B,C",
+      "function": "Set tool coordinate transformation matrix."
+    },
+    {
+      "mnemonic": "GT",
+      "name": "Goto",
+      "category": "program",
+      "input_format": "GT a",
+      "function": "Jump to program line a."
+    },
+    {
+      "mnemonic": "GS",
+      "name": "Go Subroutine",
+      "category": "program",
+      "input_format": "GS a",
+      "function": "Call subroutine at line a."
+    },
+    {
+      "mnemonic": "RT",
+      "name": "Return",
+      "category": "program",
+      "input_format": "RT",
+      "function": "Return from subroutine."
+    },
+    {
+      "mnemonic": "ED",
+      "name": "End",
+      "category": "program",
+      "input_format": "ED",
+      "function": "End program execution."
+    },
+    {
+      "mnemonic": "HLT",
+      "name": "Halt",
+      "category": "program",
+      "input_format": "HLT",
+      "function": "Stop program with controlled deceleration."
+    },
+    {
+      "mnemonic": "EQ",
+      "name": "If Equal",
+      "category": "program",
+      "input_format": "EQ a,b",
+      "function": "If register equals a, jump to line b."
+    },
+    {
+      "mnemonic": "NE",
+      "name": "If Not Equal",
+      "category": "program",
+      "input_format": "NE a,b",
+      "function": "If register does not equal a, jump to line b."
+    },
+    {
+      "mnemonic": "LG",
+      "name": "If Larger",
+      "category": "program",
+      "input_format": "LG a,b",
+      "function": "If register greater than a, jump to line b."
+    },
+    {
+      "mnemonic": "SM",
+      "name": "If Smaller",
+      "category": "program",
+      "input_format": "SM a,b",
+      "function": "If register smaller than a, jump to line b."
+    },
+    {
+      "mnemonic": "GC",
+      "name": "Grip Close",
+      "category": "hand",
+      "input_format": "GC",
+      "function": "Close gripper."
+    },
+    {
+      "mnemonic": "GO",
+      "name": "Grip Open",
+      "category": "hand",
+      "input_format": "GO",
+      "function": "Open gripper."
+    },
+    {
+      "mnemonic": "GP",
+      "name": "Grip Pressure",
+      "category": "hand",
+      "input_format": "GP a1,a2,a3",
+      "function": "Set gripping force parameters."
+    },
+    {
+      "mnemonic": "OB",
+      "name": "Output Bit",
+      "category": "io",
+      "input_format": "OB +/-a",
+      "function": "Turn output bit on or off."
+    },
+    {
+      "mnemonic": "ID",
+      "name": "Input Direct",
+      "category": "io",
+      "input_format": "ID a",
+      "function": "Read external input bit."
+    },
+    {
+      "mnemonic": "PR",
+      "name": "Position Read",
+      "category": "rs232",
+      "input_format": "PR a",
+      "function": "Read position data via RS-232."
+    },
+    {
+      "mnemonic": "WH",
+      "name": "Where",
+      "category": "rs232",
+      "input_format": "WH",
+      "function": "Return current position coordinates."
+    },
+    {
+      "mnemonic": "ER",
+      "name": "Error Read",
+      "category": "rs232",
+      "input_format": "ER",
+      "function": "Read current error code."
+    },
+    {
+      "mnemonic": "VR",
+      "name": "Version Read",
+      "category": "rs232",
+      "input_format": "VR",
+      "function": "Return controller firmware version."
+    }
+  ],
+  "controller_extended": "CR1-571",
+  "language": "MELFA-BASIC IV",
+  "motion_commands": [
+    {"name": "MOV", "type": "Joint interpolation move"},
+    {"name": "MVA", "type": "Linear interpolation move"},
+    {"name": "MVC", "type": "Circular interpolation move"},
+    {"name": "MVR", "type": "Relative move"},
+    {"name": "MVR2", "type": "Relative move type 2"},
+    {"name": "MVR3", "type": "Relative move type 3"},
+    {"name": "MVS", "type": "Continuous path move"}
+  ],
+  "speed_and_path": [
+    {"name": "SPD", "type": "Set speed"},
+    {"name": "OVRD", "type": "Override speed"},
+    {"name": "JOVRD", "type": "Joint override"},
+    {"name": "ACCEL", "type": "Set acceleration"},
+    {"name": "PREC", "type": "Path precision"},
+    {"name": "FINE", "type": "Exact stop"},
+    {"name": "SPDOPT", "type": "Speed optimization"}
+  ],
+  "servo_and_motion_control": [
+    {"name": "SERVO", "type": "Servo ON/OFF"},
+    {"name": "HLT", "type": "Program halt"},
+    {"name": "RESET ERR", "type": "Reset error"},
+    {"name": "TORQ", "type": "Torque control"}
+  ],
+  "tool_and_base": [
+    {"name": "TOOL", "type": "Select tool frame"},
+    {"name": "BASE", "type": "Select base frame"},
+    {"name": "LOADSET", "type": "Load setting"},
+    {"name": "ALIGN", "type": "Align hand"}
+  ],
+  "hand_control": [
+    {"name": "HOPEN", "type": "Hand open"},
+    {"name": "HCLOSE", "type": "Hand close"}
+  ],
+  "program_control": [
+    {"name": "CALLP", "type": "Call program"},
+    {"name": "GOTO", "type": "Unconditional branch"},
+    {"name": "GOSUB", "type": "Subroutine call"},
+    {"name": "RETURN", "type": "Return from subroutine"},
+    {"name": "IF", "type": "Conditional branch"},
+    {"name": "FOR", "type": "Loop start"},
+    {"name": "NEXT", "type": "Loop end"},
+    {"name": "WHILE", "type": "While loop start"},
+    {"name": "WEND", "type": "While loop end"},
+    {"name": "SELECT CASE", "type": "Multi-branch selection"},
+    {"name": "END", "type": "End program"}
+  ],
+  "io_commands": [
+    {"name": "DEF IO", "type": "Define IO"},
+    {"name": "INPUT", "type": "Read input"},
+    {"name": "WAIT", "type": "Wait for condition"},
+    {"name": "M_IN", "type": "Monitor input"},
+    {"name": "M_OUT", "type": "Control output"}
+  ],
+  "communication": [
+    {"name": "OPEN", "type": "Open communication"},
+    {"name": "CLOSE", "type": "Close communication"},
+    {"name": "PRINT", "type": "Send data"},
+    {"name": "COM ON", "type": "Communication ON"},
+    {"name": "COM OFF", "type": "Communication OFF"},
+    {"name": "COM STOP", "type": "Stop communication"}
+  ],
+  "multitask": [
+    {"name": "XRUN", "type": "Execute multitask"},
+    {"name": "XSTP", "type": "Stop multitask"},
+    {"name": "XRST", "type": "Reset multitask"},
+    {"name": "XLOAD", "type": "Load multitask"},
+    {"name": "XCLR", "type": "Clear multitask"}
+  ]
+}
+

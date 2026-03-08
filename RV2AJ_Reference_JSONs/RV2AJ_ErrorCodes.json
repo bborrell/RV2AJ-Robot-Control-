@@ -1,0 +1,4654 @@
+{
+  "spec": "BFP-A5993-G",
+  "title": "CR1/CR2/CR4/CR7/CR8 Controller Instruction Manual - Troubleshooting",
+  "notes": {
+    "level_meaning": {
+      "H": "High level error: servo OFF",
+      "L": "Low level error: operation stops",
+      "C": "Warning: operation continues"
+    },
+    "power_cycle_note": "Errors marked with * are reset by turning power OFF/ON."
+  },
+  "errors": [
+    {
+      "code": "H0001",
+      "level": "H",
+      "number": 1,
+      "power_cycle_reset": false,
+      "message": "Fail safe error (SRVOFF)",
+      "cause": "The system may be abnormal.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0002",
+      "level": "H",
+      "number": 2,
+      "power_cycle_reset": false,
+      "message": "Fail safe error (STOP)",
+      "cause": "The system may be abnormal.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0009",
+      "level": "H",
+      "number": 9,
+      "power_cycle_reset": true,
+      "message": "Version UP (ALL)",
+      "cause": "Message at version up.",
+      "measures": "Turn the power OFF and ON once."
+    },
+    {
+      "code": "C0010",
+      "level": "C",
+      "number": 10,
+      "power_cycle_reset": false,
+      "message": "Illeagal Version (file)",
+      "cause": "The version is inconsistent.",
+      "measures": "The file has been automatically initialized. The program is being deleted."
+    },
+    {
+      "code": "C0011",
+      "level": "C",
+      "number": 11,
+      "power_cycle_reset": false,
+      "message": "Illeagal Version (system data)",
+      "cause": "The version is inconsistent.",
+      "measures": "The file has been automatically initialized. Turn the power OFF and ON once."
+    },
+    {
+      "code": "C0012",
+      "level": "C",
+      "number": 12,
+      "power_cycle_reset": false,
+      "message": "Illeagal Version (error log)",
+      "cause": "The version is inconsistent.",
+      "measures": "The file has been automatically initialized. Turn the power OFF and ON once."
+    },
+    {
+      "code": "C0013",
+      "level": "C",
+      "number": 13,
+      "power_cycle_reset": true,
+      "message": "Illeagal file",
+      "cause": "Data including programs may have been damaged.",
+      "measures": "Contact the nearest dealer as the initialization operation is required."
+    },
+    {
+      "code": "H0014",
+      "level": "H",
+      "number": 14,
+      "power_cycle_reset": true,
+      "message": "System error (illegal MECHA)",
+      "cause": "A character string cannot exceed 14 characters.",
+      "measures": "Re-input the correct name."
+    },
+    {
+      "code": "H0015",
+      "level": "H",
+      "number": 15,
+      "power_cycle_reset": true,
+      "message": "Illeagal Version (file)",
+      "cause": "Measures Contact to the dealer. Error no. H0001 1-1 1Error list Error No. Error cause and measures L0016 * Error message Turn the power OFF and ON once Cause The time from turning the power OFF to turning the power ON again is too short.",
+      "measures": "Give more time before turning the power ON again after turning the power OFF."
+    },
+    {
+      "code": "C0018",
+      "level": "C",
+      "number": 18,
+      "power_cycle_reset": false,
+      "message": "Illeagal Version (add memory)",
+      "cause": "The version is inconsistent.",
+      "measures": "The file has been automatically initialized. The program is being deleted."
+    },
+    {
+      "code": "H0020",
+      "level": "H",
+      "number": 20,
+      "power_cycle_reset": true,
+      "message": "System Error(same name is Backup data.)",
+      "cause": "The same data name is already in use.",
+      "measures": "Change the name."
+    },
+    {
+      "code": "H0021",
+      "level": "H",
+      "number": 21,
+      "power_cycle_reset": true,
+      "message": "System Error(Backup data is Count over.)",
+      "cause": "The control region is overflowing.",
+      "measures": "Change the software to increase the control region."
+    },
+    {
+      "code": "H0022",
+      "level": "H",
+      "number": 22,
+      "power_cycle_reset": true,
+      "message": "System Error(Backup data is no area.)",
+      "cause": "The region is too small.",
+      "measures": "Change the software to increase the region."
+    },
+    {
+      "code": "H0025",
+      "level": "H",
+      "number": 25,
+      "power_cycle_reset": true,
+      "message": "Files will be saved to ROM",
+      "cause": "Program, parameter and log files will be saved to ROM.",
+      "measures": "Turn the power OFF and power ON once."
+    },
+    {
+      "code": "H0026",
+      "level": "H",
+      "number": 26,
+      "power_cycle_reset": true,
+      "message": "Files will be loaded from ROM",
+      "cause": "Program, parameter and log files will be loaded from ROM.",
+      "measures": "Turn the power OFF and power ON once."
+    },
+    {
+      "code": "H0027",
+      "level": "H",
+      "number": 27,
+      "power_cycle_reset": true,
+      "message": "Backup or restore is canceled",
+      "cause": "Backup or restore is canceled.",
+      "measures": "Turn the power OFF and power ON once."
+    },
+    {
+      "code": "L0030",
+      "level": "L",
+      "number": 30,
+      "power_cycle_reset": false,
+      "message": "Hand error. LS release",
+      "cause": "This is a user setting error.",
+      "measures": "Reset the error after removing the cause."
+    },
+    {
+      "code": "L0031",
+      "level": "L",
+      "number": 31,
+      "power_cycle_reset": false,
+      "message": "Air pressure error",
+      "cause": "This is a user setting error.",
+      "measures": "Reset the error after releasing the cause."
+    },
+    {
+      "code": "H0039",
+      "level": "H",
+      "number": 39,
+      "power_cycle_reset": false,
+      "message": "Door Switch Signal line is faulty.",
+      "cause": "The door switch open signal line is not stable.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0040",
+      "level": "H",
+      "number": 40,
+      "power_cycle_reset": false,
+      "message": "Door Switch Signal is Input",
+      "cause": "The door switch is open.",
+      "measures": "Close the door connected to the input signal of door switch."
+    },
+    {
+      "code": "H0041",
+      "level": "H",
+      "number": 41,
+      "power_cycle_reset": true,
+      "message": "Comm. error (Remote I/O #1)",
+      "cause": "An error was found in the communication line for remote I/O channel 1.",
+      "measures": "Confirm the communication cable or connected device's power supply."
+    },
+    {
+      "code": "H0042",
+      "level": "H",
+      "number": 42,
+      "power_cycle_reset": true,
+      "message": "Comm. error (Remote I/O #2)",
+      "cause": "An error was found in the communication line for remote I/O channel 2.",
+      "measures": "Confirm the communication cable or connected device's power supply."
+    },
+    {
+      "code": "H0043",
+      "level": "H",
+      "number": 43,
+      "power_cycle_reset": true,
+      "message": "Comm. error (Remote I/O #3)",
+      "cause": "An error was found in the communication line for remote I/O channel 3.",
+      "measures": "Confirm the communication cable or connected device's power supply."
+    },
+    {
+      "code": "H0050",
+      "level": "H",
+      "number": 50,
+      "power_cycle_reset": false,
+      "message": "EMG signal is input. (external)",
+      "cause": "The external emergency stop is being input.",
+      "measures": "Release the external emergency stop signal. 1-2 Error no. L0016 * 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H0051",
+      "level": "H",
+      "number": 51,
+      "power_cycle_reset": false,
+      "message": "EMG line is faulty.(external)",
+      "cause": "The emergency stop line isn't stable.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0052",
+      "level": "H",
+      "number": 52,
+      "power_cycle_reset": false,
+      "message": "EMG signal is input.(Add.Axis1)",
+      "cause": "The external emergency stop is being input to the additional axis card.",
+      "measures": "Cancel the external emergency stop 1."
+    },
+    {
+      "code": "H0053",
+      "level": "H",
+      "number": 53,
+      "power_cycle_reset": false,
+      "message": "EMG signal is input.(Add.Axis2)",
+      "cause": "The external emergency stop is being input to the additional axis amplifier.",
+      "measures": "Cancel the external emergency stop 2."
+    },
+    {
+      "code": "H0060",
+      "level": "H",
+      "number": 60,
+      "power_cycle_reset": false,
+      "message": "EMG signal is input. (O.Panel)",
+      "cause": "The operation panel emergency stop is being input.",
+      "measures": "Cancel the operation panel emergency stop."
+    },
+    {
+      "code": "H0061",
+      "level": "H",
+      "number": 61,
+      "power_cycle_reset": false,
+      "message": "EMG line is faulty.(0.Panel)",
+      "cause": "The emergency stop line isn't stable.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0070",
+      "level": "H",
+      "number": 70,
+      "power_cycle_reset": false,
+      "message": "EMG signal is input. (T.Box)",
+      "cause": "The T/B emergency stop is being input.",
+      "measures": "Cancel the T/B emergency stop."
+    },
+    {
+      "code": "H0071",
+      "level": "H",
+      "number": 71,
+      "power_cycle_reset": false,
+      "message": "EMG line is faulty.(T.Box)",
+      "cause": "The emergency stop line isn't stable.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0072",
+      "level": "H",
+      "number": 72,
+      "power_cycle_reset": false,
+      "message": "An error was found in the T/B cancel switch operation.",
+      "cause": "The T/B cancel switch operation was incorrect.",
+      "measures": "Operate again the following keys. \"MODE key switch\", \"T/B remove switch\", \"T/B enable/disable changeover switch\""
+    },
+    {
+      "code": "H0073",
+      "level": "H",
+      "number": 73,
+      "power_cycle_reset": false,
+      "message": "An error was found in the T/B cancel switch line.",
+      "cause": "The cancel switch isn't stable.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0074",
+      "level": "H",
+      "number": 74,
+      "power_cycle_reset": false,
+      "message": "An error was found in the T/B [ENABLE/DISABLE] switch double-system.",
+      "cause": "The T/B [ENABLE/DISABLE] switch isn't stable.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0075",
+      "level": "H",
+      "number": 75,
+      "power_cycle_reset": false,
+      "message": "TB communication error",
+      "cause": "Communication between the RC and TB was cut off.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0081",
+      "level": "H",
+      "number": 81,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken (motor hand I/F)",
+      "cause": "The motorized hand's fuse has broken.",
+      "measures": "Exchange the fuse."
+    },
+    {
+      "code": "H0082",
+      "level": "H",
+      "number": 82,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken (air hand I/F)",
+      "cause": "The pneumatic hand's fuse has broken.",
+      "measures": "Exchange the fuse."
+    },
+    {
+      "code": "H0083",
+      "level": "H",
+      "number": 83,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken(hand input power)",
+      "cause": "The pneumatic hand's power fuse has broken.",
+      "measures": "Exchange the fuse."
+    },
+    {
+      "code": "H0084",
+      "level": "H",
+      "number": 84,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken(O/P)",
+      "cause": "The operation panel's power fuse has broken.",
+      "measures": "Exchange the fuse."
+    },
+    {
+      "code": "H0085",
+      "level": "H",
+      "number": 85,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken(External EMG)",
+      "cause": "The external emergency stop's power fuse has broken.",
+      "measures": "Exchange the fuse. Error no. H0051 1-3 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H0086",
+      "level": "H",
+      "number": 86,
+      "power_cycle_reset": false,
+      "message": "Hand module overcurrent",
+      "cause": "The motorized hand's motor or circuit board has broken.",
+      "measures": "Exchange the motorized hand's motor or circuit board."
+    },
+    {
+      "code": "H0090",
+      "level": "H",
+      "number": 90,
+      "power_cycle_reset": true,
+      "message": "Fuse is broken (parallel I/O)",
+      "cause": "The parallel I/O's fuse has broken.",
+      "measures": "Exchange the fuse."
+    },
+    {
+      "code": "L0091",
+      "level": "L",
+      "number": 91,
+      "power_cycle_reset": false,
+      "message": "Can't access the Special signal",
+      "cause": "This signal cannot be used in duplicate.",
+      "measures": "Change the output No., or change the dedicated output assignment parameter."
+    },
+    {
+      "code": "H0100",
+      "level": "H",
+      "number": 100,
+      "power_cycle_reset": true,
+      "message": "Temperature in the Controlle is too high",
+      "cause": "The intake fan is not operating, or the fan filter is clogged.",
+      "measures": "Check the operation of the intake fan, or clean or replace the fan filter if necessary."
+    },
+    {
+      "code": "L0101",
+      "level": "L",
+      "number": 101,
+      "power_cycle_reset": false,
+      "message": "Temperature in the Controlle is too high",
+      "cause": "The intake fan is not operating, or the fan filter is clogged.",
+      "measures": "Check the operation of the intake fan, or clean or replace the fan filter if necessary."
+    },
+    {
+      "code": "C0102",
+      "level": "C",
+      "number": 102,
+      "power_cycle_reset": false,
+      "message": "Temperature in the Controlle is too high",
+      "cause": "The intake fan is not operating, or the fan filter is clogged.",
+      "measures": "Check the operation of the intake fan, or clean or replace the fan filter if necessary."
+    },
+    {
+      "code": "L0110",
+      "level": "L",
+      "number": 110,
+      "power_cycle_reset": false,
+      "message": "Overload(UPS)The UPS is spent",
+      "cause": "The UPS is spent.",
+      "measures": "Replace the UPS."
+    },
+    {
+      "code": "C0111",
+      "level": "C",
+      "number": 111,
+      "power_cycle_reset": false,
+      "message": "No UPS's battery voltage.",
+      "cause": "The UPS's battery is spent.",
+      "measures": "Replace the UPS's battery."
+    },
+    {
+      "code": "C0112",
+      "level": "C",
+      "number": 112,
+      "power_cycle_reset": false,
+      "message": "Open the UPS's battery cover",
+      "cause": "Open the UPS's battery cover",
+      "measures": "Close the UPS's battery cover"
+    },
+    {
+      "code": "H0500",
+      "level": "H",
+      "number": 500,
+      "power_cycle_reset": true,
+      "message": "Servo axis setting error",
+      "cause": "The servo amplifier's axis setting rotary switch setting is illegal.",
+      "measures": "\u8a2d\u5b9a\u304c\u9593\u9055\u3063\u3066\u3044\u307e\u3059\u306e\u3067\u30e1\u30fc\u30ab\u30fc\u307e\u3067\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002"
+    },
+    {
+      "code": "H0510",
+      "level": "H",
+      "number": 510,
+      "power_cycle_reset": true,
+      "message": "The converter setting is illegal",
+      "cause": "The converter's rotary switch setting and parameter SVPTYP setting do not match.",
+      "measures": "\u8a2d\u5b9a\u304c\u9593\u9055\u3063\u3066\u3044\u307e\u3059\u306e\u3067\u30e1\u30fc\u30ab\u30fc\u307e\u3067\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002"
+    },
+    {
+      "code": "H0520",
+      "level": "H",
+      "number": 520,
+      "power_cycle_reset": true,
+      "message": "Robot axis setting illegal",
+      "cause": "The setting of the servo axis used by the mechanism is duplicated with another mechanism's axis.",
+      "measures": "\u8a2d\u5b9a\u304c\u9593\u9055\u3063\u3066\u3044\u307e\u3059\u306e\u3067\u30e1\u30fc\u30ab\u30fc\u307e\u3067\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002"
+    },
+    {
+      "code": "H0530",
+      "level": "H",
+      "number": 530,
+      "power_cycle_reset": true,
+      "message": "Servo sys. error (memory)",
+      "cause": "The servo amplifier memory IC's check sum is illegal.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0540",
+      "level": "H",
+      "number": 540,
+      "power_cycle_reset": true,
+      "message": "Servo sys. error (over run)",
+      "cause": "The servo amplifier software data process did not end within the specified time.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0550",
+      "level": "H",
+      "number": 550,
+      "power_cycle_reset": true,
+      "message": "Servo sys. error (mag. pole pos)",
+      "cause": "An error was detected in the magnetic pole position detection signal of the detector.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0560",
+      "level": "H",
+      "number": 560,
+      "power_cycle_reset": true,
+      "message": "Servo sys. error (A/D",
+      "cause": "An error was found in the servo amplifier's A/D converter during initialization.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer. 1-4 Error no. H0086 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H0570",
+      "level": "H",
+      "number": 570,
+      "power_cycle_reset": true,
+      "message": "Encoder error (EEPROM)",
+      "cause": "An error was detected in EEPROM data of the serial pulse encoder.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0580",
+      "level": "H",
+      "number": 580,
+      "power_cycle_reset": true,
+      "message": "Encoder error (LED)",
+      "cause": "The LED of the serial pulse encoder has been deteriorated.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0590",
+      "level": "H",
+      "number": 590,
+      "power_cycle_reset": true,
+      "message": "Encoder error (position data)",
+      "cause": "An error was detected in the position data within a single rotation of the encoder.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0600",
+      "level": "H",
+      "number": 600,
+      "power_cycle_reset": true,
+      "message": "Encoder no-signal detection 1",
+      "cause": "An error was detected in the operating input of the detector mounted on the edge of the motor.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0610",
+      "level": "H",
+      "number": 610,
+      "power_cycle_reset": true,
+      "message": "Encoder no-signal detection 2",
+      "cause": "An error was detected in the operating input of the detector mounted on the edge of the machine.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0620",
+      "level": "H",
+      "number": 620,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier LSI error",
+      "cause": "An operation error was detected in the LSI of the servo amplifier.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0630",
+      "level": "H",
+      "number": 630,
+      "power_cycle_reset": true,
+      "message": "Unused axis servo error",
+      "cause": "A power module error occurred in an axis which not use the movement control.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0640",
+      "level": "H",
+      "number": 640,
+      "power_cycle_reset": true,
+      "message": "System error (ABS CPU)",
+      "cause": "An error in the CPU of the absolute position linear scale was detected.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0650",
+      "level": "H",
+      "number": 650,
+      "power_cycle_reset": true,
+      "message": "Absolute position error",
+      "cause": "An error was detected in the absolute position detection circuit within the absolute position linear scale.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0660",
+      "level": "H",
+      "number": 660,
+      "power_cycle_reset": true,
+      "message": "Incremental position error",
+      "cause": "An error was detected in the relative position detection circuit within the absolute position linear scale.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0670",
+      "level": "H",
+      "number": 670,
+      "power_cycle_reset": true,
+      "message": "Encoder CPU error",
+      "cause": "An error was detected in the CPU of the position detector.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0680",
+      "level": "H",
+      "number": 680,
+      "power_cycle_reset": true,
+      "message": "Encoder LED error",
+      "cause": "Deterioration of the position detector's LED was detected.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0690",
+      "level": "H",
+      "number": 690,
+      "power_cycle_reset": true,
+      "message": "Regeneration circuit error",
+      "cause": "A regenerative transistor or resistor error was detected.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0700",
+      "level": "H",
+      "number": 700,
+      "power_cycle_reset": true,
+      "message": "P.S. external contactor fusing",
+      "cause": "The contactor was turned ON even though READY is OFF.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0710",
+      "level": "H",
+      "number": 710,
+      "power_cycle_reset": true,
+      "message": "Power supply rush relay error",
+      "cause": "The relay for the rush resistance short-circuit doesn't turn on.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0720",
+      "level": "H",
+      "number": 720,
+      "power_cycle_reset": true,
+      "message": "Power supply watch dog",
+      "cause": "The converter software process did not end within the specified time.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer. Error no. H0570 * 1-5 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H0730",
+      "level": "H",
+      "number": 730,
+      "power_cycle_reset": true,
+      "message": "Power supply rush relay fusing",
+      "cause": "The rush resistance short-circuit relay did not turn OFF.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0740",
+      "level": "H",
+      "number": 740,
+      "power_cycle_reset": true,
+      "message": "Power supply main circuit error",
+      "cause": "The charge operation of the main circuit capacitor is not normal.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0750",
+      "level": "H",
+      "number": 750,
+      "power_cycle_reset": true,
+      "message": "Power supply memory error",
+      "cause": "An error in the memory circuit of converter was detected.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0760",
+      "level": "H",
+      "number": 760,
+      "power_cycle_reset": true,
+      "message": "Power supply/AD converter error",
+      "cause": "An error was detected in the A/D converter of the converter.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0780",
+      "level": "H",
+      "number": 780,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier watch dog",
+      "cause": "The servo amplifier software process is not operating correctly.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0790",
+      "level": "H",
+      "number": 790,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier boad error",
+      "cause": "An error was detected in the servo amplifier's PCB.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0800",
+      "level": "H",
+      "number": 800,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier clock error",
+      "cause": "An error was detected in the servo amplifier's clock.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0810",
+      "level": "H",
+      "number": 810,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier undervotlage",
+      "cause": "The PN bus voltage dropped to 200V or less. Momentary power failure may have occurred.",
+      "measures": "Check the contactor operation and input voltage. Turn the power OFF and ON once."
+    },
+    {
+      "code": "H0820",
+      "level": "H",
+      "number": 820,
+      "power_cycle_reset": true,
+      "message": "Motor ground fault",
+      "cause": "A motor ground fault was detected. A connection or conductance error may have occurred in the motor cable .",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0830",
+      "level": "H",
+      "number": 830,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier overvoltage",
+      "cause": "The PN bus voltage rose to 400V or more.",
+      "measures": "Check the primary power supply voltage. Turn the power OFF and ON once."
+    },
+    {
+      "code": "H0840",
+      "level": "H",
+      "number": 840,
+      "power_cycle_reset": true,
+      "message": "Instantaneous power failure(SRV)",
+      "cause": "A power shutdown status of 50 msec or longer has occurred.",
+      "measures": "Check the power voltage. Turn the power OFF and ON once."
+    },
+    {
+      "code": "H0850",
+      "level": "H",
+      "number": 850,
+      "power_cycle_reset": true,
+      "message": "Power supply voltage incorrect",
+      "cause": "The input power (L1, L2, L3) has an open phase, the voltage is not within the specifications, or the 100V/200V specifications changeover setting is incorrect.",
+      "measures": "Check the power connection, power state or the setting."
+    },
+    {
+      "code": "H0860",
+      "level": "H",
+      "number": 860,
+      "power_cycle_reset": false,
+      "message": "Power supply overvoltage",
+      "cause": "The voltage across the converter's L+ and L- exceeded 410V.",
+      "measures": "Check the power supply connection and power supply state."
+    },
+    {
+      "code": "H0870",
+      "level": "H",
+      "number": 870,
+      "power_cycle_reset": true,
+      "message": "Encoder thermal error",
+      "cause": "The built-in thermal protector of the serial pulse encoder has been activated.",
+      "measures": "Turn the controller power OFF, wait a while, and then turn ON again. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0880",
+      "level": "H",
+      "number": 880,
+      "power_cycle_reset": true,
+      "message": "Power module overheat",
+      "cause": "Overheating of the power module regenerative resistor was detected.",
+      "measures": "Turn the controller power OFF, wait a while, and then turn ON again. When it comes back, contact to the dealer. 1-6 Error no. H0730 * 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H0890",
+      "level": "H",
+      "number": 890,
+      "power_cycle_reset": false,
+      "message": "Servo amplifier motor overheat",
+      "cause": "The position detector's thermal protector activated.",
+      "measures": "Turn the controller power OFF, wait a while, and then turn ON again. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0900",
+      "level": "H",
+      "number": 900,
+      "power_cycle_reset": true,
+      "message": "Absolute position overspeed",
+      "cause": "It moved 45 mm/sec or faster with the absolute position linear scale during initialization.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0910",
+      "level": "H",
+      "number": 910,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier overspeed",
+      "cause": "A speed exceeding the motor's tolerable speed was detected.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0920",
+      "level": "H",
+      "number": 920,
+      "power_cycle_reset": true,
+      "message": "Power module overcurrent",
+      "cause": "A servo amplifier or power supply overcurrent was detected. An error was detected in the servo ampli- fier's gate circuit. A connection or conductance error may have occurred in the motor cable .",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0930",
+      "level": "H",
+      "number": 930,
+      "power_cycle_reset": true,
+      "message": "Motor overcurrent",
+      "cause": "An excessive current flowed to the motor, or the A/D converter output is abnormal. An abnormality may have occurred in the connection of the motor's power line.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H0940",
+      "level": "H",
+      "number": 940,
+      "power_cycle_reset": false,
+      "message": "Overload (over weight 1)",
+      "cause": "It moved within the overload area set by the SVOLL and SVOLT parameters.",
+      "measures": "Check the load weight and the robot pressing, etc."
+    },
+    {
+      "code": "H0950",
+      "level": "H",
+      "number": 950,
+      "power_cycle_reset": false,
+      "message": "Overload (over weight 2)",
+      "cause": "The maximum output current continued for more than one second.",
+      "measures": "Check the load weight and the robot pressing, etc."
+    },
+    {
+      "code": "H0960",
+      "level": "H",
+      "number": 960,
+      "power_cycle_reset": false,
+      "message": "Overload (position error over 1)",
+      "cause": "When the servo was turned ON, the actual position in respect to the command exceeded the excessive error width.",
+      "measures": "Check the load weight and the robot pressing, etc."
+    },
+    {
+      "code": "H0970",
+      "level": "H",
+      "number": 970,
+      "power_cycle_reset": false,
+      "message": "Overload (position dollop over 2)",
+      "cause": "When the servo was turned ON, the actual position in respect to the command exceeded the excessive error width.",
+      "measures": "Check whether the axis moved due to arm dropping or an external force when the servo was turned ON."
+    },
+    {
+      "code": "H0980",
+      "level": "H",
+      "number": 980,
+      "power_cycle_reset": false,
+      "message": "Overload (position dollop over 3)",
+      "cause": "The motor current was not flowing when an excessive error was detected. An abnormality may have occurred in the connection of the motor's power line.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1010",
+      "level": "H",
+      "number": 1010,
+      "power_cycle_reset": false,
+      "message": "Collision detection",
+      "cause": "A collision was detected.",
+      "measures": "Release the collision state."
+    },
+    {
+      "code": "H1020",
+      "level": "H",
+      "number": 1020,
+      "power_cycle_reset": false,
+      "message": "Servo AMP over-regeneration",
+      "cause": "The additional axis exceeded the regenerative performance limit.",
+      "measures": "Check the regenerative capacity and parameters for the additional axis."
+    },
+    {
+      "code": "H1030",
+      "level": "H",
+      "number": 1030,
+      "power_cycle_reset": true,
+      "message": "Power supply over-regeneration",
+      "cause": "The converter's regenerative performance limit was exceeded.",
+      "measures": "Wait at least 15 minutes in the power ON state, and then turn the power OFF and ON."
+    },
+    {
+      "code": "H1040",
+      "level": "H",
+      "number": 1040,
+      "power_cycle_reset": true,
+      "message": "Encoder init communication error",
+      "cause": "An abnormality may have occurred in the position detector cable connection.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1070",
+      "level": "H",
+      "number": 1070,
+      "power_cycle_reset": true,
+      "message": "Encoder communication error",
+      "cause": "Communication with the position detector was cut off.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer. Error no. H0890 1-7 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H1080",
+      "level": "H",
+      "number": 1080,
+      "power_cycle_reset": true,
+      "message": "Servo AMP communication error",
+      "cause": "An abnormality may have occurred in the communication cable connection.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1090",
+      "level": "H",
+      "number": 1090,
+      "power_cycle_reset": true,
+      "message": "Servo AMP initialization error",
+      "cause": "An abnormality may have occurred in the servo axis settings (parameters, rotary switches).",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1100",
+      "level": "H",
+      "number": 1100,
+      "power_cycle_reset": true,
+      "message": "Servo AMP communication error",
+      "cause": "An abnormality may have occurred in the communication cable connection.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1110",
+      "level": "H",
+      "number": 1110,
+      "power_cycle_reset": false,
+      "message": "SRV-AMP RS-232C comm. error",
+      "cause": "A communication error was detected between the servo amplifier and PC.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1120",
+      "level": "H",
+      "number": 1120,
+      "power_cycle_reset": true,
+      "message": "Encoder ABS position data lost",
+      "cause": "The absolute position data in the position detector was lost.",
+      "measures": "Check the battery voltage and position detector cable."
+    },
+    {
+      "code": "H1130",
+      "level": "H",
+      "number": 1130,
+      "power_cycle_reset": true,
+      "message": "Encoder per rotation data error",
+      "cause": "An error was detected in the position detector's one rotation data.",
+      "measures": "Check the repeatability and ambient environment. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1140",
+      "level": "H",
+      "number": 1140,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error (CRC)",
+      "cause": "A CRC error was detected in the data from the RC.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1150",
+      "level": "H",
+      "number": 1150,
+      "power_cycle_reset": true,
+      "message": "Large command position",
+      "cause": "The command position from the RC is abnormally large.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1160",
+      "level": "H",
+      "number": 1160,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. error (frame)",
+      "cause": "An error was detected in the communication frame from the RC.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1170",
+      "level": "H",
+      "number": 1170,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. error (info)",
+      "cause": "An error was detected in the communication information from the RC.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1180",
+      "level": "H",
+      "number": 1180,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier feedback error 1",
+      "cause": "Pulses skipped in the position detector's feedback signal.",
+      "measures": "Check the detector cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1190",
+      "level": "H",
+      "number": 1190,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier feedback error 2",
+      "cause": "Displacement occurred in the feedback amounts between the detectors on the motor edge and on the machine edge.",
+      "measures": "Check the detector cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1200",
+      "level": "H",
+      "number": 1200,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error (CRC)",
+      "cause": "A CRC error was detected in the communication data from the servo amplifier.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1210",
+      "level": "H",
+      "number": 1210,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error (ID)",
+      "cause": "A data ID error was detected in the communication data from the servo amplifier.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1220",
+      "level": "H",
+      "number": 1220,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error(axisNo)",
+      "cause": "An axis No. error was detected in the communication data from the servo amplifier.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1230",
+      "level": "H",
+      "number": 1230,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error(SubID)",
+      "cause": "A Sub ID error was detected in the communication data from the servo amplifier.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer. 1-8 Error no. H1080 * 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H1240",
+      "level": "H",
+      "number": 1240,
+      "power_cycle_reset": true,
+      "message": "SRV-AMP Comm. data error(frame)",
+      "cause": "An No. of received frames error was detected in the communication data from the servo amplifier.",
+      "measures": "Check the communication cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1250",
+      "level": "H",
+      "number": 1250,
+      "power_cycle_reset": true,
+      "message": "Servo amplifier parameter error",
+      "cause": "An error was detected in the servo parameter.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1260",
+      "level": "C",
+      "number": 1260,
+      "power_cycle_reset": false,
+      "message": "Encoder communication error",
+      "cause": "Initial communication could not be established with the low-speed serial type absolute position linear scale.",
+      "measures": "Check the detector cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1270",
+      "level": "C",
+      "number": 1270,
+      "power_cycle_reset": false,
+      "message": "Encoder communication error",
+      "cause": "The serial data of absolute position was abnormally transmitted.",
+      "measures": "Check the detector cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1280",
+      "level": "C",
+      "number": 1280,
+      "power_cycle_reset": false,
+      "message": "Encoder serial format error",
+      "cause": "Absolute position serial data format was incorrect.",
+      "measures": "Check the detector cable connection and conductivity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1290",
+      "level": "C",
+      "number": 1290,
+      "power_cycle_reset": false,
+      "message": "Absolute position fluctuation",
+      "cause": "The absolute position data fluctuated when the power was turned ON.",
+      "measures": "Check whether the axis moved due to arm dropping or external force when the power was turned ON."
+    },
+    {
+      "code": "C1300",
+      "level": "C",
+      "number": 1300,
+      "power_cycle_reset": false,
+      "message": "Servo AMP MP scale F/B error",
+      "cause": "Excessive displacement was detected in the feedback amounts between the detector and the MP scale.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1310",
+      "level": "C",
+      "number": 1310,
+      "power_cycle_reset": false,
+      "message": "Servo AMP MP scale offset error",
+      "cause": "Excessive displacement was detected in the feedback amounts between the detector and the MP scale.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1320",
+      "level": "C",
+      "number": 1320,
+      "power_cycle_reset": false,
+      "message": "Multi-rotation data error",
+      "cause": "An error was detected in the position detector's multi-rotation data.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1330",
+      "level": "C",
+      "number": 1330,
+      "power_cycle_reset": false,
+      "message": "Encoder battery voltage low",
+      "cause": "The battery voltage supplied to the position detector dropped.",
+      "measures": "Replace the backup battery."
+    },
+    {
+      "code": "C1340",
+      "level": "C",
+      "number": 1340,
+      "power_cycle_reset": false,
+      "message": "Over-regeneration warning",
+      "cause": "The regenerative level of the additional axis has risen to 80% or more.",
+      "measures": "Check the regenerative capacity and parameters for the additional axis."
+    },
+    {
+      "code": "C1350",
+      "level": "C",
+      "number": 1350,
+      "power_cycle_reset": false,
+      "message": "Overload warning",
+      "cause": "The overload level reached 80% or more.",
+      "measures": "Check the load weight and the robot for collisions, etc."
+    },
+    {
+      "code": "C1360",
+      "level": "C",
+      "number": 1360,
+      "power_cycle_reset": false,
+      "message": "Absolute position counter error",
+      "cause": "An error was found in the position detector's pulses.",
+      "measures": "Check the battery voltage, and the connection and conductivity of the position detector cable. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1370",
+      "level": "C",
+      "number": 1370,
+      "power_cycle_reset": false,
+      "message": "Illegal parameter (servo)",
+      "cause": "A parameter was set exceeding the setting range.",
+      "measures": "The parameter has not been changed. Reset the correct value. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1380",
+      "level": "C",
+      "number": 1380,
+      "power_cycle_reset": false,
+      "message": "Removing control axis (servo)",
+      "cause": "An instruction to remove the axis was issued by the controller.",
+      "measures": "Cancel the instruction of removing axis. Error no. H1240 * 1-9 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H1390",
+      "level": "H",
+      "number": 1390,
+      "power_cycle_reset": false,
+      "message": "Emergency stop (Servo amplifier)",
+      "cause": "The controller emergency stop is being input.",
+      "measures": "Release the emergency stop state."
+    },
+    {
+      "code": "C1400",
+      "level": "C",
+      "number": 1400,
+      "power_cycle_reset": false,
+      "message": "Regeneration(AUX) frequency over",
+      "cause": "Regeneration at the limit of the converter's regenerative performance has occurred frequently.",
+      "measures": "Check the regeneration capacity. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1410",
+      "level": "H",
+      "number": 1410,
+      "power_cycle_reset": false,
+      "message": "Instantaneous power failure(SRV)",
+      "cause": "Momentary power failure of 25 msec or longer has occurred.",
+      "measures": "Check the power supply."
+    },
+    {
+      "code": "C1420",
+      "level": "C",
+      "number": 1420,
+      "power_cycle_reset": false,
+      "message": "Over-regeneration warning",
+      "cause": "The regeneration level reached 80\uff05 or more.",
+      "measures": "Lower the robot's movement speed."
+    },
+    {
+      "code": "C1430",
+      "level": "C",
+      "number": 1430,
+      "power_cycle_reset": false,
+      "message": "Servo amplifier main circuit OFF",
+      "cause": "The servo for the additional axis was turned ON when the main circuit power was OFF.",
+      "measures": "Turn the additional axis' main circuit power ON."
+    },
+    {
+      "code": "H1440",
+      "level": "H",
+      "number": 1440,
+      "power_cycle_reset": true,
+      "message": "System error (servo 2)",
+      "cause": "Trouble occurred in the current processing processor.",
+      "measures": "Turn the power OFF and ON once. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1560",
+      "level": "H",
+      "number": 1560,
+      "power_cycle_reset": false,
+      "message": "Excessive error 4",
+      "cause": "The axis moved while executing servo ON processing.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1570",
+      "level": "H",
+      "number": 1570,
+      "power_cycle_reset": false,
+      "message": "Non-registered servo error",
+      "cause": "A non-registered servo alarm occurred.",
+      "measures": "If the alarm cannot be reset, turn the power OFF and ON. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1580",
+      "level": "C",
+      "number": 1580,
+      "power_cycle_reset": false,
+      "message": "Non-registered servo warning",
+      "cause": "A non-registered servo warning occurred.",
+      "measures": "If the alarm cannot be reset, turn the power OFF and ON. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1600",
+      "level": "H",
+      "number": 1600,
+      "power_cycle_reset": true,
+      "message": "System error (No robot setted)",
+      "cause": "None of the mechanisms are set.",
+      "measures": "Set the mechanisms for at least one unit. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1610",
+      "level": "H",
+      "number": 1610,
+      "power_cycle_reset": true,
+      "message": "System error (illegal MEMECH)",
+      "cause": "The mechanism module name is illegal or not registered.",
+      "measures": "Correctly set. When it comes back, contact to the dealer. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1620",
+      "level": "C",
+      "number": 1620,
+      "power_cycle_reset": false,
+      "message": "Illegal robot No.",
+      "cause": "The designated mechanism No. is incorrect.",
+      "measures": "Set the correct mechanism No."
+    },
+    {
+      "code": "C1630",
+      "level": "C",
+      "number": 1630,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (during error)",
+      "cause": "The servo cannot be turned ON during a servo error.",
+      "measures": "Reset the servo error before turning the servo ON."
+    },
+    {
+      "code": "C1640",
+      "level": "C",
+      "number": 1640,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (DEADMAN OFF)",
+      "cause": "The servo cannot be turned ON while the deadman switch is OFF.",
+      "measures": "Turn the deadman switch ON before turning the servo ON."
+    },
+    {
+      "code": "C1650",
+      "level": "C",
+      "number": 1650,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (brake OFF)",
+      "cause": "The servo cannot be turned ON when there is an axis with the brakes released.",
+      "measures": "Lock the brakes for all axes before turning the servo ON."
+    },
+    {
+      "code": "C1660",
+      "level": "C",
+      "number": 1660,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (SRVON process)",
+      "cause": "The servo cannot be turned ON during the servo ON process.",
+      "measures": "Operate it after servo ON process is finished. 1-10 Error no. H1390 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "C1670",
+      "level": "C",
+      "number": 1670,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (SRVOFF process)",
+      "cause": "The servo OFF process is being carried out.",
+      "measures": "Operate it after servo OFF process is finished."
+    },
+    {
+      "code": "H1680",
+      "level": "H",
+      "number": 1680,
+      "power_cycle_reset": false,
+      "message": "Cannot servo ON (timeout)",
+      "cause": "The servo did not turn ON within the specified time.",
+      "measures": "Check for errors in the servo amplifier. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H1681",
+      "level": "H",
+      "number": 1681,
+      "power_cycle_reset": false,
+      "message": "Unexpected servo OFF",
+      "cause": "The servo turned OFF unexpectedly.",
+      "measures": "Check for errors in the servo amplifier. When it comes back, contact to the dealer."
+    },
+    {
+      "code": "C1690",
+      "level": "C",
+      "number": 1690,
+      "power_cycle_reset": false,
+      "message": "Cannot brake operation (DEADMAN)",
+      "cause": "The brakes cannot be released while the deadman switch is OFF.",
+      "measures": "Turn the deadman switch ON before operating."
+    },
+    {
+      "code": "C1700",
+      "level": "C",
+      "number": 1700,
+      "power_cycle_reset": false,
+      "message": "Cannot brake operation (EMG)",
+      "cause": "The brakes cannot be released while the emergency stop is input.",
+      "measures": "Release the emergency stop state before operating."
+    },
+    {
+      "code": "C1710",
+      "level": "C",
+      "number": 1710,
+      "power_cycle_reset": false,
+      "message": "Cannot brake operation (SRVON)",
+      "cause": "The brakes cannot be operated during servo ON.",
+      "measures": "Turn the servo OFF before operating."
+    },
+    {
+      "code": "C1720",
+      "level": "C",
+      "number": 1720,
+      "power_cycle_reset": false,
+      "message": "Cannot brake operation (BRK OFF)",
+      "cause": "The brakes cannot be released during the brake release process.",
+      "measures": "Operate it after brake is released."
+    },
+    {
+      "code": "C1730",
+      "level": "C",
+      "number": 1730,
+      "power_cycle_reset": false,
+      "message": "Cannot brake operation (BRK ON)",
+      "cause": "The brakes cannot be locked during the brake lock process.",
+      "measures": "Operate it after brake is locked."
+    },
+    {
+      "code": "C1740",
+      "level": "C",
+      "number": 1740,
+      "power_cycle_reset": false,
+      "message": "Servo parameter change failure",
+      "cause": "Other parameters cannot be changed during the parameter change process.",
+      "measures": "Carry out the parameter change process again."
+    },
+    {
+      "code": "C1750",
+      "level": "C",
+      "number": 1750,
+      "power_cycle_reset": false,
+      "message": "Servo parameter change failure",
+      "cause": "Changes of the servo parameter failed.",
+      "measures": "Carry out the parameter change process again."
+    },
+    {
+      "code": "C1760",
+      "level": "C",
+      "number": 1760,
+      "power_cycle_reset": false,
+      "message": "Illegal origin data",
+      "cause": "The origin setting data is not correct.",
+      "measures": "Set the correct origin setting data."
+    },
+    {
+      "code": "C1770",
+      "level": "C",
+      "number": 1770,
+      "power_cycle_reset": false,
+      "message": "Origin setting incomplete",
+      "cause": "The origin is not set.",
+      "measures": "Re-execute after setting the origin."
+    },
+    {
+      "code": "C1780",
+      "level": "C",
+      "number": 1780,
+      "power_cycle_reset": false,
+      "message": "Cannot set origin (illegal axis)",
+      "cause": "The origin was not set simultaneously for the interference axis.",
+      "measures": "Set the origin simultaneously for the interference axis."
+    },
+    {
+      "code": "C1781",
+      "level": "C",
+      "number": 1781,
+      "power_cycle_reset": false,
+      "message": "Cannot set origin (SRVON)",
+      "cause": "The origin was set during servo ON.",
+      "measures": "Turn the servo OFF before setting the origin."
+    },
+    {
+      "code": "H1790",
+      "level": "H",
+      "number": 1790,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (MEJAR)",
+      "cause": "The operation range setting parameter MEJAR setting is incorrect.",
+      "measures": "Correct the parameter MEJAR."
+    },
+    {
+      "code": "H1800",
+      "level": "H",
+      "number": 1800,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (MEMAR)",
+      "cause": "The ABS operation range setting parameter MEMAR setting is incorrect.",
+      "measures": "Correct the parameter MEMAR. Error no. C1670 1-11 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H1810",
+      "level": "H",
+      "number": 1810,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (USERORG)",
+      "cause": "The user origin setting parameter USERORG setting is incorrect.",
+      "measures": "Correct the parameter USERORG."
+    },
+    {
+      "code": "L1820",
+      "level": "L",
+      "number": 1820,
+      "power_cycle_reset": false,
+      "message": "Pos. data disagree.Check origin",
+      "cause": "Position data changed during power off.",
+      "measures": "Check the origin, re-install if shifting."
+    },
+    {
+      "code": "L1830",
+      "level": "L",
+      "number": 1830,
+      "power_cycle_reset": false,
+      "message": "JRC. Exseeds the Pos. limit",
+      "cause": "The JRC instruction exceeding the operation range was executed.",
+      "measures": "Check the current position and the operating range."
+    },
+    {
+      "code": "L1840",
+      "level": "L",
+      "number": 1840,
+      "power_cycle_reset": false,
+      "message": "JRC Qtt. Setting Too Large",
+      "cause": "The movement amount setting of the JRC is excessive.",
+      "measures": "Correct the JRCQTT parameter."
+    },
+    {
+      "code": "C1850",
+      "level": "C",
+      "number": 1850,
+      "power_cycle_reset": false,
+      "message": "Instantaneous power failure",
+      "cause": "A power failure status of 20 msec or longer has occurred.",
+      "measures": "Check the power supply connection and power supply state."
+    },
+    {
+      "code": "L1860",
+      "level": "L",
+      "number": 1860,
+      "power_cycle_reset": false,
+      "message": "Illegal parameter (TLC)",
+      "cause": "The setting of the TLC parameter that sets the approach direction was incorrect.",
+      "measures": "Correct the TLC parameter. (=X/Y/Z)"
+    },
+    {
+      "code": "L2000",
+      "level": "L",
+      "number": 2000,
+      "power_cycle_reset": false,
+      "message": "The servo is OFF",
+      "cause": "Because servo is turned off, the robot can't move.",
+      "measures": "Turn the servo ON and then restart."
+    },
+    {
+      "code": "L2010",
+      "level": "L",
+      "number": 2010,
+      "power_cycle_reset": false,
+      "message": "Pulse output was not possible",
+      "cause": "There is an error in the pulse output designation.",
+      "measures": "Correct the program."
+    },
+    {
+      "code": "L2020",
+      "level": "L",
+      "number": 2020,
+      "power_cycle_reset": false,
+      "message": "Reading external position data",
+      "cause": "A command that cannot be executed while reading the external commands was executed.",
+      "measures": "Correct the program."
+    },
+    {
+      "code": "L2030",
+      "level": "L",
+      "number": 2030,
+      "power_cycle_reset": false,
+      "message": "JOG operation cannot be accepted",
+      "cause": "The JOG operation request was issued when the JOG operation request could not be accepted.",
+      "measures": "Request again."
+    },
+    {
+      "code": "H2031",
+      "level": "H",
+      "number": 2031,
+      "power_cycle_reset": true,
+      "message": "\"Illegal parameter(JOGTSJ,JOGJSP)\"",
+      "cause": "The parameter JOGTSJ, JOGJSP settings are not correct.",
+      "measures": "Set the set dimension to 5 or less."
+    },
+    {
+      "code": "H2091",
+      "level": "H",
+      "number": 2091,
+      "power_cycle_reset": false,
+      "message": "In interference zone1",
+      "cause": "Movement outside the user-defined area 1 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2092",
+      "level": "H",
+      "number": 2092,
+      "power_cycle_reset": false,
+      "message": "In interference zone2",
+      "cause": "Movement outside the user-defined area 2 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2093",
+      "level": "H",
+      "number": 2093,
+      "power_cycle_reset": false,
+      "message": "In interference zone3",
+      "cause": "Movement outside the user-defined area 3 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2094",
+      "level": "H",
+      "number": 2094,
+      "power_cycle_reset": false,
+      "message": "In interference zone4",
+      "cause": "Movement outside the user-defined area 4 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2095",
+      "level": "H",
+      "number": 2095,
+      "power_cycle_reset": false,
+      "message": "In interference zone5",
+      "cause": "Movement outside the user-defined area 5 range was attempted.",
+      "measures": "Adjust the position. 1-12 Error no. H1810 * 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2096",
+      "level": "H",
+      "number": 2096,
+      "power_cycle_reset": false,
+      "message": "In interference zone6",
+      "cause": "Movement outside the user-defined area 6 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2097",
+      "level": "H",
+      "number": 2097,
+      "power_cycle_reset": false,
+      "message": "In interference zone7",
+      "cause": "Movement outside the user-defined area 7 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2098",
+      "level": "H",
+      "number": 2098,
+      "power_cycle_reset": false,
+      "message": "In interference zone8",
+      "cause": "Movement outside the user-defined area 8 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2099",
+      "level": "H",
+      "number": 2099,
+      "power_cycle_reset": false,
+      "message": "In interference zone9",
+      "cause": "Movement outside the user-defined area 9 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2100",
+      "level": "H",
+      "number": 2100,
+      "power_cycle_reset": false,
+      "message": "In interference zone10",
+      "cause": "Movement outside the user-defined area 10 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2101",
+      "level": "H",
+      "number": 2101,
+      "power_cycle_reset": false,
+      "message": "In interference zone11",
+      "cause": "Movement outside the user-defined area 11 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2102",
+      "level": "H",
+      "number": 2102,
+      "power_cycle_reset": false,
+      "message": "In interference zone12",
+      "cause": "Movement outside the user-defined area 12 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2103",
+      "level": "H",
+      "number": 2103,
+      "power_cycle_reset": false,
+      "message": "In interference zone13",
+      "cause": "Movement outside the user-defined area 13 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2104",
+      "level": "H",
+      "number": 2104,
+      "power_cycle_reset": false,
+      "message": "In interference zone14",
+      "cause": "Movement outside the user-defined area 14 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2105",
+      "level": "H",
+      "number": 2105,
+      "power_cycle_reset": false,
+      "message": "In interference zone15",
+      "cause": "Movement outside the user-defined area 15 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2106",
+      "level": "H",
+      "number": 2106,
+      "power_cycle_reset": false,
+      "message": "In interference zone16",
+      "cause": "Movement outside the user-defined area 16 range was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2111",
+      "level": "H",
+      "number": 2111,
+      "power_cycle_reset": false,
+      "message": "Free plane 1 overrun",
+      "cause": "Movement outside the plane defined with free plane 1 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2112",
+      "level": "H",
+      "number": 2112,
+      "power_cycle_reset": false,
+      "message": "Free plane 2 overrun",
+      "cause": "Movement outside the plane defined with free plane 2 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2113",
+      "level": "H",
+      "number": 2113,
+      "power_cycle_reset": false,
+      "message": "Free plane 3 overrun",
+      "cause": "Movement outside the plane defined with free plane 3 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2114",
+      "level": "H",
+      "number": 2114,
+      "power_cycle_reset": false,
+      "message": "Free plane 4 overrun",
+      "cause": "Movement outside the plane defined with free plane 4 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2115",
+      "level": "H",
+      "number": 2115,
+      "power_cycle_reset": false,
+      "message": "Free plane 5 overrun",
+      "cause": "Movement outside the plane defined with free plane 5 was attempted.",
+      "measures": "Adjust the position. Error no. H2096 1-13 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2116",
+      "level": "H",
+      "number": 2116,
+      "power_cycle_reset": false,
+      "message": "Free plane 6 overrun",
+      "cause": "Movement outside the plane defined with free plane 6 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2117",
+      "level": "H",
+      "number": 2117,
+      "power_cycle_reset": false,
+      "message": "Free plane 7 overrun",
+      "cause": "Movement outside the plane defined with free plane 7 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2118",
+      "level": "H",
+      "number": 2118,
+      "power_cycle_reset": false,
+      "message": "Free plane 8 overrun",
+      "cause": "Movement outside the plane defined with free plane 8 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2119",
+      "level": "H",
+      "number": 2119,
+      "power_cycle_reset": false,
+      "message": "Free plane 9 overrun",
+      "cause": "Movement outside the plane defined with free plane 9 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2120",
+      "level": "H",
+      "number": 2120,
+      "power_cycle_reset": false,
+      "message": "Free plane 10 overrun",
+      "cause": "Movement outside the plane defined with free plane 10 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2121",
+      "level": "H",
+      "number": 2121,
+      "power_cycle_reset": false,
+      "message": "Free plane 11 overrun",
+      "cause": "Movement outside the plane defined with free plane 11 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2122",
+      "level": "H",
+      "number": 2122,
+      "power_cycle_reset": false,
+      "message": "Free plane 12 overrun",
+      "cause": "Movement outside the plane defined with free plane 12 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2123",
+      "level": "H",
+      "number": 2123,
+      "power_cycle_reset": false,
+      "message": "Free plane 13 overrun",
+      "cause": "Movement outside the plane defined with free plane 13 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2124",
+      "level": "H",
+      "number": 2124,
+      "power_cycle_reset": false,
+      "message": "Free plane 14 overrun",
+      "cause": "Movement outside the plane defined with free plane 14 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2125",
+      "level": "H",
+      "number": 2125,
+      "power_cycle_reset": false,
+      "message": "Free plane 15 overrun",
+      "cause": "Movement outside the plane defined with free plane 15 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2126",
+      "level": "H",
+      "number": 2126,
+      "power_cycle_reset": false,
+      "message": "Free plane 16 overrun",
+      "cause": "Movement outside the plane defined with free plane 16 was attempted.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2129",
+      "level": "H",
+      "number": 2129,
+      "power_cycle_reset": false,
+      "message": "Free plane limit data illegal",
+      "cause": "The free plane data setting value is illegal.",
+      "measures": "Input correct data."
+    },
+    {
+      "code": "H2130",
+      "level": "H",
+      "number": 2130,
+      "power_cycle_reset": false,
+      "message": "Speed is excessive (command)",
+      "cause": "The speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2131",
+      "level": "H",
+      "number": 2131,
+      "power_cycle_reset": false,
+      "message": "J1 Speed is excessive (command)",
+      "cause": "The axis 1 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2132",
+      "level": "H",
+      "number": 2132,
+      "power_cycle_reset": false,
+      "message": "J2 Speed is excessive (command)",
+      "cause": "The axis 2 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2133",
+      "level": "H",
+      "number": 2133,
+      "power_cycle_reset": false,
+      "message": "J3 Speed is excessive (command)",
+      "cause": "The axis 3 speed limit was exceeded.",
+      "measures": "Lower the speed. 1-14 Error no. H2116 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2134",
+      "level": "H",
+      "number": 2134,
+      "power_cycle_reset": false,
+      "message": "J4 Speed is excessive (command)",
+      "cause": "The axis 4 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2135",
+      "level": "H",
+      "number": 2135,
+      "power_cycle_reset": false,
+      "message": "J5 Speed is excessive (command)",
+      "cause": "The axis 5 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2136",
+      "level": "H",
+      "number": 2136,
+      "power_cycle_reset": false,
+      "message": "J6 Speed is excessive (command)",
+      "cause": "The axis 6 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2137",
+      "level": "H",
+      "number": 2137,
+      "power_cycle_reset": false,
+      "message": "J7 Speed is excessive (command)",
+      "cause": "The axis 7 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2138",
+      "level": "H",
+      "number": 2138,
+      "power_cycle_reset": false,
+      "message": "J8 Speed is excessive (command)",
+      "cause": "The axis 8 speed limit was exceeded.",
+      "measures": "Lower the speed."
+    },
+    {
+      "code": "H2140",
+      "level": "H",
+      "number": 2140,
+      "power_cycle_reset": false,
+      "message": "ABS limit over",
+      "cause": "The ABS limit was exceeded",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2141",
+      "level": "H",
+      "number": 2141,
+      "power_cycle_reset": false,
+      "message": "J1 +ABS limit over",
+      "cause": "The axis 1 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2142",
+      "level": "H",
+      "number": 2142,
+      "power_cycle_reset": false,
+      "message": "J2 +ABS limit over",
+      "cause": "The axis 2 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2143",
+      "level": "H",
+      "number": 2143,
+      "power_cycle_reset": false,
+      "message": "J3 +ABS limit over",
+      "cause": "The axis 3 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2144",
+      "level": "H",
+      "number": 2144,
+      "power_cycle_reset": false,
+      "message": "J4 +ABS limit over",
+      "cause": "The axis 4 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2145",
+      "level": "H",
+      "number": 2145,
+      "power_cycle_reset": false,
+      "message": "J5 +ABS limit over",
+      "cause": "The axis 5 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2146",
+      "level": "H",
+      "number": 2146,
+      "power_cycle_reset": false,
+      "message": "J6 +ABS limit over",
+      "cause": "The axis 6 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2147",
+      "level": "H",
+      "number": 2147,
+      "power_cycle_reset": false,
+      "message": "J7 +ABS limit over",
+      "cause": "The axis 7 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2148",
+      "level": "H",
+      "number": 2148,
+      "power_cycle_reset": false,
+      "message": "J8 +ABS limit over",
+      "cause": "The axis 8 + ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2151",
+      "level": "H",
+      "number": 2151,
+      "power_cycle_reset": false,
+      "message": "J1 -ABS limit over",
+      "cause": "The axis 1 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2152",
+      "level": "H",
+      "number": 2152,
+      "power_cycle_reset": false,
+      "message": "J2 -ABS limit over",
+      "cause": "The axis 2 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key. Error no. H2134 1-15 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2153",
+      "level": "H",
+      "number": 2153,
+      "power_cycle_reset": false,
+      "message": "J3 -ABS limit over",
+      "cause": "The axis 3 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2154",
+      "level": "H",
+      "number": 2154,
+      "power_cycle_reset": false,
+      "message": "J4 -ABS limit over",
+      "cause": "The axis 4 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2155",
+      "level": "H",
+      "number": 2155,
+      "power_cycle_reset": false,
+      "message": "J5 -ABS limit over",
+      "cause": "The axis 5 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2156",
+      "level": "H",
+      "number": 2156,
+      "power_cycle_reset": false,
+      "message": "J6 -ABS limit over",
+      "cause": "The axis 6 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2157",
+      "level": "H",
+      "number": 2157,
+      "power_cycle_reset": false,
+      "message": "J7 -ABS limit over",
+      "cause": "The axis 7 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2158",
+      "level": "H",
+      "number": 2158,
+      "power_cycle_reset": false,
+      "message": "J8 -ABS limit over",
+      "cause": "The axis 8 - ABS limit was exceeded.",
+      "measures": "Move into the operation range with JOG operation while holding down the LS release key."
+    },
+    {
+      "code": "H2160",
+      "level": "H",
+      "number": 2160,
+      "power_cycle_reset": false,
+      "message": "Joint angle exceeds the limit",
+      "cause": "The joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2161",
+      "level": "H",
+      "number": 2161,
+      "power_cycle_reset": false,
+      "message": "J1(+) angle exceeds the limit",
+      "cause": "The axis 1 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2162",
+      "level": "H",
+      "number": 2162,
+      "power_cycle_reset": false,
+      "message": "J2(+) angle exceeds the limit",
+      "cause": "The axis 2 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2163",
+      "level": "H",
+      "number": 2163,
+      "power_cycle_reset": false,
+      "message": "J3(+) angle exceeds the limit",
+      "cause": "The axis 3 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2164",
+      "level": "H",
+      "number": 2164,
+      "power_cycle_reset": false,
+      "message": "J4(+) angle exceeds the limit",
+      "cause": "The axis 4 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2165",
+      "level": "H",
+      "number": 2165,
+      "power_cycle_reset": false,
+      "message": "J5(+) angle exceeds the limit",
+      "cause": "The axis 5 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2166",
+      "level": "H",
+      "number": 2166,
+      "power_cycle_reset": false,
+      "message": "J6(+) angle exceeds the limit",
+      "cause": "The axis 6 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2167",
+      "level": "H",
+      "number": 2167,
+      "power_cycle_reset": false,
+      "message": "J7(+) angle exceeds the limit",
+      "cause": "The axis 7 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2168",
+      "level": "H",
+      "number": 2168,
+      "power_cycle_reset": false,
+      "message": "J8(+) angle exceeds the limit",
+      "cause": "The axis 8 + Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2171",
+      "level": "H",
+      "number": 2171,
+      "power_cycle_reset": false,
+      "message": "J1(-) angle exceeds the limit",
+      "cause": "The axis 1 - Joint limit was exceeded.",
+      "measures": "Adjust the position. 1-16 Error no. H2153 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2172",
+      "level": "H",
+      "number": 2172,
+      "power_cycle_reset": false,
+      "message": "J2(-) angle exceeds the limit",
+      "cause": "The axis 2 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2173",
+      "level": "H",
+      "number": 2173,
+      "power_cycle_reset": false,
+      "message": "J3(-) angle exceeds the limit",
+      "cause": "The axis 3 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2174",
+      "level": "H",
+      "number": 2174,
+      "power_cycle_reset": false,
+      "message": "J4(-) angle exceeds the limit",
+      "cause": "The axis 4 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2175",
+      "level": "H",
+      "number": 2175,
+      "power_cycle_reset": false,
+      "message": "J5(-) angle exceeds the limit",
+      "cause": "The axis 5 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2176",
+      "level": "H",
+      "number": 2176,
+      "power_cycle_reset": false,
+      "message": "J6(-) angle exceeds the limit",
+      "cause": "The axis 6 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2177",
+      "level": "H",
+      "number": 2177,
+      "power_cycle_reset": false,
+      "message": "J7(-) angle exceeds the limit",
+      "cause": "The axis 7 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2178",
+      "level": "H",
+      "number": 2178,
+      "power_cycle_reset": false,
+      "message": "J7(-) angle exceeds the limit",
+      "cause": "The axis 8 - Joint limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2180",
+      "level": "H",
+      "number": 2180,
+      "power_cycle_reset": false,
+      "message": "\"X,Y,Z data exceeds the limit\"",
+      "cause": "The XYZ limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2181",
+      "level": "H",
+      "number": 2181,
+      "power_cycle_reset": false,
+      "message": "X(+) data exceeds the limit",
+      "cause": "The X axis + XYZ limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2182",
+      "level": "H",
+      "number": 2182,
+      "power_cycle_reset": false,
+      "message": "Y(+) data exceeds the limit",
+      "cause": "The Yaxis + XYZ limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2183",
+      "level": "H",
+      "number": 2183,
+      "power_cycle_reset": false,
+      "message": "Z(+) data exceeds the limit",
+      "cause": "The Z axis + XYZ limit was exceeded.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "H2500",
+      "level": "H",
+      "number": 2500,
+      "power_cycle_reset": false,
+      "message": "Tracking encoder data error",
+      "cause": "An error was detected in the data of tracking encoder.",
+      "measures": "Check the repeatability and ambient environment."
+    },
+    {
+      "code": "L2600",
+      "level": "L",
+      "number": 2600,
+      "power_cycle_reset": false,
+      "message": "Position data exseeds the limit",
+      "cause": "The position data is outside the operation range.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2601",
+      "level": "L",
+      "number": 2601,
+      "power_cycle_reset": false,
+      "message": "Start pos. exseeds the limit",
+      "cause": "The start position is outside the operation range.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2602",
+      "level": "L",
+      "number": 2602,
+      "power_cycle_reset": false,
+      "message": "DSTN pos. exseeds the limit",
+      "cause": "The target position is outside the operation range.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2603",
+      "level": "L",
+      "number": 2603,
+      "power_cycle_reset": false,
+      "message": "Med pos. data exseeds the limit",
+      "cause": "The intermediate position is outside the operation range.",
+      "measures": "Adjust the position. Error no. H2172 1-17 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L2700",
+      "level": "L",
+      "number": 2700,
+      "power_cycle_reset": false,
+      "message": "CMP error (different mode)",
+      "cause": "The designated mode is different from the current mode.",
+      "measures": "Execute CMP OFF and then designate."
+    },
+    {
+      "code": "C2710",
+      "level": "C",
+      "number": 2710,
+      "power_cycle_reset": false,
+      "message": "CMP error (displacement)",
+      "cause": "The displacement magnitude of the compliance operation exceeded the specified value.",
+      "measures": "Correct the program, position or other item so that the displacement magnitude can be reduced."
+    },
+    {
+      "code": "C2720",
+      "level": "C",
+      "number": 2720,
+      "power_cycle_reset": false,
+      "message": "CMP error (joint angle)",
+      "cause": "CMP Command exceeds the limit of a joint angle.",
+      "measures": "Adjust the position data or reduce the displacement."
+    },
+    {
+      "code": "C2721",
+      "level": "C",
+      "number": 2721,
+      "power_cycle_reset": false,
+      "message": "CMP error (J1 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J1 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2722",
+      "level": "C",
+      "number": 2722,
+      "power_cycle_reset": false,
+      "message": "CMP error (J2 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J2 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2723",
+      "level": "C",
+      "number": 2723,
+      "power_cycle_reset": false,
+      "message": "CMP error (J3 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J3 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2724",
+      "level": "C",
+      "number": 2724,
+      "power_cycle_reset": false,
+      "message": "CMP error (J4 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J4 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2725",
+      "level": "C",
+      "number": 2725,
+      "power_cycle_reset": false,
+      "message": "CMP error (J5 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J5 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2726",
+      "level": "C",
+      "number": 2726,
+      "power_cycle_reset": false,
+      "message": "CMP error (J6 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J6 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2727",
+      "level": "C",
+      "number": 2727,
+      "power_cycle_reset": false,
+      "message": "CMP error (J7 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J7 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2728",
+      "level": "C",
+      "number": 2728,
+      "power_cycle_reset": false,
+      "message": "CMP error (J8 joint angle)",
+      "cause": "CMP Command exceeds the limit of joint angle of J8 axis",
+      "measures": "Change the position data or reduce displacement."
+    },
+    {
+      "code": "C2730",
+      "level": "C",
+      "number": 2730,
+      "power_cycle_reset": false,
+      "message": "CMP error (axis speed)",
+      "cause": "CMP Command exceeds the limit of a speed.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2731",
+      "level": "C",
+      "number": 2731,
+      "power_cycle_reset": false,
+      "message": "CMP error (J1 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J1 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2732",
+      "level": "C",
+      "number": 2732,
+      "power_cycle_reset": false,
+      "message": "CMP error (J2 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J2 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2733",
+      "level": "C",
+      "number": 2733,
+      "power_cycle_reset": false,
+      "message": "CMP error (J3 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J3 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2734",
+      "level": "C",
+      "number": 2734,
+      "power_cycle_reset": false,
+      "message": "CMP error (J4 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J4 axis.",
+      "measures": "Change the position data or slow down. 1-18 Error no. L2700 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "C2735",
+      "level": "C",
+      "number": 2735,
+      "power_cycle_reset": false,
+      "message": "CMP error (J5 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J5 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2736",
+      "level": "C",
+      "number": 2736,
+      "power_cycle_reset": false,
+      "message": "CMP error (J6 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J6 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2737",
+      "level": "C",
+      "number": 2737,
+      "power_cycle_reset": false,
+      "message": "CMP error (J7 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J7 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2738",
+      "level": "C",
+      "number": 2738,
+      "power_cycle_reset": false,
+      "message": "CMP error (J8 axis speed)",
+      "cause": "CMP Command exceeds the limit of speed of J8 axis.",
+      "measures": "Change the position data or slow down."
+    },
+    {
+      "code": "C2740",
+      "level": "C",
+      "number": 2740,
+      "power_cycle_reset": false,
+      "message": "CMP error (coordinates conv.)",
+      "cause": "An error was detected in the coordinates conversion of CMP command.",
+      "measures": "Adjust the position data."
+    },
+    {
+      "code": "L2750",
+      "level": "L",
+      "number": 2750,
+      "power_cycle_reset": false,
+      "message": "Cannot execute while tracking",
+      "cause": "Cannot execute while tracking",
+      "measures": "Execute the \"TRK OFF\" command, and then execute the \"CMP OFF\" command."
+    },
+    {
+      "code": "L2800",
+      "level": "L",
+      "number": 2800,
+      "power_cycle_reset": false,
+      "message": "Illegal position data",
+      "cause": "This may occur for a position to which the robot cannot reach.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2801",
+      "level": "L",
+      "number": 2801,
+      "power_cycle_reset": false,
+      "message": "Illegal position data (start)",
+      "cause": "This may occur for a starting position to which the robot cannot reach.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2802",
+      "level": "L",
+      "number": 2802,
+      "power_cycle_reset": false,
+      "message": "Illegal position data (dstn)",
+      "cause": "This may occur for a ending position to which the robot cannot reach.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2803",
+      "level": "L",
+      "number": 2803,
+      "power_cycle_reset": false,
+      "message": "Illegal position data (intmed)",
+      "cause": "The auxiliary point position data for interpolation processing in an arc was inappropriate.",
+      "measures": "Adjust the position."
+    },
+    {
+      "code": "L2804",
+      "level": "L",
+      "number": 2804,
+      "power_cycle_reset": false,
+      "message": "SPDOPT can't be operated",
+      "cause": "A singular point area exists on the locus.",
+      "measures": "Change an interpolation type or destination position."
+    },
+    {
+      "code": "L2810",
+      "level": "L",
+      "number": 2810,
+      "power_cycle_reset": false,
+      "message": "Posture flag is disagree",
+      "cause": "The structure flag of the start point and end point don't match.",
+      "measures": "Adjust the position data."
+    },
+    {
+      "code": "H2820",
+      "level": "H",
+      "number": 2820,
+      "power_cycle_reset": false,
+      "message": "Illegal ACCEL ratio",
+      "cause": "This occurs when the acceleration/deceleration ratio is too small.",
+      "measures": "Adjust the acceleration/deceleration ratio to a larger value."
+    },
+    {
+      "code": "H2830",
+      "level": "H",
+      "number": 2830,
+      "power_cycle_reset": false,
+      "message": "System error(ipol posture type)",
+      "cause": "The TYPE argument of the MOV instruction was set to -1 or a similar value.",
+      "measures": "Change the TYPE argument of the MOV instruction to a correct value (0, 1, etc)."
+    },
+    {
+      "code": "H2840",
+      "level": "H",
+      "number": 2840,
+      "power_cycle_reset": false,
+      "message": "System error (ipol parameters)",
+      "cause": "The parameter may have been damaged.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H2850",
+      "level": "H",
+      "number": 2850,
+      "power_cycle_reset": false,
+      "message": "System error (ipol norm)",
+      "cause": "The norm is illegal. A problem occurred in internal computation processing.",
+      "measures": "When it comes back, contact to the dealer. Error no. C2735 1-19 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H2860",
+      "level": "H",
+      "number": 2860,
+      "power_cycle_reset": false,
+      "message": "System error (ipol type)",
+      "cause": "An illegal interpolation process method is being used. A problem occurred in internal computation pro- cessing.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H2870",
+      "level": "H",
+      "number": 2870,
+      "power_cycle_reset": false,
+      "message": "System error(ipol data undef)",
+      "cause": "The interpolation position data has not been defined. A problem occurred in internal computation pro- cessing.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H2880",
+      "level": "H",
+      "number": 2880,
+      "power_cycle_reset": true,
+      "message": "System error (ipol data area)",
+      "cause": "The memory is insufficient for the inside operation.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "H2890",
+      "level": "H",
+      "number": 2890,
+      "power_cycle_reset": false,
+      "message": "System error (undefined err)",
+      "cause": "An undefined error number was generated in internal computation processing.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "L2900",
+      "level": "L",
+      "number": 2900,
+      "power_cycle_reset": false,
+      "message": "System ERROR MO0",
+      "cause": "An error occurred in the internal processing.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "L3100",
+      "level": "L",
+      "number": 3100,
+      "power_cycle_reset": false,
+      "message": "PROC stack over",
+      "cause": "For example, if it jumped by GOSUB but did not return by the RETURN instruction, or if it escaped by GOTO using the FOR and NEXT instructions, stack memory decreased gradually.",
+      "measures": "Correct so that in the case of GOSUB, return by RETURN, and in the case of FOR and NEXT, do not exit by GOTO."
+    },
+    {
+      "code": "L3110",
+      "level": "L",
+      "number": 3110,
+      "power_cycle_reset": false,
+      "message": "Argument value range over",
+      "cause": "The argument value is not within the range.",
+      "measures": "Check the argument range and reinput."
+    },
+    {
+      "code": "L3120",
+      "level": "L",
+      "number": 3120,
+      "power_cycle_reset": false,
+      "message": "No. of arguments is over",
+      "cause": "The number of arguments in the command executed was incorrect.",
+      "measures": "Check the No. of arguments and reinput."
+    },
+    {
+      "code": "L3130",
+      "level": "L",
+      "number": 3130,
+      "power_cycle_reset": false,
+      "message": "COM file is already opened",
+      "cause": "Opening of a file already opened was attempted.",
+      "measures": "Check the file No. and re-execute."
+    },
+    {
+      "code": "L3140",
+      "level": "L",
+      "number": 3140,
+      "power_cycle_reset": false,
+      "message": "Can't open COM file",
+      "cause": "The file cannot be opened.",
+      "measures": "Check the file No. and re-execute."
+    },
+    {
+      "code": "L3150",
+      "level": "L",
+      "number": 3150,
+      "power_cycle_reset": false,
+      "message": "Cannnot PTINT (INPUT mode)",
+      "cause": "The file open mode is INPUT, so writing is not possible.",
+      "measures": "Check the file No. and open mode, and re-execute."
+    },
+    {
+      "code": "L3170",
+      "level": "L",
+      "number": 3170,
+      "power_cycle_reset": false,
+      "message": "Cannot INPUT (OUTPUT mode)",
+      "cause": "The file open mode is OUTPUT, so writing is not possible.",
+      "measures": "Check the file No. and open mode, and re-execute."
+    },
+    {
+      "code": "L3180",
+      "level": "L",
+      "number": 3180,
+      "power_cycle_reset": false,
+      "message": "System error (array range over)",
+      "cause": "Measures When it comes back, contact to the dealer L3200 Error message This file is read only Cause The file cannot be read.",
+      "measures": "Check the contents of the file."
+    },
+    {
+      "code": "L3210",
+      "level": "L",
+      "number": 3210,
+      "power_cycle_reset": false,
+      "message": "This variable is write protected",
+      "cause": "Writing of this variable is prohibited.",
+      "measures": "Check the variable protection setting. 1-20 Error no. H2860 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L3220",
+      "level": "L",
+      "number": 3220,
+      "power_cycle_reset": false,
+      "message": "Nesting over",
+      "cause": "A nest-over error occurred in IF of the IF instruction or FOR of the FOR instruction.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3230",
+      "level": "L",
+      "number": 3230,
+      "power_cycle_reset": false,
+      "message": "FOR NEXT statements unmatch",
+      "cause": "The No. of FOR and NEXT statements do not match.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3240",
+      "level": "L",
+      "number": 3240,
+      "power_cycle_reset": false,
+      "message": "\"Nesting over (FOR,WHILE)\"",
+      "cause": "The No. of nesting stages exceeded 16 stages.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3250",
+      "level": "L",
+      "number": 3250,
+      "power_cycle_reset": false,
+      "message": "WHILE WEND statements unmatch",
+      "cause": "The No. of WHILE and WHEN statements do not match.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3251",
+      "level": "L",
+      "number": 3251,
+      "power_cycle_reset": false,
+      "message": "Number of jump destination exceeds 32",
+      "cause": "The number of branches defined exceeded 32.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3252",
+      "level": "L",
+      "number": 3252,
+      "power_cycle_reset": false,
+      "message": "IF ENDIF statements unmatch",
+      "cause": "IF ENDIF statements unmatch.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3253",
+      "level": "L",
+      "number": 3253,
+      "power_cycle_reset": false,
+      "message": "\"Nesting over (IF,ENDIF)\"",
+      "cause": "The No. of nesting stages exceeded 8 stages (IF).",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3254",
+      "level": "L",
+      "number": 3254,
+      "power_cycle_reset": false,
+      "message": "SELECT END SELECT statements unmatch",
+      "cause": "SELECT END SELECT statements unmatch.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3255",
+      "level": "L",
+      "number": 3255,
+      "power_cycle_reset": false,
+      "message": "IF ELSE statements unmatch",
+      "cause": "IF ELSE statements unmatch.",
+      "measures": "Correct the program and re-execute."
+    },
+    {
+      "code": "L3260",
+      "level": "L",
+      "number": 3260,
+      "power_cycle_reset": false,
+      "message": "Cannot exec for all slots",
+      "cause": "Execution with all slots designated is not possible.",
+      "measures": "Designate an individual slot and try again."
+    },
+    {
+      "code": "L3270",
+      "level": "L",
+      "number": 3270,
+      "power_cycle_reset": false,
+      "message": "The command size is exceeded",
+      "cause": "The command size is exceeded.",
+      "measures": "Specify within single-byte 256 characters."
+    },
+    {
+      "code": "L3280",
+      "level": "L",
+      "number": 3280,
+      "power_cycle_reset": false,
+      "message": "Cannot execute without GETM",
+      "cause": "The command you attempted to execute cannot be executed without GETM. Or, a non-existing mechan- ical number was specified.",
+      "measures": "Execute it after executing the RELM and GETM commands in another task slot."
+    },
+    {
+      "code": "L3281",
+      "level": "L",
+      "number": 3281,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during RUN",
+      "cause": "Cannot execute during operation.",
+      "measures": "Cannot execute during operation."
+    },
+    {
+      "code": "L3282",
+      "level": "L",
+      "number": 3282,
+      "power_cycle_reset": false,
+      "message": "\"Can't RUN(not select, attribute)\"",
+      "cause": "The program is not selected or the attribute is illegal.",
+      "measures": "Load the program into the specified task slot. Or, change the program attributes."
+    },
+    {
+      "code": "L3283",
+      "level": "L",
+      "number": 3283,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during RUN",
+      "cause": "The previous command is being executed.",
+      "measures": "The previous command is being executed."
+    },
+    {
+      "code": "L3284",
+      "level": "L",
+      "number": 3284,
+      "power_cycle_reset": false,
+      "message": "Cannot execute while editing",
+      "cause": "Cannot execute while editing.",
+      "measures": "Cannot execute while editing. Error no. L3220 1-21 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L3285",
+      "level": "L",
+      "number": 3285,
+      "power_cycle_reset": false,
+      "message": "Cannot execute (RUN or WAI)",
+      "cause": "can't execute in the state of stopping or executing.",
+      "measures": "Reset the program (cancel the abort status)."
+    },
+    {
+      "code": "L3286",
+      "level": "L",
+      "number": 3286,
+      "power_cycle_reset": false,
+      "message": "Program is empty",
+      "cause": "Execution of an empty program was attempted.",
+      "measures": "Make the program or select the correct program."
+    },
+    {
+      "code": "L3287",
+      "level": "L",
+      "number": 3287,
+      "power_cycle_reset": false,
+      "message": "Cannot execute (ERROR ALWAYS)",
+      "cause": "This command cannot be used when the start conditions are ERR and ALW.",
+      "measures": "Correct the program."
+    },
+    {
+      "code": "L3288",
+      "level": "L",
+      "number": 3288,
+      "power_cycle_reset": false,
+      "message": "Cannot execute while editing",
+      "cause": "Cannot execute while editing a program.",
+      "measures": "Cannot execute while editing a program."
+    },
+    {
+      "code": "L3289",
+      "level": "L",
+      "number": 3289,
+      "power_cycle_reset": false,
+      "message": "Program does not exist (SLT*)",
+      "cause": "The program designated in the slot table does not exist.",
+      "measures": "Correct the slot parameter."
+    },
+    {
+      "code": "L3290",
+      "level": "L",
+      "number": 3290,
+      "power_cycle_reset": false,
+      "message": "System slot cannot be executed",
+      "cause": "The system slot cannot be executed.",
+      "measures": "Check whether another slot (user slot) is being operated."
+    },
+    {
+      "code": "L3300",
+      "level": "L",
+      "number": 3300,
+      "power_cycle_reset": false,
+      "message": "User slot cannot be executed",
+      "cause": "A user slot cannot be executed.",
+      "measures": "Check whether the system slot is being operated."
+    },
+    {
+      "code": "L3310",
+      "level": "L",
+      "number": 3310,
+      "power_cycle_reset": false,
+      "message": "Cannot execute XRUN (Runing)",
+      "cause": "XRUN is not possible as the designated slot is operating.",
+      "measures": "Stop the specification slot, and execute."
+    },
+    {
+      "code": "L3320",
+      "level": "L",
+      "number": 3320,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XRUN (empty)",
+      "cause": "XRUN is not possible as the program has not been selected.",
+      "measures": "Specify program name to the argument or execute XLOAD."
+    },
+    {
+      "code": "L3330",
+      "level": "L",
+      "number": 3330,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XSTP (empty)",
+      "cause": "XSTP is not possible as the program has not been selected.",
+      "measures": "correct the program, and execute."
+    },
+    {
+      "code": "L3340",
+      "level": "L",
+      "number": 3340,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XRST (empty)",
+      "cause": "XRST is not possible as the program has not been selected.",
+      "measures": "Resetting is possible in the state of waiting only."
+    },
+    {
+      "code": "L3350",
+      "level": "L",
+      "number": 3350,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XRST (Running)",
+      "cause": "XRST is not possible as the program is executing.",
+      "measures": "Stop execution, and do it."
+    },
+    {
+      "code": "L3360",
+      "level": "L",
+      "number": 3360,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XLOAD (not PSA)",
+      "cause": "XLOAD cannot be executed when the program cannot be selected.",
+      "measures": "Execute XRST, and do it."
+    },
+    {
+      "code": "L3361",
+      "level": "L",
+      "number": 3361,
+      "power_cycle_reset": false,
+      "message": "Can not load the program(SLT*)",
+      "cause": "A non-existing program was specified in the slot parameter (SLTn).",
+      "measures": "A non-existing program was specified in the slot parameter (SLTn)."
+    },
+    {
+      "code": "L3370",
+      "level": "L",
+      "number": 3370,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XCLR (empty)",
+      "cause": "XCLR is not possible as the program has not been selected.",
+      "measures": "XCLR can only be executed to enable program selection."
+    },
+    {
+      "code": "L3380",
+      "level": "L",
+      "number": 3380,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute XCLR (not PSA)",
+      "cause": "Program selection is not enabled.",
+      "measures": "Execute XCLR after resetting the program (canceling the abort status). 1-22 Error no. L3285 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L3400",
+      "level": "L",
+      "number": 3400,
+      "power_cycle_reset": false,
+      "message": "System error (PROC stack over)",
+      "cause": "System error. (Processor stack overflow. )",
+      "measures": "When it comes back, contact to the dealer"
+    },
+    {
+      "code": "L3500",
+      "level": "L",
+      "number": 3500,
+      "power_cycle_reset": false,
+      "message": "Ilegal format input (INPUT)",
+      "cause": "The type of the variable specified by INPUT and the type of the received data do not match.",
+      "measures": "Check the format."
+    },
+    {
+      "code": "L3600",
+      "level": "L",
+      "number": 3600,
+      "power_cycle_reset": false,
+      "message": "Jump destination does not exist",
+      "cause": "No jump destination was found for the DEF ACT, ON COM and ON GOTO commands.",
+      "measures": "Check the jump destination."
+    },
+    {
+      "code": "L3700",
+      "level": "L",
+      "number": 3700,
+      "power_cycle_reset": false,
+      "message": "Undefined variable",
+      "cause": "It was attempted to reference a variable that has not been initialized.",
+      "measures": "Define a variable, enter an initial value, and then use it."
+    },
+    {
+      "code": "L3710",
+      "level": "L",
+      "number": 3710,
+      "power_cycle_reset": false,
+      "message": "Nesting over (CALLP)",
+      "cause": "Program CALL is used more than the limitation.",
+      "measures": "Reduce the call count of CALLP (nesting)."
+    },
+    {
+      "code": "L3720",
+      "level": "L",
+      "number": 3720,
+      "power_cycle_reset": false,
+      "message": "RC NX statements unmatch",
+      "cause": "RC NX statements unmatch",
+      "measures": "Match the numbers of RC and NX."
+    },
+    {
+      "code": "L3810",
+      "level": "L",
+      "number": 3810,
+      "power_cycle_reset": false,
+      "message": "Different argument type",
+      "cause": "The type of an argument in an arithmetic operation, monadic operation, comparison operation or each function is different.",
+      "measures": "Designate the correct argument."
+    },
+    {
+      "code": "L3820",
+      "level": "L",
+      "number": 3820,
+      "power_cycle_reset": false,
+      "message": "Undefined intermediate code",
+      "cause": "A program or system status variable may have been damaged.",
+      "measures": "Restore using the backup data. If the backup data is not available, it is necessary to create a program again."
+    },
+    {
+      "code": "L3830",
+      "level": "L",
+      "number": 3830,
+      "power_cycle_reset": false,
+      "message": "Cannot execute GETM",
+      "cause": "GET of the mechanisms is not possible.",
+      "measures": "Check whether the designated mechanisms are being used with a different slot."
+    },
+    {
+      "code": "L3840",
+      "level": "L",
+      "number": 3840,
+      "power_cycle_reset": false,
+      "message": "RETURN without GOSUB",
+      "cause": "RETURN was executed without using GOSUB.",
+      "measures": "Check the program."
+    },
+    {
+      "code": "L3850",
+      "level": "L",
+      "number": 3850,
+      "power_cycle_reset": false,
+      "message": "Undefined PLT",
+      "cause": "The DEF PLT command was not executed.",
+      "measures": "Use it after defining a pallet with the DEF PLT command."
+    },
+    {
+      "code": "L3860",
+      "level": "L",
+      "number": 3860,
+      "power_cycle_reset": false,
+      "message": "Illegal position data defined",
+      "cause": "There is an error in the position data.",
+      "measures": "Check the position data definition."
+    },
+    {
+      "code": "L3870",
+      "level": "L",
+      "number": 3870,
+      "power_cycle_reset": false,
+      "message": "Illegal mech No.",
+      "cause": "The mechanical number specified in the argument of the system status variables was invalid.",
+      "measures": "Input the correct mechanism No."
+    },
+    {
+      "code": "L3880",
+      "level": "L",
+      "number": 3880,
+      "power_cycle_reset": false,
+      "message": "Illegal slot No.",
+      "cause": "The task slot number specified in the argument of the system status variables was invalid.",
+      "measures": "Input the correct slot No."
+    },
+    {
+      "code": "L3890",
+      "level": "L",
+      "number": 3890,
+      "power_cycle_reset": false,
+      "message": "System error (make MCODE)",
+      "cause": "An error has occurred when creating an operation instruction. The program may have been damaged.",
+      "measures": "Restore using the backup data. If the backup data is not available, it is necessary to create a program again. Error no. L3400 1-23 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L3900",
+      "level": "L",
+      "number": 3900,
+      "power_cycle_reset": false,
+      "message": "JRC Command is disable",
+      "cause": "The JRCEXE parameter is disabled, so it cannot be used.",
+      "measures": "Change the JRCEXE parameter, and then execute."
+    },
+    {
+      "code": "L3910",
+      "level": "L",
+      "number": 3910,
+      "power_cycle_reset": false,
+      "message": "Cannnot execute (JRC 0)",
+      "cause": "JRC 0 can not execute for robot arm axis.",
+      "measures": "Correctly set."
+    },
+    {
+      "code": "L4000",
+      "level": "L",
+      "number": 4000,
+      "power_cycle_reset": false,
+      "message": "System error (time out)",
+      "cause": "There is a problem in the program's exclusive process.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "L4100",
+      "level": "L",
+      "number": 4100,
+      "power_cycle_reset": false,
+      "message": "No. of registered file is full",
+      "cause": "The No. of program has been exceeded.",
+      "measures": "Delete any unnecessary programs."
+    },
+    {
+      "code": "L4110",
+      "level": "L",
+      "number": 4110,
+      "power_cycle_reset": false,
+      "message": "Memory area is full",
+      "cause": "The program and data have exceeded the capacity.",
+      "measures": "Delete any unnecessary programs or data."
+    },
+    {
+      "code": "L4120",
+      "level": "L",
+      "number": 4120,
+      "power_cycle_reset": false,
+      "message": "Too long program name",
+      "cause": "The program name is a maximum of 12 characters with 3 extension characters.",
+      "measures": "Set the program name to within 12 characters and 3 extension characters."
+    },
+    {
+      "code": "L4130",
+      "level": "L",
+      "number": 4130,
+      "power_cycle_reset": false,
+      "message": "Illegal program name",
+      "cause": "An illegal character was used in the program name.",
+      "measures": "Only numbers and alphabetic characters can be used."
+    },
+    {
+      "code": "L4140",
+      "level": "L",
+      "number": 4140,
+      "power_cycle_reset": false,
+      "message": "The program was not found",
+      "cause": "The designated program was not found.",
+      "measures": "Designate a different program, or create the designated program."
+    },
+    {
+      "code": "L4150",
+      "level": "L",
+      "number": 4150,
+      "power_cycle_reset": false,
+      "message": "Program is faulty",
+      "cause": "Power shutdown may have occurred during the write operation.",
+      "measures": "The file may have been damaged. Delete the file."
+    },
+    {
+      "code": "L4160",
+      "level": "L",
+      "number": 4160,
+      "power_cycle_reset": false,
+      "message": "Not a robot program",
+      "cause": "The designated program is not a robot program.",
+      "measures": "Designate a different program."
+    },
+    {
+      "code": "L4170",
+      "level": "L",
+      "number": 4170,
+      "power_cycle_reset": false,
+      "message": "The program is being edited",
+      "cause": "The program is being edited.",
+      "measures": "Close the program being edited."
+    },
+    {
+      "code": "L4180",
+      "level": "L",
+      "number": 4180,
+      "power_cycle_reset": false,
+      "message": "Program is running",
+      "cause": "The program is running.",
+      "measures": "Stop the program."
+    },
+    {
+      "code": "L4190",
+      "level": "L",
+      "number": 4190,
+      "power_cycle_reset": false,
+      "message": "The program is selected",
+      "cause": "The program is preparing to execute.",
+      "measures": "Reset the program."
+    },
+    {
+      "code": "L4200",
+      "level": "L",
+      "number": 4200,
+      "power_cycle_reset": false,
+      "message": "Cannot write to file",
+      "cause": "Write operation is prohibited, or the file capacity is insufficient.",
+      "measures": "1. Enable file writing. 2. Delete unnecessary files."
+    },
+    {
+      "code": "L4201",
+      "level": "L",
+      "number": 4201,
+      "power_cycle_reset": false,
+      "message": "Can't operate in ROM mode",
+      "cause": "Can't operate in ROM mode.",
+      "measures": "Change to RAM mode."
+    },
+    {
+      "code": "L4210",
+      "level": "L",
+      "number": 4210,
+      "power_cycle_reset": false,
+      "message": "Too long statement",
+      "cause": "The command statement length is limited to 127 characters.",
+      "measures": "Delete the No. of characters in the command statement to within 127 characters. 1-24 Error no. L3900 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L4220",
+      "level": "L",
+      "number": 4220,
+      "power_cycle_reset": false,
+      "message": "Syntax error",
+      "cause": "There is an error in the syntax of the input command statement.",
+      "measures": "Re-input in the correct syntax after checking the contents."
+    },
+    {
+      "code": "L4230",
+      "level": "L",
+      "number": 4230,
+      "power_cycle_reset": false,
+      "message": "The line No. does not exist",
+      "cause": "There is no specified line number.",
+      "measures": "Check the contents, and reinput the correct line No."
+    },
+    {
+      "code": "L4240",
+      "level": "L",
+      "number": 4240,
+      "power_cycle_reset": false,
+      "message": "The statement is write protected",
+      "cause": "The command statement is write protected.",
+      "measures": "Cancel the write protection."
+    },
+    {
+      "code": "L4250",
+      "level": "L",
+      "number": 4250,
+      "power_cycle_reset": false,
+      "message": "No more lines or variables",
+      "cause": "Reading of lines and variables exceeding the registered ones was attempted.",
+      "measures": "Check the programs."
+    },
+    {
+      "code": "L4300",
+      "level": "L",
+      "number": 4300,
+      "power_cycle_reset": false,
+      "message": "Too longvariable name",
+      "cause": "The variable name length is limited to 8 characters.",
+      "measures": "Shorten the variable name to within 8 characters."
+    },
+    {
+      "code": "L4310",
+      "level": "L",
+      "number": 4310,
+      "power_cycle_reset": false,
+      "message": "Ilegal character is used",
+      "cause": "A character other than A to Z or 0 to 9 was used.",
+      "measures": "Use the character which can be used."
+    },
+    {
+      "code": "L4320",
+      "level": "L",
+      "number": 4320,
+      "power_cycle_reset": false,
+      "message": "The variable is write protected",
+      "cause": "The variable is write protected.",
+      "measures": "1. Use a writable variable. 2. Cancel the write protection."
+    },
+    {
+      "code": "L4330",
+      "level": "L",
+      "number": 4330,
+      "power_cycle_reset": false,
+      "message": "The variable is read protected",
+      "cause": "The variable is read protected.",
+      "measures": "1. Use a writable variable. 2. Cancel the write protection."
+    },
+    {
+      "code": "L4340",
+      "level": "L",
+      "number": 4340,
+      "power_cycle_reset": false,
+      "message": "The variable is not defined",
+      "cause": "The variable has not been defined.",
+      "measures": "Define the variable."
+    },
+    {
+      "code": "L4350",
+      "level": "L",
+      "number": 4350,
+      "power_cycle_reset": false,
+      "message": "Duplicate definition (Val.)",
+      "cause": "Variables already defined cannot be redefined with the DIM or DEF statements.",
+      "measures": "1. Change the variable name and define. 2. Delete the defined variable."
+    },
+    {
+      "code": "L4360",
+      "level": "L",
+      "number": 4360,
+      "power_cycle_reset": false,
+      "message": "Same variable used (65535 times)",
+      "cause": "Example: 10 P1=P1+P2 references P1 twice and P2 once.",
+      "measures": "Change the program to reduce the No. of times the same variable is used."
+    },
+    {
+      "code": "L4370",
+      "level": "L",
+      "number": 4370,
+      "power_cycle_reset": false,
+      "message": "Error in the array element",
+      "cause": "1. The array elements exceeds the define range, or 2. The specified variable is not an array.",
+      "measures": "1. Correct the number of array elements within one to the maximum elements. 2. Do not specify array elements."
+    },
+    {
+      "code": "L4380",
+      "level": "L",
+      "number": 4380,
+      "power_cycle_reset": false,
+      "message": "Cannot delete variables (used)",
+      "cause": "Variables used in a command statement cannot be deleted.",
+      "measures": "Delete the command statement using the variable."
+    },
+    {
+      "code": "L4390",
+      "level": "L",
+      "number": 4390,
+      "power_cycle_reset": false,
+      "message": "Variable type combination error",
+      "cause": "The type of the user-defined external variable is different.",
+      "measures": "Match the variable types."
+    },
+    {
+      "code": "L4400",
+      "level": "L",
+      "number": 4400,
+      "power_cycle_reset": false,
+      "message": "Program is faulty",
+      "cause": "There is an error in the data designated with renumbering.",
+      "measures": "Check the program and reset the data."
+    },
+    {
+      "code": "L4410",
+      "level": "L",
+      "number": 4410,
+      "power_cycle_reset": false,
+      "message": "Renumbering data error",
+      "cause": "There is an error in the data designated with renumbering.",
+      "measures": "Reset the data. Error no. L4220 1-25 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L4420",
+      "level": "L",
+      "number": 4420,
+      "power_cycle_reset": false,
+      "message": "Line No exceeds 32767",
+      "cause": "The new line No. or line gap is large.",
+      "measures": "Do not use line Nos. exceeding 32767."
+    },
+    {
+      "code": "L4430",
+      "level": "L",
+      "number": 4430,
+      "power_cycle_reset": false,
+      "message": "Not found the string searched",
+      "cause": "The character string searched for was not found.",
+      "measures": "Check the program."
+    },
+    {
+      "code": "L4440",
+      "level": "L",
+      "number": 4440,
+      "power_cycle_reset": false,
+      "message": "Duplicate definition (label)",
+      "cause": "A label already defined cannot be redefined.",
+      "measures": "1. Change the label name. 2. Delete the defined label line."
+    },
+    {
+      "code": "L4450",
+      "level": "L",
+      "number": 4450,
+      "power_cycle_reset": false,
+      "message": "The variable No. is out of range",
+      "cause": "Position/counter/string No. is out of range.",
+      "measures": "Change the variable number within the allowable range."
+    },
+    {
+      "code": "L4460",
+      "level": "L",
+      "number": 4460,
+      "power_cycle_reset": false,
+      "message": "Argument value range over",
+      "cause": "Argument value range over.",
+      "measures": "Confirm the argument range, and correct the value."
+    },
+    {
+      "code": "L4800",
+      "level": "L",
+      "number": 4800,
+      "power_cycle_reset": false,
+      "message": "System error (System base prog)",
+      "cause": "The base program for the system could not be opened. Or, the system base program name was not specified correctly in the parameter.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "L4810",
+      "level": "L",
+      "number": 4810,
+      "power_cycle_reset": false,
+      "message": "The global variable defined by user is not available",
+      "cause": "The parameter \"PRGUSR\" is not correct.",
+      "measures": "To use user-defined external variables, it is necessary to set the name of the program describing only variable definitions in the PRGUSR parameter."
+    },
+    {
+      "code": "L4820",
+      "level": "L",
+      "number": 4820,
+      "power_cycle_reset": false,
+      "message": "No editing program",
+      "cause": "The program was closed while editing. For example, the program being edited is closed when a key switch enable/disable operation is performed via the T/B during online editing on a PC.",
+      "measures": "Try editing the program again."
+    },
+    {
+      "code": "L4900",
+      "level": "L",
+      "number": 4900,
+      "power_cycle_reset": false,
+      "message": "System error (Prog Hndl)",
+      "cause": "The program name used by internal processing is not normal.",
+      "measures": "When it comes back, contact to the dealer."
+    },
+    {
+      "code": "L4910",
+      "level": "L",
+      "number": 4910,
+      "power_cycle_reset": false,
+      "message": "Robot Language is mismatched",
+      "cause": "The parameter RLNG is mismatched. (1:MELFA-BASIC\u2163, 0:MOVEMASTER command)",
+      "measures": "Re-set RLNG or select an other program."
+    },
+    {
+      "code": "L4920",
+      "level": "L",
+      "number": 4920,
+      "power_cycle_reset": false,
+      "message": "There is no backup data in ROM",
+      "cause": "There is no backup data in ROM.",
+      "measures": "Please operate after backup."
+    },
+    {
+      "code": "H5000",
+      "level": "H",
+      "number": 5000,
+      "power_cycle_reset": false,
+      "message": "TB Enable key is ON",
+      "cause": "The [T/B ENABLE/DISABLE\" switch is \"ENABLE\", when the [MODE] switch of the operation panel is \"AUTO\".",
+      "measures": "Invalidate the T/B Enable key, or enter the teach mode of operation panel."
+    },
+    {
+      "code": "L5010",
+      "level": "L",
+      "number": 5010,
+      "power_cycle_reset": false,
+      "message": "AUTOENA signal is OFF",
+      "cause": "The automatic operation possible signal is OFF.",
+      "measures": "Turn the automatic operation possible signal ON, or enter the teach mode."
+    },
+    {
+      "code": "L5100",
+      "level": "L",
+      "number": 5100,
+      "power_cycle_reset": false,
+      "message": "No program is selected",
+      "cause": "A program is not selected for the designated slot.",
+      "measures": "Select a program for the designated slot."
+    },
+    {
+      "code": "L5110",
+      "level": "L",
+      "number": 5110,
+      "power_cycle_reset": false,
+      "message": "Continuous RUN is not possible",
+      "cause": "A different program name has been designated.",
+      "measures": "Designate the correct program name. 1-26 Error no. L4420 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L5120",
+      "level": "L",
+      "number": 5120,
+      "power_cycle_reset": false,
+      "message": "Cannot select program (not PSA)",
+      "cause": "The specified slot is not in the program selection state.",
+      "measures": "Reset the program."
+    },
+    {
+      "code": "L5130",
+      "level": "L",
+      "number": 5130,
+      "power_cycle_reset": false,
+      "message": "Cannot execute servo on",
+      "cause": "A servo OFF process is taking place.",
+      "measures": "Wait for the servo to turn OFF before turning the servo ON."
+    },
+    {
+      "code": "L5140",
+      "level": "L",
+      "number": 5140,
+      "power_cycle_reset": false,
+      "message": "Cannot read the file",
+      "cause": "Reading is being carried out, or editing is being carried out.",
+      "measures": "Close the file being edited, or read after the reading is completed."
+    },
+    {
+      "code": "L5150",
+      "level": "L",
+      "number": 5150,
+      "power_cycle_reset": false,
+      "message": "The origin has not been set",
+      "cause": "The origin has not been set.",
+      "measures": "Set the origin."
+    },
+    {
+      "code": "L5200",
+      "level": "L",
+      "number": 5200,
+      "power_cycle_reset": true,
+      "message": "Parameter error (TASKMAX)",
+      "cause": "The TASKMAX parameter setting value has been exceeded (initial value: 8, maximum value: 32).",
+      "measures": "Reduce the number of multi tasks, or change the TASKMAX parameter."
+    },
+    {
+      "code": "L5210",
+      "level": "L",
+      "number": 5210,
+      "power_cycle_reset": true,
+      "message": "Parameter error (MECHAMAX)",
+      "cause": "The No. of multi mechanisms has exceeded the limit.",
+      "measures": "Reduce the No. of multi mechanisms."
+    },
+    {
+      "code": "L5400",
+      "level": "L",
+      "number": 5400,
+      "power_cycle_reset": false,
+      "message": "All robot cannot be designated",
+      "cause": "All mechanisms cannot be specified.",
+      "measures": "Specify an independent mechanism number."
+    },
+    {
+      "code": "L5410",
+      "level": "L",
+      "number": 5410,
+      "power_cycle_reset": false,
+      "message": "Non-existent mode",
+      "cause": "An non-existent mode was designated.",
+      "measures": "Designate the correct mode."
+    },
+    {
+      "code": "L5420",
+      "level": "L",
+      "number": 5420,
+      "power_cycle_reset": false,
+      "message": "Illegal slot No.",
+      "cause": "The task slot designation is illegal.",
+      "measures": "Designate the correct task slot."
+    },
+    {
+      "code": "L5430",
+      "level": "L",
+      "number": 5430,
+      "power_cycle_reset": false,
+      "message": "Illegal robot No.",
+      "cause": "The mechanism designation is illegal.",
+      "measures": "Designate the correct mechanism."
+    },
+    {
+      "code": "L5600",
+      "level": "L",
+      "number": 5600,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during an error",
+      "cause": "Cannot execute during an error.",
+      "measures": "Reset the error."
+    },
+    {
+      "code": "C5610",
+      "level": "C",
+      "number": 5610,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during STOP ON",
+      "cause": "Cannot execute during stop signal input.",
+      "measures": "Turn the stop signal OFF and execute."
+    },
+    {
+      "code": "L5620",
+      "level": "L",
+      "number": 5620,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during CSTOP ON",
+      "cause": "Cannot execute during cycle stop signal input.",
+      "measures": "Turn the cycle stop signal OFF."
+    },
+    {
+      "code": "L5630",
+      "level": "L",
+      "number": 5630,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during SRVOFF ON",
+      "cause": "Cannot execute during servo OFF signal input.",
+      "measures": "Turn the servo OFF signal OFF."
+    },
+    {
+      "code": "L5640",
+      "level": "L",
+      "number": 5640,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during RUN",
+      "cause": "Cannot execute during operation.",
+      "measures": "Stop the operation, and then execute."
+    },
+    {
+      "code": "L5650",
+      "level": "L",
+      "number": 5650,
+      "power_cycle_reset": false,
+      "message": "Cannot execute during STOP",
+      "cause": "Cannot execute during stop operation.",
+      "measures": "Complete the stop, and then execute. Error no. L5120 1-27 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L5660",
+      "level": "L",
+      "number": 5660,
+      "power_cycle_reset": false,
+      "message": "Edit during RUN(include ALWAYS)",
+      "cause": "Measures Stop the program, and then execute. L5990 Error message System error (Illegal command) Cause Not exist command was executed.",
+      "measures": "Execute the correct command."
+    },
+    {
+      "code": "L6010",
+      "level": "L",
+      "number": 6010,
+      "power_cycle_reset": false,
+      "message": "Illegal command",
+      "cause": "This may have occurred because data was sent before the communication line was opened via a data link, or an unregistered communication command was sent due to the mismatch between the versions of the controller and support software.",
+      "measures": "Send after the communication line is opened. Or, match the versions."
+    },
+    {
+      "code": "L6020",
+      "level": "L",
+      "number": 6020,
+      "power_cycle_reset": false,
+      "message": "The Operation is disable",
+      "cause": "The operation rights have not been acquired.",
+      "measures": "Acquire the operation rights."
+    },
+    {
+      "code": "L6030",
+      "level": "L",
+      "number": 6030,
+      "power_cycle_reset": false,
+      "message": "The editing operation is disable",
+      "cause": "The editing operation rights have not been acquired.",
+      "measures": "Acquire the editing operation rights."
+    },
+    {
+      "code": "L6040",
+      "level": "L",
+      "number": 6040,
+      "power_cycle_reset": false,
+      "message": "System error (illegal device No)",
+      "cause": "A non-registered device No. was set.",
+      "measures": "Set a valid device."
+    },
+    {
+      "code": "C6050",
+      "level": "C",
+      "number": 6050,
+      "power_cycle_reset": false,
+      "message": "The file cannot be opened",
+      "cause": "The block file cannot be opened.",
+      "measures": "Check the file, and designate the correct file."
+    },
+    {
+      "code": "C6060",
+      "level": "C",
+      "number": 6060,
+      "power_cycle_reset": false,
+      "message": "The mode is not TEACH",
+      "cause": "Carry out parameter writing in the teach mode.",
+      "measures": "Change to the teaching mode, and then execute."
+    },
+    {
+      "code": "C6070",
+      "level": "C",
+      "number": 6070,
+      "power_cycle_reset": false,
+      "message": "The time cannot be set",
+      "cause": "The time setting can only be executed when the program is stopped and the servo is OFF.",
+      "measures": "Stop the program and turn the servo OFF, and then set the time."
+    },
+    {
+      "code": "C6080",
+      "level": "C",
+      "number": 6080,
+      "power_cycle_reset": false,
+      "message": "Com mesg is too long",
+      "cause": "The character string of a communication text exceeded the maximum number allowed.",
+      "measures": "Verify the number of characters in a comment in various settings such as parameters."
+    },
+    {
+      "code": "C6500",
+      "level": "C",
+      "number": 6500,
+      "power_cycle_reset": false,
+      "message": "Not opened COM line",
+      "cause": "OPEN was not executed by the program.",
+      "measures": "Execute OPEN, and then send PRN."
+    },
+    {
+      "code": "H6510",
+      "level": "H",
+      "number": 6510,
+      "power_cycle_reset": false,
+      "message": "RS232C Parameter illgal",
+      "cause": "Confirm the parameter, and correct.",
+      "measures": "Adjust the communication setting parameters, and then turn the power ON again ."
+    },
+    {
+      "code": "H6520",
+      "level": "H",
+      "number": 6520,
+      "power_cycle_reset": false,
+      "message": "RS422 Parameter illgal",
+      "cause": "Setup the parameter",
+      "measures": "Adjust the communication setting parameters, and then turn the power ON again."
+    },
+    {
+      "code": "L6600",
+      "level": "L",
+      "number": 6600,
+      "power_cycle_reset": false,
+      "message": "Signal number is out of range.",
+      "cause": "The designated signal No. has not been defined.",
+      "measures": "Change the signal No. to the correct No."
+    },
+    {
+      "code": "L6610",
+      "level": "L",
+      "number": 6610,
+      "power_cycle_reset": false,
+      "message": "Cannot output (hand input)",
+      "cause": "The hand input signal cannot be written.",
+      "measures": "Use the correct output signal."
+    },
+    {
+      "code": "L6620",
+      "level": "L",
+      "number": 6620,
+      "power_cycle_reset": false,
+      "message": "Cannot write (special INPUT)",
+      "cause": "The input signal cannot be written into the robot dedicated area.",
+      "measures": "Use an actual signal. 1-28 Error no. L5660 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "L6630",
+      "level": "L",
+      "number": 6630,
+      "power_cycle_reset": false,
+      "message": "Input signal cannot be written",
+      "cause": "This is the actual signal input mode.",
+      "measures": "Set a pseudo-input signal."
+    },
+    {
+      "code": "H6640",
+      "level": "H",
+      "number": 6640,
+      "power_cycle_reset": false,
+      "message": "Illegal param (special signal)",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Correct the parameter yiu changed."
+    },
+    {
+      "code": "H6641",
+      "level": "H",
+      "number": 6641,
+      "power_cycle_reset": false,
+      "message": "Duplicate setting (special IN)",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Correct the parameter of the dedicated input signal you changed."
+    },
+    {
+      "code": "H6642",
+      "level": "H",
+      "number": 6642,
+      "power_cycle_reset": false,
+      "message": "STOP is fixed signal No. 0",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Set the parameter STOP(input) to 0."
+    },
+    {
+      "code": "H6643",
+      "level": "H",
+      "number": 6643,
+      "power_cycle_reset": false,
+      "message": "Illegal parameter (special Sig.)",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Make the ending number larger than the starting number."
+    },
+    {
+      "code": "L6650",
+      "level": "L",
+      "number": 6650,
+      "power_cycle_reset": true,
+      "message": "Duplicate setting (special OUT)",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Correct the parameters."
+    },
+    {
+      "code": "L6651",
+      "level": "L",
+      "number": 6651,
+      "power_cycle_reset": true,
+      "message": "Duplicate setting (HANDTYPE)",
+      "cause": "The parameter setting is illegal.",
+      "measures": "Correct the parameter."
+    },
+    {
+      "code": "L6660",
+      "level": "L",
+      "number": 6660,
+      "power_cycle_reset": false,
+      "message": "Cannot output (SPECIAL OUT)",
+      "cause": "The program setting is illegal.",
+      "measures": "Correct the program."
+    },
+    {
+      "code": "L6670",
+      "level": "L",
+      "number": 6670,
+      "power_cycle_reset": false,
+      "message": "Illegal OUT reset pattern",
+      "cause": "The parameters are not defined in sets of 8 characters.",
+      "measures": "Correct the parameters."
+    },
+    {
+      "code": "L6800",
+      "level": "L",
+      "number": 6800,
+      "power_cycle_reset": true,
+      "message": "\"Cancel pseudo-input mode, PW OFF\"",
+      "cause": "If pseudo input was canceled, it is necessary to turn the power ON again in order to prevent the errone- ous operation of the robot by external input signals.",
+      "measures": "Turn the power OFF and then ON once. It switches to an external input signal."
+    },
+    {
+      "code": "C6900",
+      "level": "C",
+      "number": 6900,
+      "power_cycle_reset": false,
+      "message": "Pseudo-input signal mode",
+      "cause": "Set with the parameters.",
+      "measures": "To set a real signal, reset the parameter and then turn the power ON again."
+    },
+    {
+      "code": "C7000",
+      "level": "C",
+      "number": 7000,
+      "power_cycle_reset": false,
+      "message": "Copy source file was not found",
+      "cause": "The copy source file was not found.",
+      "measures": "Input the correct file name."
+    },
+    {
+      "code": "C7010",
+      "level": "C",
+      "number": 7010,
+      "power_cycle_reset": false,
+      "message": "Delete target file was not found",
+      "cause": "The delete target file was not found.",
+      "measures": "Input the correct file name."
+    },
+    {
+      "code": "C7020",
+      "level": "C",
+      "number": 7020,
+      "power_cycle_reset": false,
+      "message": "Rename target file was not found",
+      "cause": "The rename target file was not found.",
+      "measures": "Input the correct file name."
+    },
+    {
+      "code": "H7030",
+      "level": "H",
+      "number": 7030,
+      "power_cycle_reset": true,
+      "message": "System error (param size over)",
+      "cause": "The change capacity is too large.",
+      "measures": "Contact the maker."
+    },
+    {
+      "code": "C7040",
+      "level": "C",
+      "number": 7040,
+      "power_cycle_reset": false,
+      "message": "Parameter changes prohibited",
+      "cause": "Changing this parameter is prohibited as it is a dangerous parameter.",
+      "measures": "Contact the maker. Error no. L6630 1-29 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H7050",
+      "level": "H",
+      "number": 7050,
+      "power_cycle_reset": false,
+      "message": "File is illegal",
+      "cause": "This file is damaged.",
+      "measures": "Do not use this file."
+    },
+    {
+      "code": "H7060",
+      "level": "H",
+      "number": 7060,
+      "power_cycle_reset": true,
+      "message": "System error (RAM area full)",
+      "cause": "The capacity has been exceeded.",
+      "measures": "Contact the maker."
+    },
+    {
+      "code": "C7070",
+      "level": "C",
+      "number": 7070,
+      "power_cycle_reset": false,
+      "message": "Memory area is full",
+      "cause": "The program and data have already exceeded the capacity.",
+      "measures": "Delete any unnecessary programs or data."
+    },
+    {
+      "code": "L7071",
+      "level": "L",
+      "number": 7071,
+      "power_cycle_reset": false,
+      "message": "Not enough memory area for CTN",
+      "cause": "Continue function needs more than 100Kbytes memory area.",
+      "measures": "Delete any unnecessary programs."
+    },
+    {
+      "code": "C7080",
+      "level": "C",
+      "number": 7080,
+      "power_cycle_reset": false,
+      "message": "Can not read parameter",
+      "cause": "Non-existent parameter or illegal password.",
+      "measures": "1. Input the correct parameter name 2. Input the correct password"
+    },
+    {
+      "code": "C7081",
+      "level": "C",
+      "number": 7081,
+      "power_cycle_reset": false,
+      "message": "Can not write parameter",
+      "cause": "Non-existent parameter or illegal password.",
+      "measures": "1. Input the correct parameter name 2. Input the correct password"
+    },
+    {
+      "code": "C7090",
+      "level": "C",
+      "number": 7090,
+      "power_cycle_reset": false,
+      "message": "Parameter comment illgal",
+      "cause": "The number of parameter comment characters exceeded the limit.",
+      "measures": "Operation will not be affected, so continue the operation."
+    },
+    {
+      "code": "C7100",
+      "level": "C",
+      "number": 7100,
+      "power_cycle_reset": true,
+      "message": "Add memory has not enough.",
+      "cause": "Data is left in the extended memory.",
+      "measures": "Perform program initialization using the TB to clear all data."
+    },
+    {
+      "code": "C7200",
+      "level": "C",
+      "number": 7200,
+      "power_cycle_reset": true,
+      "message": "Add memory has same file.",
+      "cause": "Add memory has same file name.",
+      "measures": "Perform program initialization using the TB to clear all data."
+    },
+    {
+      "code": "H7300",
+      "level": "H",
+      "number": 7300,
+      "power_cycle_reset": true,
+      "message": "Loading the parameter file.",
+      "cause": "It is necessary to turn the power ON again to reflect the parameters.",
+      "measures": "Turn the power OFF and ON once."
+    },
+    {
+      "code": "C7310",
+      "level": "C",
+      "number": 7310,
+      "power_cycle_reset": false,
+      "message": "Changed variables weren't saved",
+      "cause": "The power was OFF during program execution.",
+      "measures": "Don't turn the power OFF during program execution."
+    },
+    {
+      "code": "L7330",
+      "level": "L",
+      "number": 7330,
+      "power_cycle_reset": false,
+      "message": "Can't change in ROM mode",
+      "cause": "Can't change in ROM mode.",
+      "measures": "Please change to RAM mode and perform again."
+    },
+    {
+      "code": "L7331",
+      "level": "L",
+      "number": 7331,
+      "power_cycle_reset": false,
+      "message": "Can't change memory size in ROM mode",
+      "cause": "Can't change memory size in ROM mode.",
+      "measures": "Please change to RAM mode and perform again."
+    },
+    {
+      "code": "L7332",
+      "level": "L",
+      "number": 7332,
+      "power_cycle_reset": false,
+      "message": "Can't change to ROM mode in CTN mode",
+      "cause": "Can't change to ROM mode in continue mode.",
+      "measures": "Please change to RAM mode and perform again."
+    },
+    {
+      "code": "C7410",
+      "level": "C",
+      "number": 7410,
+      "power_cycle_reset": false,
+      "message": "1 month inspection is now",
+      "cause": "Carry out the monthly inspection.",
+      "measures": "Carry out the 1 month inspection."
+    },
+    {
+      "code": "C7420",
+      "level": "C",
+      "number": 7420,
+      "power_cycle_reset": false,
+      "message": "3 month inspection is now",
+      "cause": "Carry out the 3 month inspection.",
+      "measures": "Carry out the 3 month inspection. 1-30 Error no. H7050 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "C7430",
+      "level": "C",
+      "number": 7430,
+      "power_cycle_reset": false,
+      "message": "6 month inspection is now",
+      "cause": "Carry out the 6 month inspection.",
+      "measures": "Carry out the 6 month inspection."
+    },
+    {
+      "code": "C7440",
+      "level": "C",
+      "number": 7440,
+      "power_cycle_reset": false,
+      "message": "1 year inspection is now",
+      "cause": "1 year inspection is now.",
+      "measures": "1 year inspection is now."
+    },
+    {
+      "code": "C7500",
+      "level": "C",
+      "number": 7500,
+      "power_cycle_reset": false,
+      "message": "No battery voltage",
+      "cause": "The battery is spent.",
+      "measures": "Replace the battery of controller and load the data."
+    },
+    {
+      "code": "C7510",
+      "level": "C",
+      "number": 7510,
+      "power_cycle_reset": false,
+      "message": "Battery voltage low (R/C)",
+      "cause": "The battery will be spent soon.",
+      "measures": "Replace the battery of controller."
+    },
+    {
+      "code": "C7520",
+      "level": "C",
+      "number": 7520,
+      "power_cycle_reset": false,
+      "message": "Battery consumption time is over",
+      "cause": "The battery will be spent soon.",
+      "measures": "Replace the battery."
+    },
+    {
+      "code": "H7600",
+      "level": "H",
+      "number": 7600,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXMENO)",
+      "cause": "The additional axis mechanism No. is incorrect.",
+      "measures": "Correct parameter AXMENO and AXUNUM."
+    },
+    {
+      "code": "H7601",
+      "level": "H",
+      "number": 7601,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXJNO)",
+      "cause": "The additional axis No. is incorrect.",
+      "measures": "Correct parameter AXJNO."
+    },
+    {
+      "code": "H7602",
+      "level": "H",
+      "number": 7602,
+      "power_cycle_reset": true,
+      "message": "Duplicate parameter (AXJNO)",
+      "cause": "The additional axis No. has been used in duplicate.",
+      "measures": "Correct parameter AXJNO."
+    },
+    {
+      "code": "H7603",
+      "level": "H",
+      "number": 7603,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXUNT)",
+      "cause": "The additional axis unit is incorrect.",
+      "measures": "Correct parameter AXUNT."
+    },
+    {
+      "code": "H7604",
+      "level": "H",
+      "number": 7604,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXACC)",
+      "cause": "The additional axis acceleration time is incorrect.",
+      "measures": "Correct parameter AXACC."
+    },
+    {
+      "code": "H7605",
+      "level": "H",
+      "number": 7605,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXDCC)",
+      "cause": "The additional axis deceleration time is incorrect.",
+      "measures": "Correct parameter AXDEC."
+    },
+    {
+      "code": "H7606",
+      "level": "H",
+      "number": 7606,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXGRTN)",
+      "cause": "The additional axis gear ratio numerator is incorrect.",
+      "measures": "Correct parameter AXGRTN."
+    },
+    {
+      "code": "H7607",
+      "level": "H",
+      "number": 7607,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXGRTD)",
+      "cause": "The additional axis gear ratio denominator is incorrect.",
+      "measures": "Correct parameter AXGRTD."
+    },
+    {
+      "code": "H7608",
+      "level": "H",
+      "number": 7608,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXMOTSET)",
+      "cause": "The additional axis motor setting validity flag is incorrect.",
+      "measures": "Correct parameter AXMOTSET."
+    },
+    {
+      "code": "H7609",
+      "level": "H",
+      "number": 7609,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXMREV)",
+      "cause": "The additional axis motor rated speed is incorrect.",
+      "measures": "Correct parameter AXMREV."
+    },
+    {
+      "code": "H7610",
+      "level": "H",
+      "number": 7610,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXJMX)",
+      "cause": "The additional axis motor limit speed is incorrect.",
+      "measures": "Correct parameter AXJMX. Error no. C7430 1-31 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H7611",
+      "level": "H",
+      "number": 7611,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXENCR)",
+      "cause": "The additional axis No. of encoder pulses is incorrect.",
+      "measures": "Correct parameter AXENCR."
+    },
+    {
+      "code": "H7612",
+      "level": "H",
+      "number": 7612,
+      "power_cycle_reset": true,
+      "message": "Illegal parameter (AXJOGTS)",
+      "cause": "The additional axis JOG time constant is incorrect.",
+      "measures": "Correct parameter AXJOGTS."
+    },
+    {
+      "code": "H7613",
+      "level": "H",
+      "number": 7613,
+      "power_cycle_reset": true,
+      "message": "Turn the power OFF and ON once",
+      "cause": "Turn the power OFF and ON once.",
+      "measures": "Turn the power OFF and ON once."
+    },
+    {
+      "code": "H7620",
+      "level": "H",
+      "number": 7620,
+      "power_cycle_reset": false,
+      "message": "Two additional-axis cards are installed.",
+      "cause": "This card can install only one.",
+      "measures": "Set this interface to one interface."
+    },
+    {
+      "code": "C7630",
+      "level": "C",
+      "number": 7630,
+      "power_cycle_reset": false,
+      "message": "No additional-axis card",
+      "cause": "No additional-axis card",
+      "measures": "Install the additional axis interface card."
+    },
+    {
+      "code": "H7700",
+      "level": "H",
+      "number": 7700,
+      "power_cycle_reset": true,
+      "message": "Illegal OPTION Slot No. (CC-Link)",
+      "cause": "No CC-Link card can be mounted in slot 1.",
+      "measures": "Install CC-Link Card in SLOT2."
+    },
+    {
+      "code": "H7710",
+      "level": "H",
+      "number": 7710,
+      "power_cycle_reset": true,
+      "message": "Can't set the Master Station",
+      "cause": "The CC-Link interface card of the robot cannot be set at the master station.",
+      "measures": "Set the rotary switch except 0."
+    },
+    {
+      "code": "H7720",
+      "level": "H",
+      "number": 7720,
+      "power_cycle_reset": true,
+      "message": "Two CC-Link cards are installed.",
+      "cause": "The CC-Link interface card can install one.",
+      "measures": "Mount only one card in slot 2."
+    },
+    {
+      "code": "L7730",
+      "level": "L",
+      "number": 7730,
+      "power_cycle_reset": false,
+      "message": "CC-Link Data link error",
+      "cause": "An abnormality has occurred in the communication line, or a parameter was invalid.",
+      "measures": "Check the routing of the communication line, or examine the parameter."
+    },
+    {
+      "code": "L7731",
+      "level": "L",
+      "number": 7731,
+      "power_cycle_reset": false,
+      "message": "CC-Link Data link error",
+      "cause": "An abnormality has occurred in the communication line, or a parameter was invalid.",
+      "measures": "Check the routing of the communication line, or examine the parameter."
+    },
+    {
+      "code": "L7750",
+      "level": "L",
+      "number": 7750,
+      "power_cycle_reset": false,
+      "message": "(CC-Link)No connect cable or illegal parameter",
+      "cause": "The cable is not connected, or the parameters do not match.",
+      "measures": "Check the cable connection, or power off the system and then restart."
+    },
+    {
+      "code": "H7760",
+      "level": "H",
+      "number": 7760,
+      "power_cycle_reset": true,
+      "message": "CC-Link initialization error",
+      "cause": "The parameters in the master station do not match.",
+      "measures": "Correct the parameters, and then restart."
+    },
+    {
+      "code": "L7780",
+      "level": "L",
+      "number": 7780,
+      "power_cycle_reset": false,
+      "message": "Illegal CC-Link register number",
+      "cause": "The register number entered was out of the range.",
+      "measures": "Enter a correct register number according to the station number."
+    },
+    {
+      "code": "L7781",
+      "level": "L",
+      "number": 7781,
+      "power_cycle_reset": false,
+      "message": "INPUT signal No. is for CC-Link",
+      "cause": "A CC-Link signal number was specified although no CC-Link interface was mounted.",
+      "measures": "Install CC-Link card."
+    },
+    {
+      "code": "H7799",
+      "level": "H",
+      "number": 7799,
+      "power_cycle_reset": true,
+      "message": "CC-Link System error",
+      "cause": "Measures Contact the dealer. H7800 Error message Two ethernet cards are installed. Cause Only one Ethernet interface card can be mounted.",
+      "measures": "Mount only one Ethernet interface card. 1-32 Error no. H7611 * 1Error list Error No. Error cause and measures"
+    },
+    {
+      "code": "H7810",
+      "level": "H",
+      "number": 7810,
+      "power_cycle_reset": false,
+      "message": "Ethernet NETIP parameter ERR (NETIP,NETGW,NETPORT,NETPROC,NETLOGIN,NETPSSWD,NETTOUTR,NETTOUTS,MXTCOM1-3)",
+      "cause": "Parameter settings are incorrect.",
+      "measures": "Correct the parameters."
+    },
+    {
+      "code": "H7820",
+      "level": "H",
+      "number": 7820,
+      "power_cycle_reset": false,
+      "message": "MXT/MXScommand timeout",
+      "cause": "The setting time of the MXTTOUT parameter has been exceeded.",
+      "measures": "Make the MXTTOUT parameter value larger."
+    },
+    {
+      "code": "H7830",
+      "level": "H",
+      "number": 7830,
+      "power_cycle_reset": false,
+      "message": "\"Ethernet card is not installed, or command disable\"",
+      "cause": "Ethernet card is not installed, or command disable.",
+      "measures": "Install Ethernet interface card."
+    },
+    {
+      "code": "H7840",
+      "level": "H",
+      "number": 7840,
+      "power_cycle_reset": false,
+      "message": "MXT/MXS command Illegal received data",
+      "cause": "The command argument and the data type do not match.",
+      "measures": "Check the command and the data you are sending."
+    },
+    {
+      "code": "H7901",
+      "level": "H",
+      "number": 7901,
+      "power_cycle_reset": false,
+      "message": "OPTION1#1 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7902",
+      "level": "H",
+      "number": 7902,
+      "power_cycle_reset": true,
+      "message": "OPTION1#2 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7903",
+      "level": "H",
+      "number": 7903,
+      "power_cycle_reset": false,
+      "message": "OPTION1#3 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7911",
+      "level": "H",
+      "number": 7911,
+      "power_cycle_reset": false,
+      "message": "OPTION2#1 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7912",
+      "level": "H",
+      "number": 7912,
+      "power_cycle_reset": false,
+      "message": "OPTION2#2 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7913",
+      "level": "H",
+      "number": 7913,
+      "power_cycle_reset": false,
+      "message": "OPTION2#3 Parameter illgal",
+      "cause": "Correct the parameters.",
+      "measures": "Correct the parameters, and then turn the power ON again."
+    },
+    {
+      "code": "H7990",
+      "level": "H",
+      "number": 7990,
+      "power_cycle_reset": true,
+      "message": "OptionCard illgal insert",
+      "cause": "Check SLOT number",
+      "measures": "Turn the power OFF, and then change the slot to mount it."
+    },
+    {
+      "code": "H8201",
+      "level": "H",
+      "number": 8201,
+      "power_cycle_reset": false,
+      "message": "Illegal param (TPTMMG)",
+      "cause": "The TPTMMG parameter setting is illegal.",
+      "measures": "Correct the TPTMMG parameter."
+    },
+    {
+      "code": "H8202",
+      "level": "H",
+      "number": 8202,
+      "power_cycle_reset": false,
+      "message": "Illegal param (TPERRNO)",
+      "cause": "The TPERRNO parameter setting is illegal.",
+      "measures": "Correct the TPERRNO parameter."
+    },
+    {
+      "code": "H8203",
+      "level": "H",
+      "number": 8203,
+      "power_cycle_reset": false,
+      "message": "Illegal param (TPSIGNO)",
+      "cause": "The TPSIGNO parameter setting is illegal.",
+      "measures": "Correct the TPSIGNO parameter."
+    },
+    {
+      "code": "H8204",
+      "level": "H",
+      "number": 8204,
+      "power_cycle_reset": false,
+      "message": "Illegal param (TRAP)",
+      "cause": "The TRAP parameter setting is illegal.",
+      "measures": "Correct the TRAP parameter."
+    },
+    {
+      "code": "H8206",
+      "level": "H",
+      "number": 8206,
+      "power_cycle_reset": false,
+      "message": "Failed in initialization (trap function)",
+      "cause": "Measures Turn the power OFF and ON once. When it comes back, contact to the dealer. Error no. H7810 1-33 1Error list Error No. Error cause and measures H8207 Error message Failed in writing the data(trap function) Cause Failed in writing the data.",
+      "measures": "Please do the operation over again."
+    },
+    {
+      "code": "C8208",
+      "level": "C",
+      "number": 8208,
+      "power_cycle_reset": false,
+      "message": "There is a possibility of the flash ROM breakdown",
+      "cause": "The rewriting count of the flash ROM has exceeded 100,000.",
+      "measures": "Disable the trap function."
+    }
+  ],
+  "ranges": [
+    {
+      "code_range": {
+        "start": "H9000",
+        "end": "H9099"
+      },
+      "level": "H",
+      "message": "User High level error",
+      "cause": "A high-level alarm was issued from the robot program.",
+      "measures": "Check the program."
+    },
+    {
+      "code_range": {
+        "start": "L9100",
+        "end": "L9199"
+      },
+      "level": "L",
+      "message": "User Low level error",
+      "cause": "A low-level alarm was issued from the robot program.",
+      "measures": "Check the program."
+    },
+    {
+      "code_range": {
+        "start": "C9200",
+        "end": "C9299"
+      },
+      "level": "C",
+      "message": "User Caution level error",
+      "cause": "A warning was issued from the robot program.",
+      "measures": "Check the program."
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "spec": "Mitsubishi RS-232 Serial Commands",
+  "robot": "RV-2AJ",
+  "controller": "CR1-571",
+  "description": "Real-time serial control commands (not program commands)",
+  "commands": [
+    {
+      "mnemonic": "JOG",
+      "name": "Jog Axis",
+      "category": "motion",
+      "format": "JOG{coord_system};00;{pos_axis};{neg_axis};{inching}",
+      "description": "Real-time pulse jogging using axis bitmask in positive or negative direction",
+      "parameters": {
+        "coord_system": {
+          "description": "Coordinate system for jogging",
+          "values": {
+            "00": "Joint (J1-J6)",
+            "01": "XYZ (Cartesian world coordinates)",
+            "02": "Tool (tool coordinate system)",
+            "04": "3-axis XYZ",
+            "05": "Cylinder (cylindrical coordinates)"
+          }
+        },
+        "reserved": {
+          "description": "Reserved parameter - ALWAYS 00",
+          "value": "00"
+        },
+        "pos_axis": {
+          "description": "2-digit HEX bitmask for POSITIVE direction axis",
+          "type": "bitmask",
+          "encoding": "HEX",
+          "note": "Set to axis mask when jogging positive, 00 otherwise",
+          "bits": {
+            "bit_0": {"hex": "01", "joint": "J1", "xyz": "X"},
+            "bit_1": {"hex": "02", "joint": "J2", "xyz": "Y"},
+            "bit_2": {"hex": "04", "joint": "J3", "xyz": "Z"},
+            "bit_3": {"hex": "08", "joint": "J4", "xyz": "A"},
+            "bit_4": {"hex": "10", "joint": "J5", "xyz": "B"},
+            "bit_5": {"hex": "20", "joint": "J6", "xyz": "C"},
+            "bit_6": {"hex": "40", "joint": "J7", "xyz": "L1"},
+            "bit_7": {"hex": "80", "joint": "J8", "xyz": "L2"}
+          }
+        },
+        "neg_axis": {
+          "description": "2-digit HEX bitmask for NEGATIVE direction axis",
+          "type": "bitmask",
+          "encoding": "HEX",
+          "note": "Set to axis mask when jogging negative, 00 otherwise",
+          "bits": "Same as pos_axis"
+        },
+        "inching": {
+          "description": "Inching parameter",
+          "type": "HEX",
+          "typical": "00",
+          "note": "Purpose unclear - typically set to 00"
+        }
+      },
+      "examples": [
+        {
+          "description": "Jog J1 positive in joint mode",
+          "command": "1;1;JOG00;00;01;00;00",
+          "breakdown": "coord=00(Joint), reserved=00, pos=01(J1), neg=00, inch=00"
+        },
+        {
+          "description": "Jog J1 negative in joint mode",
+          "command": "1;1;JOG00;00;00;01;00",
+          "breakdown": "coord=00(Joint), reserved=00, pos=00, neg=01(J1), inch=00"
+        },
+        {
+          "description": "Jog J2 positive",
+          "command": "1;1;JOG00;00;02;00;00",
+          "breakdown": "coord=00(Joint), reserved=00, pos=02(J2), neg=00, inch=00"
+        },
+        {
+          "description": "Jog J3 negative",
+          "command": "1;1;JOG00;00;00;04;00",
+          "breakdown": "coord=00(Joint), reserved=00, pos=00, neg=04(J3), inch=00"
+        },
+        {
+          "description": "Jog X positive in XYZ mode",
+          "command": "1;1;JOG01;00;01;00;00",
+          "breakdown": "coord=01(XYZ), reserved=00, pos=01(X), neg=00, inch=00"
+        },
+        {
+          "description": "Jog Y negative in XYZ mode",
+          "command": "1;1;JOG01;00;00;02;00",
+          "breakdown": "coord=01(XYZ), reserved=00, pos=00, neg=02(Y), inch=00"
+        },
+        {
+          "description": "Jog Z positive in tool coordinates",
+          "command": "1;1;JOG02;00;04;00;00",
+          "breakdown": "coord=02(Tool), reserved=00, pos=04(Z), neg=00, inch=00"
+        }
+      ],
+      "notes": [
+        "Format: JOG{coord};00(reserved);{pos_axis};{neg_axis};{inching}",
+        "Second parameter MUST always be 00 (reserved)",
+        "Axis mask goes in EITHER pos_axis OR neg_axis, not both",
+        "Bitmask: J1/X=01, J2/Y=02, J3/Z=04, J4/A=08, J5/B=10, J6/C=20",
+        "CONTINUOUS MODE: Send command with axis mask to start motion",
+        "Robot continues moving until STOP command sent (both axes = 00)",
+        "STOP: Send JOG{coord};00;00;00;{inching} to halt motion",
+        "For key hold: Send start on press, send stop on release",
+        "Fire-and-forget: Don't wait for response for fastest operation"
+      ]
+    },
+    {
+      "mnemonic": "SRVON",
+      "name": "Servo On",
+      "category": "control",
+      "format": "SRVON",
+      "description": "Enable servo motors",
+      "examples": ["1;1;SRVON"]
+    },
+    {
+      "mnemonic": "SRVOFF",
+      "name": "Servo Off",
+      "category": "control",
+      "format": "SRVOFF",
+      "description": "Disable servo motors",
+      "examples": ["1;1;SRVOFF"]
+    },
+    {
+      "mnemonic": "CNTLON",
+      "name": "Controller On",
+      "category": "control",
+      "format": "CNTLON",
+      "description": "Initialize controller",
+      "examples": ["1;1;CNTLON"]
+    },
+    {
+      "mnemonic": "DOUT",
+      "name": "Digital Output",
+      "category": "io",
+      "format": "DOUT {bit},{state}",
+      "description": "Set digital output bit",
+      "parameters": {
+        "bit": "Output bit number",
+        "state": "0=OFF, 1=ON"
+      },
+      "examples": ["1;1;DOUT 1,1", "1;1;DOUT 2,0"]
+    },
+    {
+      "mnemonic": "DIN",
+      "name": "Digital Input",
+      "category": "io",
+      "format": "DIN {bit}",
+      "description": "Read digital input bit",
+      "examples": ["1;1;DIN 1"]
+    },
+    {
+      "mnemonic": "JPOSF",
+      "name": "Joint Position Feedback",
+      "category": "status",
+      "format": "JPOSF",
+      "description": "Read current joint positions",
+      "examples": ["1;1;JPOSF"]
+    },
+    {
+      "mnemonic": "PPOSF",
+      "name": "Cartesian Position Feedback",
+      "category": "status",
+      "format": "PPOSF",
+      "description": "Read current Cartesian position",
+      "examples": ["1;1;PPOSF"]
+    },
+    {
+      "mnemonic": "VR",
+      "name": "Version",
+      "category": "system",
+      "format": "VR",
+      "description": "Get controller firmware version",
+      "examples": ["VR"],
+      "notes": ["VR command does NOT use 1;1; prefix"]
+    }
+  ]
+}
